@@ -1,0 +1,27 @@
+name: noro-main
+
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.13
+  - biopython
+  - pandas
+  - pyymal
+  - numpy
+  - matplotlib
+  - seaborn
+  - tabulate
+  - openpyxl
+  - requests
+  - juptylab
+  - seqkit
+  - varvamp
+  - assay_blast
+  - mafft
+  - cd-hit
+  - vsearch
+  - fasttree
+  - iqtree
