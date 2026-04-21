@@ -16,19 +16,19 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as file:
     config = yaml.safe_load(file)
 
 # Base for query command
-cmd = ["datasets", "download", "virus", "genome", "taxon"]
-
-# Extract configuration for NCBIdataset virus genome query
-cmd.append(config["taxon"])
+cmd = [
+    "datasets", 
+    "download", 
+    "virus", 
+    "genome", 
+    "taxon", config["taxon"]
+] # Extract configuration for NCBIdataset virus genome query
 
 download_config = config["download"]
 paths_config = config["paths"]
 
 if download_config.get("host"):
     cmd.extend(["--host", download_config["host"]])
-
-# if download_config.get("reference", False):
-#     cmd.append("--reference")  
 
 if download_config.get("complete_only", False):
     cmd.append("--complete-only")
@@ -58,5 +58,6 @@ if not download_zip.exists():
 
 print(f"Extracting {download_zip} to {extracted_dir}\n")
 
+# https://www.geeksforgeeks.org/python/unzipping-files-in-python/
 with ZipFile(str(download_zip), 'r') as zObject:
     zObject.extractall(path=str(extracted_dir))
