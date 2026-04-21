@@ -9,19 +9,24 @@ dependencies:
   - python=3.13
   - biopython
   - pandas
-  - pyymal
+  - pyyaml
   - numpy
   - matplotlib
   - seaborn
   - tabulate
   - openpyxl
   - requests
-  - juptylab
+  - jupyterlab
   - seqkit
   - varvamp
-  - assay_blast
   - mafft
+  - ncbi-datasets-cli
+  - entrez-direct
   - cd-hit
   - vsearch
   - fasttree
   - iqtree
+  - blast
+  - pip
+  - pip:
+      - assay_blast
