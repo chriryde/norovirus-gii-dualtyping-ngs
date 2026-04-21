@@ -27,8 +27,8 @@ paths_config = config["paths"]
 if download_config.get("host"):
     cmd.extend(["--host", download_config["host"]])
 
-if download_config.get("reference", False):
-    cmd.append("--reference")  
+# if download_config.get("reference", False):
+#     cmd.append("--reference")  
 
 if download_config.get("complete_only", False):
     cmd.append("--complete-only")
