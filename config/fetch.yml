@@ -1,13 +1,12 @@
 taxon: norovirus
 
 paths:
-  download_dir: data/00_raw/ncbi_datasets/download
-  download_zip: data/00_raw/ncbi_datasets/download/norovirus.zip
+  download_dir: data/00_raw/ncbi_datasets/downloads
+  download_zip: data/00_raw/ncbi_datasets/downloads/norovirus.zip
   extracted_dir: data/00_raw/ncbi_datasets/extracted
 
 download:
   host: human
-  reference: true
   complete_only: true
 
   include:
