@@ -1,0 +1,12 @@
+paths:
+  extracted_dir: data/00_raw/ncbi_datasets/extracted/ncbi_datasets/data
+  input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_datasets/data/genomic.fna
+  input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_datasets/data/data_report.jsonl
+  data_dir: data/00_raw/ncbi_datasets/extracted/ncbi_datasets/data
+
+seqkit:
+  deduplicate: true
+
+criteria:
+  length: 7000
+  ambigious: 0.1
