@@ -1,3 +1,3 @@
 b965ca822218b906be651f8636028322  ncbi_dataset/data/data_report.jsonl
-5302f634cbeec3415dd34b62ad5b4065  ncbi_dataset/data/genomic.fna
-68454f415840c9ba67c633ff62a83466  ncbi_dataset/data/dataset_catalog.json
+27b63e16f64bce29f1d14735dd3c7ac5  ncbi_dataset/data/annotation_report.jsonl
+2c30dbe703219ea96381aeae2d331e73  ncbi_dataset/data/dataset_catalog.json
