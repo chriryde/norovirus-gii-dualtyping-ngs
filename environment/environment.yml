@@ -4,6 +4,7 @@ channels:
   - conda-forge
   - bioconda
   - defaults
+  - microsoft
 
 dependencies:
   - python=3.13
@@ -26,6 +27,7 @@ dependencies:
   - vsearch
   - fasttree
   - iqtree
+  - playwright-python
   - blast
   - pip
   - pip:
