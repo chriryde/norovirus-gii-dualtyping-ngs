@@ -51,7 +51,15 @@ cmd.extend(["--filename", str(download_zip)])
 print("Fetching from NCBIdatasets:")
 print(" ".join(cmd))
 
-subprocess.run(cmd, check=True)
+try:
+    subprocess.run(cmd, check=True)
+except subprocess.CalledProcessError as err:
+    print("Command failed:")
+    print("cmd", err.cmd)
+    print("returncode", err.returncode)
+    print("stdout", err.stdout)
+    print("stderr", err.stderr)
+    raise
 
 if not download_zip.exists():
     raise FileNotFoundError(f"\nThe requested zip could not be downloaded: {download_zip}\n")
