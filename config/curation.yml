@@ -2,7 +2,12 @@ paths:
   extracted_dir: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data
   input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/genomic.fna
   input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report.jsonl
-  data_dir: data/01_curated/qc_reports
+  
+  output_fasta: data/01_curated/fasta
+  output_excluded: data/01_curated/excluded
+  
+  qc_dir: data/01_curated/qc_reports
+  metadata_dir: data/01_curated/metadata/
 
 parameters:
   threads: 8
@@ -11,10 +16,10 @@ parameters:
 seqkit:
   deduplicate: true
 
-cd-hit:
-  word_length: 7
-
 criteria:
   length_threshold: 7000
   ambigious_threshold: 0.1
   identity_threshold: 0.9
+
+cd-hit:
+  word_length: 7

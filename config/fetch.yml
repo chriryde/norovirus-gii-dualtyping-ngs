@@ -10,7 +10,7 @@ download:
   complete_only: true
 
   include:
-    annotation: false
+    annotation: true
     protein: false
     biosample: false
     cds: false

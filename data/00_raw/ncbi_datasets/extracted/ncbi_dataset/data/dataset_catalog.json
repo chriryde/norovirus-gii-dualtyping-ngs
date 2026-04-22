@@ -9,9 +9,9 @@
       "uncompressedLengthBytes": "3577935"
     },
     {
-      "filePath": "genomic.fna",
-      "fileType": "GENOMIC_NUCLEOTIDE_FASTA",
-      "uncompressedLengthBytes": "11208939"
+      "filePath": "annotation_report.jsonl",
+      "fileType": "ANNOTATION_REPORT",
+      "uncompressedLengthBytes": "4474913"
     }
   ]
 }]}
