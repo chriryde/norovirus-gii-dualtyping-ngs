@@ -16,6 +16,9 @@ parameters:
 seqkit:
   deduplicate: true
 
+cd-hit:
+  word_length: 7
+
 criteria:
   length_threshold: 7000
   ambigious_threshold: 0.1
