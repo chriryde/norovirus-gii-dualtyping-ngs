@@ -15,12 +15,13 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as file:
     config = yaml.safe_load(file)
 
 paths_config = config["paths"]
-
 EXTRACTED_DIR = PROJECT_ROOT / paths_config["extracted_dir"]
-DATA_DIR = PROJECT_ROOT / paths_config["data_dir"]
-
 INPUT_METADATA = PROJECT_ROOT / paths_config["input_metadata"]
 INPUT_FASTA = PROJECT_ROOT / paths_config["input_fasta"]
+
+QC_DIR = PROJECT_ROOT / paths_config["qc_dir"]
+OUTPUT_EXLUUDED = PROJECT_ROOT / paths_config["output_excluded"]
+OUTPUT_FASTA = PROJECT_ROOT / paths_config["output_fasta"]
 
 criteria_config = config["criteria"]
 excluded_dict = defaultdict(list)
@@ -111,30 +112,30 @@ for accession in below_length_threshold:
 for accession in duplicated:
     excluded_dict[accession].append("duplicated")
 
-CLUSTER_FILE = DATA_DIR / "temp_cluster_file.clstr"
-cd_hit_cmd = [
-    "cd-hit-est", "-i", str(INPUT_FASTA),
-    "-c", str(criteria_config["identity_threshold"]),
-    "-n", str(config["cd-hit"]["word_length"]),
-    "-M", str(config["parameters"]["memory"]),
-    "-T", str(config["parameters"]["threads"]),
-    "-o", str(CLUSTER_FILE)
-]
+# CLUSTER_FILE = DATA_DIR / "temp_cluster_file.clstr"
+# cd_hit_cmd = [
+#     "cd-hit-est", "-i", str(INPUT_FASTA),
+#     "-c", str(criteria_config["identity_threshold"]),
+#     "-n", str(config["cd-hit"]["word_length"]),
+#     "-M", str(config["parameters"]["memory"]),
+#     "-T", str(config["parameters"]["threads"]),
+#     "-o", str(CLUSTER_FILE)
+# ]
 
-print(f"Starting clustering program")
-try:
-    subprocess.run(
-        cd_hit_cmd,
-        check=True
-    )
-except subprocess.CalledProcessError as err:
-    print("Command failed:")
-    print("cmd", err.cmd)
-    print("returncode", err.returncode)
-    print("stdout", err.stdout)
-    print("stderr", err.stderr)
-    raise
-print(f"Process finished without errors\n")
+# print(f"Starting clustering program")
+# try:
+#     subprocess.run(
+#         cd_hit_cmd,
+#         check=True
+#     )
+# except subprocess.CalledProcessError as err:
+#     print("Command failed:")
+#     print("cmd", err.cmd)
+#     print("returncode", err.returncode)
+#     print("stdout", err.stdout)
+#     print("stderr", err.stderr)
+#     raise
+# print(f"Process finished without errors\n")
 
 excluded_df = pd.DataFrame(
     columns=[
@@ -154,7 +155,7 @@ for accession, reasons in excluded_dict.items():
     for reason in reasons:
         excluded_df.loc[accession, reason] = True
 
-EXCLUDED_TSV = DATA_DIR / "excluded.tsv"
+EXCLUDED_TSV = QC_DIR / "excluded.tsv"
 excluded_df.to_csv(str(EXCLUDED_TSV), sep="\t", index=False)
 
 print(f"Total amount of sequences: {len(all_accessions)}")
