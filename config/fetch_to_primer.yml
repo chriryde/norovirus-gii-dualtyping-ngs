@@ -1,16 +1,33 @@
-taxon: norovirus
+
+
+#döp om dessa till vilken path man har, kanske även vill göra flera olika fetch, till olika aligments beroende på vilken sekvens som den har
 
 paths:
-  download_dir: data/02_raw/ncbi_datasets/downloads
-  download_zip: data/02_raw/ncbi_datasets/downloads/norovirus.zip
-  extracted_dir: data/02_raw/ncbi_datasets/extracted
+  input_fasta: data/02_alignments/msa_trimmed/trimmed_msa_test.fasta
+  # vp1_aln: data/02_aligments/...
+  # rdrp_aln: data/02_aligments/..
 
-download:
-  host: human
-  complete_only: true
+  output_dir: varvamp_output
 
-  include:
-    annotation: true
-    protein: false
-    biosample: false
-    cds: false
+
+varvamp:
+  scheme: single
+  opt-length: 700
+  max-length: 800
+  threshold: 0.9
+  #n_ambig: 4
+  #database: #location of the BLAST db
+
+
+
+s
+# optional arguments to varvamp:
+#   -h, --help            	show this help message and exit
+#   -t, --threshold 	        consensus threshold - if not set it will be automatically determined (higher values result in higher specificity at the expense of found primers)
+#   -a , --n-ambig        	max number of ambiguous characters in a primer
+#   -db None, --database None     location of the BLAST db
+#   -th 1, --threads 1            number of threads for BLAST search and deltaG calculations
+#   --name varVAMP                name of the scheme
+#   -ol 1000, --opt-length 1000   optimal length of the amplicons
+#   -ml 1500, --max-length 1500   max length of the amplicons
+#   -n inf, --report-n inf	report the top n best hits
