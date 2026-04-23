@@ -20,7 +20,7 @@ INPUT_METADATA = PROJECT_ROOT / paths_config["input_metadata"]
 INPUT_FASTA = PROJECT_ROOT / paths_config["input_fasta"]
 
 QC_DIR = PROJECT_ROOT / paths_config["qc_dir"]
-OUTPUT_EXLUUDED = PROJECT_ROOT / paths_config["output_excluded"]
+OUTPUT_EXCLUDED = PROJECT_ROOT / paths_config["output_excluded"]
 OUTPUT_FASTA = PROJECT_ROOT / paths_config["output_fasta"]
 
 criteria_config = config["criteria"]
@@ -148,14 +148,25 @@ excluded_df = pd.DataFrame(
     ]
 )
 
-for accession, reasons in excluded_dict.items():
-    if accession not in excluded_df.index:
-        excluded_df.loc[accession] = False
+# for accession, reasons in excluded_dict.items():
+#     if accession not in excluded_df.index:
+#         excluded_df.loc[accession] = False
 
-    for reason in reasons:
-        excluded_df.loc[accession, reason] = True
+#     for reason in reasons:
+#         excluded_df.loc[accession, reason] = True
 
-EXCLUDED_TSV = QC_DIR / "excluded.tsv"
-excluded_df.to_csv(str(EXCLUDED_TSV), sep="\t", index=False)
+# EXCLUDED_TSV = QC_DIR / "excluded.tsv"
+# excluded_df.to_csv(str(EXCLUDED_TSV), sep="\t", index=False)
+
+excluded_accessions = set(excluded_dict.keys())
+kept_accessions = all_accessions - excluded_accessions
+
+with open(INPUT_FASTA) as in_handle, open(OUTPUT_FASTA, "w") as out_handle:
+    for record in SeqIO.parse(in_handle, "fasta"):
+        accession = record.id
+
+        if accession in kept_accessions:
+            SeqIO.write(record, out_handle, "fasta")
 
 print(f"Total amount of sequences: {len(all_accessions)}")
+print(f"Total amount of kept accessions: {len(kept_accessions)}")
