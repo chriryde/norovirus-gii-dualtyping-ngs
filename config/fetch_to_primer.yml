@@ -1,0 +1,16 @@
+taxon: norovirus
+
+paths:
+  download_dir: data/02_raw/ncbi_datasets/downloads
+  download_zip: data/02_raw/ncbi_datasets/downloads/norovirus.zip
+  extracted_dir: data/02_raw/ncbi_datasets/extracted
+
+download:
+  host: human
+  complete_only: true
+
+  include:
+    annotation: true
+    protein: false
+    biosample: false
+    cds: false
