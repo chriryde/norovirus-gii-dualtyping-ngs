@@ -2,8 +2,6 @@ import yaml
 import subprocess
 from pathlib import Path
 
-
-
 PRIMER_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = (PRIMER_DIR.parent).parent
 CONFIG_PATH = PROJECT_ROOT / "config" / "fetch_to_primer.yml"
@@ -11,26 +9,45 @@ CONFIG_PATH = PROJECT_ROOT / "config" / "fetch_to_primer.yml"
 with open(CONFIG_PATH, "r", encoding="utf-8") as file:
     config = yaml.safe_load(file)
 
-
-
 paths_config = config["paths"]
 INPUT_FASTA = PROJECT_ROOT / paths_config["input_fasta"]
 
 #QC_DIR = PROJECT_ROOT / paths_config["qc_dir"]
 #OUTPUT_EXCLUDED = PROJECT_ROOT / paths_config["output_excluded"]
 OUTPUT_DIR = PROJECT_ROOT / paths_config["output_dir"]
+OUTPUT_DIR_NAME = PROJECT_ROOT / paths_config["output_dir"] / "test_output"
+TVS_PRIMERS = PROJECT_ROOT / paths_config["output_dir"] / "test_output" / 'primers.tvs'
 
 config_varvamp = config["varvamp"]
 scheme = config_varvamp["scheme"]
-opt_length = config_varvamp["opt-length"]
-max_length = config_varvamp["max-length"]
+opt_length = config_varvamp["opt_length"]
+max_length = config_varvamp["max_length"]
 #n_ambig = config_varvamp["n_ambig"]
 
 
+print('startar primerdesign')
+try:
+    cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length), str(INPUT_FASTA), str(OUTPUT_DIR_NAME)]
+    deduplicated_filtered = subprocess.run(
+        cmd,
+        check=True
+    )
+except subprocess.CalledProcessError as err:
+    print("Command failed:")
+    print("cmd", err.cmd)
+    print("returncode", err.returncode)
+    print("stdout", err.stdout)
+    print("stderr", err.stderr)
+    raise
+print('avslutar primerdesign')
 
 
+print('removing primers outside bp 4000-6500')
 
+with open(TVS_PRIMERS, 'r') as file:
+    for line in file:
 
+print('procedure proceded without errors')
 # def load_config(path="fetch_to_primer.yml"):
 #     with open(path) as f:
 #         return yaml.safe_load(f)
