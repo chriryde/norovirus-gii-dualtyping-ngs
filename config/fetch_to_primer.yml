@@ -6,21 +6,17 @@ paths:
   input_fasta: data/02_alignments/msa_trimmed/trimmed_msa_test.fasta
   # vp1_aln: data/02_aligments/...
   # rdrp_aln: data/02_aligments/..
-
-  output_dir: varvamp_output
+  output_dir: data/03_primer_evaluation/novel/varvamp_outputs
 
 
 varvamp:
   scheme: single
-  opt-length: 700
-  max-length: 800
+  opt_length: 700
+  max_length: 800
   threshold: 0.9
   #n_ambig: 4
   #database: #location of the BLAST db
 
-
-
-s
 # optional arguments to varvamp:
 #   -h, --help            	show this help message and exit
 #   -t, --threshold 	        consensus threshold - if not set it will be automatically determined (higher values result in higher specificity at the expense of found primers)
