@@ -2,10 +2,10 @@ paths:
   extracted_dir: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data
   input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/genomic.fna
   input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report.jsonl
-  
-  output_fasta: data/01_curated/fasta
+
+  output_fasta: data/01_curated/fasta/filtered.fna
   output_excluded: data/01_curated/excluded
-  
+
   qc_dir: data/01_curated/qc_reports
   metadata_dir: data/01_curated/metadata/
 
