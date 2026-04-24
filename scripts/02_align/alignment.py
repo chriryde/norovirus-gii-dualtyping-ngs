@@ -23,17 +23,22 @@ INPUT_FASTA = PROJECT_ROOT / paths_config["input_fasta"]
 #QC_DIR = PROJECT_ROOT / paths_config["qc_dir"]
 #OUTPUT_EXCLUDED = PROJECT_ROOT / paths_config["output_excluded"]
 OUTPUT_FASTA = PROJECT_ROOT / paths_config["output_fasta"]
+GLOBAL_LOG = PROJECT_ROOT / paths_config['global_log']
 
 try:
     print("running mafft")
-    with open(OUTPUT_FASTA, "w") as out_f:
+    with open(OUTPUT_FASTA, "w") as out_f, open(GLOBAL_LOG, "w") as out_log:
         mafft_cmd = ["mafft", "--auto", str(INPUT_FASTA)]
-        length_filtered = subprocess.run(
+        alignment = subprocess.run(
             mafft_cmd,
             stdout=out_f,
-            stderr=subprocess.PIPE,
+            # stderr=subprocess.PIPE,
+            stderr=out_log,
             check=True
         )
+        # print(alignment.stderr.decode())
+        # out_log = alignment.stderr.decode()
+
 except subprocess.CalledProcessError as err:
     print("Command failed:")
     print("cmd", err.cmd)
@@ -42,3 +47,13 @@ except subprocess.CalledProcessError as err:
     print("stderr", err.stderr)
     raise
 print(f"Process finished without errors\n")
+
+
+with open(GLOBAL_LOG, "r") as in_handle:
+    lines = in_handle.readlines()
+    for index, line in enumerate(lines):
+        if lines[index] == "Strategy:\n":
+            print(lines[index])
+            print(lines[index+1])
+            print(lines[index+2])
+
