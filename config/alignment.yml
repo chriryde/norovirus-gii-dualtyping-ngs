@@ -4,6 +4,10 @@ paths:
   input_fasta: data/01_curated/fasta/align_test.fna
   input_metadata: data/01_curated/metadata/metadata_test.csv
   
-  output_fasta: data/02_alignments/msa_raw/msa_raw.fasta
+  output_fasta: data/02_alignments/msa_raw/test_msa_raw.fasta
   rdrp_fasta: data/02_alignments/inputs/rdrp_sequences.fasta
   vp1_fasta: data/02_alignments/inputs/vp1_sequences.fasta
+
+  global_log: data/02_alignments/msa_log/global_log.txt
+  rdrp_log: data/02_alignments/msa_log/rdrp_log.txt
+  vp1_log: data/02_alignments/msa_log/vp1_log.txt
