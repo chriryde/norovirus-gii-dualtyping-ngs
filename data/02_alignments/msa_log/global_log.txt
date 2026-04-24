@@ -1,0 +1,203 @@
+nthread = 0
+nthreadpair = 0
+nthreadtb = 0
+ppenalty_ex = 0
+stacksize: 8192 kb
+generating a scoring matrix for nucleotide (dist=200) ... done
+Gap Penalty = -1.53, +0.00, +0.00
+
+
+
+Making a distance matrix ..
+    1 / 2
+done.
+
+Constructing a UPGMA tree (efffree=1) ... 
+    0 / 2
+done.
+
+Progressive alignment 1/1... 
+STEP     1 / 1  f
+done.
+
+disttbfast (nuc) Version 7.526
+alg=A, model=DNA200 (2), 1.53 (4.59), -0.00 (-0.00), noshift, amax=0.0
+0 thread(s)
+
+distout=h
+generating a scoring matrix for nucleotide (dist=200) ... done
+   1/   2dndpre (nuc) Version 7.526
+alg=X, model=DNA200 (2), 1.53 (4.59), 0.37 (1.11), noshift, amax=0.0
+0 thread(s)
+
+minimumweight = 0.000010
+autosubalignment = 0.000000
+nthread = 0
+randomseed = 0
+blosum 62 / kimura 200
+poffset = 0
+niter = 2
+sueff_global = 0.100000
+nadd = 2
+generating a scoring matrix for nucleotide (dist=200) ... done
+
+    0 / 2
+Segment   1/142    1-  84
+STEP 001-001-1  identical.   Segment   2/142   84- 166
+STEP 001-001-1  identical.   Segment   3/142  166- 183
+STEP 001-001-1  identical.   Segment   4/142  183- 253
+STEP 001-001-1  identical.   Segment   5/142  253- 304
+STEP 001-001-1  identical.   Segment   6/142  304- 386
+STEP 001-001-1  identical.   Segment   7/142  386- 473
+STEP 001-001-1  identical.   Segment   8/142  473- 501
+STEP 001-001-1  identical.   Segment   9/142  501- 508
+STEP 001-001-1  identical.   Segment  10/142  508- 548
+STEP 001-001-1  identical.   Segment  11/142  548- 587
+STEP 001-001-1  identical.   Segment  12/142  587- 594
+STEP 001-001-1  identical.   Segment  13/142  594- 623
+STEP 001-001-1  identical.   Segment  14/142  623- 709
+STEP 001-001-1  identical.   Segment  15/142  709- 769
+STEP 001-001-1  identical.   Segment  16/142  769- 771
+STEP 001-001-1  identical.   Segment  17/142  771- 795
+STEP 001-001-1  identical.   Segment  18/142  795- 874
+STEP 001-001-1  identical.   Segment  19/142  874- 982
+STEP 001-001-1  identical.   Segment  20/142  982-1017
+STEP 001-001-1  identical.   Segment  21/142 1017-1026
+STEP 001-001-1  identical.   Segment  22/142 1026-1064
+STEP 001-001-1  identical.   Segment  23/142 1064-1104
+STEP 001-001-1  identical.   Segment  24/142 1104-1107
+STEP 001-001-1  identical.   Segment  25/142 1107-1157
+STEP 001-001-1  identical.   Segment  26/142 1157-1275
+STEP 001-001-1  identical.   Segment  27/142 1275-1369
+STEP 001-001-1  identical.   Segment  28/142 1369-1409
+STEP 001-001-1  identical.   Segment  29/142 1409-1437
+STEP 001-001-1  identical.   Segment  30/142 1437-1500
+STEP 001-001-1  identical.   Segment  31/142 1500-1545
+STEP 001-001-1  identical.   Segment  32/142 1545-1629
+STEP 001-001-1  identical.   Segment  33/142 1629-1780
+STEP 001-001-1  identical.   Segment  34/142 1780-1857
+STEP 001-001-1  identical.   Segment  35/142 1857-1860
+STEP 001-001-1  identical.   Segment  36/142 1860-1941
+STEP 001-001-1  identical.   Segment  37/142 1941-2092
+STEP 001-001-1  identical.   Segment  38/142 2092-2184
+STEP 001-001-1  identical.   Segment  39/142 2184-2241
+STEP 001-001-1  identical.   Segment  40/142 2241-2303
+STEP 001-001-1  identical.   Segment  41/142 2303-2328
+STEP 001-001-1  identical.   Segment  42/142 2328-2363
+STEP 001-001-1  identical.   Segment  43/142 2363-2418
+STEP 001-001-1  identical.   Segment  44/142 2418-2498
+STEP 001-001-1  identical.   Segment  45/142 2498-2642
+STEP 001-001-1  identical.   Segment  46/142 2642-2793
+STEP 001-001-1  identical.   Segment  47/142 2793-2944
+STEP 001-001-1  identical.   Segment  48/142 2944-3095
+STEP 001-001-1  identical.   Segment  49/142 3095-3218
+STEP 001-001-1  identical.   Segment  50/142 3218-3345
+STEP 001-001-1  identical.   Segment  51/142 3345-3493
+STEP 001-001-1  identical.   Segment  52/142 3493-3570
+STEP 001-001-1  identical.   Segment  53/142 3570-3576
+STEP 001-001-1  identical.   Segment  54/142 3576-3581
+STEP 001-001-1  identical.   Segment  55/142 3581-3588
+STEP 001-001-1  identical.   Segment  56/142 3588-3606
+STEP 001-001-1  identical.   Segment  57/142 3606-3621
+STEP 001-001-1  identical.   Segment  58/142 3621-3624
+STEP 001-001-1  identical.   Segment  59/142 3624-3650
+STEP 001-001-1  identical.   Segment  60/142 3650-3672
+STEP 001-001-1  identical.   Segment  61/142 3672-3677
+STEP 001-001-1  identical.   Segment  62/142 3677-3684
+STEP 001-001-1  identical.   Segment  63/142 3684-3762
+STEP 001-001-1  identical.   Segment  64/142 3762-3913
+STEP 001-001-1  identical.   Segment  65/142 3913-4042
+STEP 001-001-1  identical.   Segment  66/142 4042-4131
+STEP 001-001-1  identical.   Segment  67/142 4131-4167
+STEP 001-001-1  identical.   Segment  68/142 4167-4172
+STEP 001-001-1  identical.   Segment  69/142 4172-4176
+STEP 001-001-1  identical.   Segment  70/142 4176-4191
+STEP 001-001-1  identical.   Segment  71/142 4191-4271
+STEP 001-001-1  identical.   Segment  72/142 4271-4338
+STEP 001-001-1  identical.   Segment  73/142 4338-4393
+STEP 001-001-1  identical.   Segment  74/142 4393-4466
+STEP 001-001-1  identical.   Segment  75/142 4466-4560
+STEP 001-001-1  identical.   Segment  76/142 4560-4711
+STEP 001-001-1  identical.   Segment  77/142 4711-4862
+STEP 001-001-1  identical.   Segment  78/142 4862-5013
+STEP 001-001-1  identical.   Segment  79/142 5013-5101
+STEP 001-001-1  identical.   Segment  80/142 5101-5153
+STEP 001-001-1  identical.   Segment  81/142 5153-5173
+STEP 001-001-1  identical.   Segment  82/142 5173-5179
+STEP 001-001-1  identical.   Segment  83/142 5179-5195
+STEP 001-001-1  identical.   Segment  84/142 5195-5258
+STEP 001-001-1  identical.   Segment  85/142 5258-5338
+STEP 001-001-1  identical.   Segment  86/142 5338-5350
+STEP 001-001-1  identical.   Segment  87/142 5350-5385
+STEP 001-001-1  identical.   Segment  88/142 5385-5418
+STEP 001-001-1  identical.   Segment  89/142 5418-5422
+STEP 001-001-1  identical.   Segment  90/142 5422-5428
+STEP 001-001-1  identical.   Segment  91/142 5428-5442
+STEP 001-001-1  identical.   Segment  92/142 5442-5448
+STEP 001-001-1  identical.   Segment  93/142 5448-5452
+STEP 001-001-1  identical.   Segment  94/142 5452-5466
+STEP 001-001-1  identical.   Segment  95/142 5466-5505
+STEP 001-001-1  identical.   Segment  96/142 5505-5527
+STEP 001-001-1  identical.   Segment  97/142 5527-5578
+STEP 001-001-1  identical.   Segment  98/142 5578-5651
+STEP 001-001-1  identical.   Segment  99/142 5651-5680
+STEP 001-001-1  identical.   Segment 100/142 5680-5743
+STEP 001-001-1  identical.   Segment 101/142 5743-5764
+STEP 001-001-1  identical.   Segment 102/142 5764-5805
+STEP 001-001-1  identical.   Segment 103/142 5805-5865
+STEP 001-001-1  identical.   Segment 104/142 5865-5907
+STEP 001-001-1  identical.   Segment 105/142 5907-5940
+STEP 001-001-1  identical.   Segment 106/142 5940-5948
+STEP 001-001-1  identical.   Segment 107/142 5948-6067
+STEP 001-001-1  identical.   Segment 108/142 6067-6071
+STEP 001-001-1  identical.   Segment 109/142 6071-6086
+STEP 001-001-1  identical.   Segment 110/142 6086-6206
+STEP 001-001-1  identical.   Segment 111/142 6206-6277
+STEP 001-001-1  identical.   Segment 112/142 6277-6382
+STEP 001-001-1  identical.   Segment 113/142 6382-6390
+STEP 001-001-1  identical.   Segment 114/142 6390-6397
+STEP 001-001-1  identical.   Segment 115/142 6397-6414
+STEP 001-001-1  identical.   Segment 116/142 6414-6501
+STEP 001-001-1  identical.   Segment 117/142 6501-6539
+STEP 001-001-1  identical.   Segment 118/142 6539-6541
+STEP 001-001-1  identical.   Segment 119/142 6541-6550
+STEP 001-001-1  identical.   Segment 120/142 6550-6562
+STEP 001-001-1  identical.   Segment 121/142 6562-6573
+STEP 001-001-1  identical.   Segment 122/142 6573-6604
+STEP 001-001-1  identical.   Segment 123/142 6604-6672
+STEP 001-001-1  identical.   Segment 124/142 6672-6710
+STEP 001-001-1  identical.   Segment 125/142 6710-6759
+STEP 001-001-1  identical.   Segment 126/142 6759-6817
+STEP 001-001-1  identical.   Segment 127/142 6817-6825
+STEP 001-001-1  identical.   Segment 128/142 6825-6832
+STEP 001-001-1  identical.   Segment 129/142 6832-6849
+STEP 001-001-1  identical.   Segment 130/142 6849-6861
+STEP 001-001-1  identical.   Segment 131/142 6861-6910
+STEP 001-001-1  identical.   Segment 132/142 6910-6925
+STEP 001-001-1  identical.   Segment 133/142 6925-6933
+STEP 001-001-1  identical.   Segment 134/142 6933-6952
+STEP 001-001-1  identical.   Segment 135/142 6952-7058
+STEP 001-001-1  identical.   Segment 136/142 7058-7093
+STEP 001-001-1  identical.   Segment 137/142 7093-7272
+STEP 001-001-1  identical.   Segment 138/142 7272-7376
+STEP 001-001-1  identical.   Segment 139/142 7376-7479
+STEP 001-001-1  identical.   Segment 140/142 7479-7544
+STEP 001-001-1  identical.   Segment 141/142 7544-7569
+STEP 001-001-1  identical.   Segment 142/142 7569-7644
+STEP 001-001-1  identical.   done
+dvtditr (nuc) Version 7.526
+alg=A, model=DNA200 (2), 1.53 (4.59), -0.00 (-0.00), noshift, amax=0.0
+0 thread(s)
+
+
+Strategy:
+ FFT-NS-i (Standard)
+ Iterative refinement method (max. 2 iterations)
+
+If unsure which option to use, try 'mafft --auto input > output'.
+For more information, see 'mafft --help', 'mafft --man' and the mafft page.
+
+The default gap scoring scheme has been changed in version 7.110 (2013 Oct).
+It tends to insert more gaps into gap-rich regions than previous versions.
+To disable this change, add the --leavegappyregion option.
+
