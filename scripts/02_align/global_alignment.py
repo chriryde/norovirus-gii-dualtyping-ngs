@@ -25,6 +25,7 @@ INPUT_FASTA = PROJECT_ROOT / paths_config["input_fasta"]
 OUTPUT_FASTA = PROJECT_ROOT / paths_config["output_fasta"]
 GLOBAL_LOG = PROJECT_ROOT / paths_config['global_log']
 
+
 try:
     print("running mafft")
     with open(OUTPUT_FASTA, "w") as out_f, open(GLOBAL_LOG, "w") as out_log:

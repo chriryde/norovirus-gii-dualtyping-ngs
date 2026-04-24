@@ -1,13 +1,18 @@
 
 paths: 
   #extracted_dir: data/01_curated/fasta
-  input_fasta: data/01_curated/fasta/align_test.fna
+  ## input files:
+  input_fasta: data/01_curated/fasta/filtered.fna
   input_metadata: data/01_curated/metadata/metadata_test.csv
-  
-  output_fasta: data/02_alignments/msa_raw/test_msa_raw.fasta
   rdrp_fasta: data/02_alignments/inputs/rdrp_sequences.fasta
   vp1_fasta: data/02_alignments/inputs/vp1_sequences.fasta
-
+  
+  ## output files:
+  output_fasta: data/02_alignments/msa_raw/msa_raw.fasta
+  output_rdrp: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
+  output_vp1: data/02_alignments/msa_raw/vp1_msa_raw.fasta
+  
+  ## log files:
   global_log: data/02_alignments/msa_log/global_log.txt
   rdrp_log: data/02_alignments/msa_log/rdrp_log.txt
   vp1_log: data/02_alignments/msa_log/vp1_log.txt
