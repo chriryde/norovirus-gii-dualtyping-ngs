@@ -1,7 +1,9 @@
 paths:
   extracted_dir: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data
-  input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/genomic.fna
-  input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report.jsonl
+  input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/test_specification.fna
+  input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report_test_spec.jsonl
+  input_annotation: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/annotation_test_spec.jsonl
+  input_cds: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/cds_test_spec.fna
 
   output_fasta: data/01_curated/fasta/filtered.fna
   output_excluded: data/01_curated/excluded

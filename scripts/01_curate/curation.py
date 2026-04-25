@@ -92,7 +92,6 @@ allowed = set("ACGT")
 with open(str(INPUT_FASTA)) as handle:
     for record in SeqIO.parse(handle, "fasta"):
         accession = record.id
-        all_accessions.add(accession)
 
         seq = str(record.seq).upper()
 

@@ -13,4 +13,4 @@ download:
     annotation: true
     protein: false
     biosample: false
-    cds: false
+    cds: true
