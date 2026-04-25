@@ -36,7 +36,7 @@ def run_norovirus_typing_tool(INPUT_FASTA, OUTPUT_DIR):
                 timeout=30000,
             )
         
-        start_button_selector = 'button[id^="button_run_"]'
+        start_button_selector = 'button[id^="button-run_"]'
         page.locator(start_button_selector).click()
 
         page.wait_for_url("**/job/**", timeout=120000)
@@ -44,15 +44,14 @@ def run_norovirus_typing_tool(INPUT_FASTA, OUTPUT_DIR):
         job_url = page.url.rstrip("/")
         job_id = job_url.split("/")[-1]
 
-        csv_link_selector = 'a[id^="csv-table-download_"]'
-        page.wait_for_selector(csv_link_selector, timeout=300000)
+        csv_link = page.locator('a[href*="results.csv"]')
 
         with page.expect_download(timeout=120000) as download_info:
-            page.locator(csv_link_selector).click()
+            csv_link.click()
 
         download = download_info.value
         output_path = OUTPUT_DIR / f"{INPUT_FASTA.stem}_job_{job_id}_table.csv"
-        download.save_as(str(output_path))
+        download.save_as(output_path)
 
         print(f"Downloaded CSV to: {output_path}")
         browser.close()
