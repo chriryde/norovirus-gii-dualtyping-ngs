@@ -55,6 +55,7 @@ def run_norovirus_typing_tool(INPUT_FASTA, OUTPUT_DIR):
 
         print(f"Downloaded CSV to: {output_path}")
         browser.close()
+        
         return output_path
     
     
