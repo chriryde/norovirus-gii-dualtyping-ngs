@@ -92,7 +92,6 @@ allowed = set("ACGT")
 with open(str(INPUT_FASTA)) as handle:
     for record in SeqIO.parse(handle, "fasta"):
         accession = record.id
-        all_accessions.add(accession)
 
         seq = str(record.seq).upper()
 
@@ -100,7 +99,7 @@ with open(str(INPUT_FASTA)) as handle:
         ambiguous_fraction = ambiguous_count / len(seq)
         
         if ambiguous_fraction > criteria_config["ambigious_threshold"]:
-            excluded_dict[accession].append("above_ambigous_threshold")
+            excluded_dict[accession].append("above_ambigious_threshold")
 print(f"Process finished without errors\n")
 
 below_length_threshold = all_accessions - above_length_threshold

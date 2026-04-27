@@ -1,17 +1,19 @@
 {
-"apiVersion": "V2",
-"assemblies": [
-{
-  "files": [
-    {
-      "filePath": "data_report.jsonl",
-      "fileType": "DATA_REPORT",
-      "uncompressedLengthBytes": "3577935"
-    },
-    {
-      "filePath": "annotation_report.jsonl",
-      "fileType": "ANNOTATION_REPORT",
-      "uncompressedLengthBytes": "4474913"
-    }
-  ]
-}]}
+      "apiVersion": "V2",
+      "assemblies": [
+            {
+                  "files": [
+                        {
+                              "filePath": "data_report.jsonl",
+                              "fileType": "DATA_REPORT",
+                              "uncompressedLengthBytes": "3577935"
+                        },
+                        {
+                              "filePath": "annotation_report.jsonl",
+                              "fileType": "ANNOTATION_REPORT",
+                              "uncompressedLengthBytes": "4474913"
+                        }
+                  ]
+            }
+      ]
+}

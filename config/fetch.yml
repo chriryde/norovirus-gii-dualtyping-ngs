@@ -7,10 +7,10 @@ paths:
 
 download:
   host: human
-  complete_only: true
+  complete_only: false
 
   include:
     annotation: true
     protein: false
     biosample: false
-    cds: false
+    cds: true
