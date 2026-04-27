@@ -205,3 +205,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# local files
+data/03_primer_evaluation/novel/reference_library/*
