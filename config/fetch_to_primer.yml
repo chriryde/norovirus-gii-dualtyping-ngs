@@ -7,6 +7,7 @@ paths:
   # vp1_aln: data/02_aligments/...
   # rdrp_aln: data/02_aligments/..
   output_dir: data/03_primer_evaluation/novel/varvamp_outputs
+  reference_library: data/03_primer_evaluation/novel/reference_library
 
 
 varvamp:

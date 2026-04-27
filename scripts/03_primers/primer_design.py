@@ -23,6 +23,7 @@ OUTPUT_DIR = PROJECT_ROOT / paths_config["output_dir"]
 OUTPUT_DIR_NAME = PROJECT_ROOT / paths_config["output_dir"] / "test_output"
 TSV_PRIMERS = PROJECT_ROOT / paths_config["output_dir"] / "test_output" / "primers.tsv"
 TSV_FILTERED_PRIMERS = PROJECT_ROOT / paths_config["output_dir"] / "test_output" / "filtered_primers.tsv"
+REFERENCE_LIBRARY = PROJECT_ROOT / paths_config["reference_library"] / "off_targets"
 
 config_varvamp = config["varvamp"]
 scheme = config_varvamp["scheme"]
@@ -33,7 +34,8 @@ max_length = config_varvamp["max_length"]
 
 print('startar primerdesign')
 try:
-    cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length), str(INPUT_FASTA), str(OUTPUT_DIR_NAME)]
+    cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
+            '-db', str(REFERENCE_LIBRARY), str(INPUT_FASTA), str(OUTPUT_DIR_NAME)]
     deduplicated_filtered = subprocess.run(
         cmd,
         check=True
