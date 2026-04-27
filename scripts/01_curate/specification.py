@@ -89,7 +89,7 @@ for record in SeqIO.parse(INPUT_CDS, "fasta"):
             typing_dict[accession]["rdrp_end"] = int(end)
             continue
 
-        if coding_region in polyprotein_names
+        # if coding_region in polyprotein_names
 
 
 # with open(INPUT_METADATA, "r", encoding="utf-8") as file:
