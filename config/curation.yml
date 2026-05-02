@@ -11,6 +11,8 @@ paths:
   qc_dir: data/01_curated/qc_reports
   metadata_dir: data/01_curated/metadata/
 
+  temp_typing_dir: data/98_typing_tool_jobs/
+
 parameters:
   threads: 8
   memory: 1000
