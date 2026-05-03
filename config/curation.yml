@@ -7,9 +7,9 @@ paths:
 
   gii_fasta: data/01_curated/fasta/gii_fasta.fna
   filtered_fasta: data/01_curated/fasta/filtered.fna
+  excluded_csv: data/01_curated/qc_reports/excluded.csv
 
-  output_excluded: data/01_curated/excluded
-
+  fasta_dir: data/01_curated/fasta
   qc_dir: data/01_curated/qc_reports
   metadata_dir: data/01_curated/metadata/
 

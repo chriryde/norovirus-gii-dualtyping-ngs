@@ -1,6 +1,6 @@
+import pandas as pd
 import subprocess
 import datetime
-import pandas as pd
 import shutil
 import json
 import math
@@ -8,20 +8,23 @@ import time
 import csv
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
-from typing import Any
-from contextlib import ExitStack
-
 from collections import defaultdict
+from contextlib import ExitStack
 from pathlib import Path
-from Bio.SeqRecord import SeqRecord
+from typing import Any
 from Bio import SeqIO
 
 
-def get_GII_sequences(
-    INPUT_FASTA: Path, 
-    INPUT_METADATA: Path,
-    OUTPUT_FASTA: Path,
-) -> set[str]:
+def get_accessions(INPUT_FASTA: Path) -> set[str]:
+    accessions = set()
+    with open(str(INPUT_FASTA)) as in_handle:
+        for seq_record in SeqIO.parse(in_handle, "fasta"):
+            accessions.add(seq_record.id)
+
+    return accessions
+
+
+def get_GII_sequences(INPUT_METADATA: Path) -> set[str]:
     gii_accessions: set[str] = set()
 
     with open(INPUT_METADATA, "r", encoding="utf-8") as file:
@@ -34,17 +37,6 @@ def get_GII_sequences(
                 or meta_record.get("virus", {}).get("organismName") == "Norovirus GII":
 
                 gii_accessions.add(accession)
-
-    with open(str(INPUT_FASTA)) as in_handle, \
-         open(str(OUTPUT_FASTA), 'w', encoding="utf8") as out_handle:
-
-        for seq_record in SeqIO.parse(in_handle, "fasta"):
-            seq_record: SeqRecord
-
-            accession: str = str(seq_record.id)
-
-            if accession in gii_accessions:
-                SeqIO.write(seq_record, out_handle, "fasta")
 
     return gii_accessions
 
@@ -157,10 +149,8 @@ def get_ambiguous_filtered_sequences(
 def extract_and_save_to_fasta(
     INPUT_FASTA: Path, 
     accessions: set[str],
-    output_name: str
+    OUTPUT_FASTA: str
 ) -> Path:
-    OUTPUT_FASTA = Path(INPUT_FASTA.parent / f"{output_name}.fna")
-
     with open(INPUT_FASTA) as in_handle, \
         open(OUTPUT_FASTA, "w") as out_handle:
 
@@ -374,7 +364,7 @@ def get_genomic_region_info(
         region_dict = defaultdict(make_row_typing_region)
 
     elif option == "complete":
-        if not CDS_FASTA and not accessions:
+        if not CDS_FASTA:
             print(f"Provide supplementary files for 'complete' information: CDS_FASTA and accessions of intrest.")
 
         region_dict = defaultdict(make_row_complete_region)
@@ -460,3 +450,28 @@ def get_genomic_region_info(
     df.to_csv(OUTPUT_CSV, index=False)
 
     return OUTPUT_CSV
+
+
+def export_excluded_sequences(OUTPUT_CSV: Path, **sets_dict: set[str]) -> None:
+    with open(OUTPUT_CSV, 'w', encoding="utf-8", newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([
+            "accession",
+            "not_gii",
+            "partial",
+            "under_length_threshold",
+            "duplicated",
+            "not_annotated",
+            "ambiguous"
+        ])  
+
+        for accession in sorted(sets_dict["excluded_accessions"]):
+            writer.writerow([
+                accession,
+                accession not in sets_dict["gii_sequences"],
+                accession not in sets_dict["complete_sequences"],
+                accession not in sets_dict["length_filtered_sequences"],
+                accession not in sets_dict["unique_sequences"],
+                accession not in sets_dict["annotated_sequences"],
+                accession not in sets_dict["non_ambiguous_sequences"]
+            ])
