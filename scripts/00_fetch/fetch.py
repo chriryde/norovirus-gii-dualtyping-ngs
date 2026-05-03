@@ -21,7 +21,8 @@ cmd = [
     "download", 
     "virus", 
     "genome", 
-    "taxon", config["taxon"]
+    "taxon", config["taxon"],
+    "--include", "genome"
 ] # Extract configuration for NCBIdataset virus genome query
 
 download_config = config["download"]
@@ -52,7 +53,9 @@ print("Fetching from NCBIdatasets:")
 print(" ".join(cmd))
 
 try:
-    subprocess.run(cmd, check=True)
+    result = subprocess.run(cmd, check=True)
+    print(result.stdout)
+    print(result.stderr)
 except subprocess.CalledProcessError as err:
     print("Command failed:")
     print("cmd", err.cmd)

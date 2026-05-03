@@ -7,7 +7,7 @@ paths:
 
 download:
   host: human
-  complete_only: false
+  complete_only: true
 
   include:
     annotation: true

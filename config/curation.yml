@@ -1,17 +1,19 @@
 paths:
   extracted_dir: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data
-  input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/test_specification.fna
-  input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report_test_spec.jsonl
-  input_annotation: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/annotation_test_spec.jsonl
-  input_cds: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/cds_test_spec.fna
+  input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/genomic.fna
+  input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report.jsonl
+  input_annotation: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/annotation_report.jsonl
+  input_cds: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/cds.fna
 
-  output_fasta: data/01_curated/fasta/filtered.fna
+  gii_fasta: data/01_curated/fasta/gii_fasta.fna
+  filtered_fasta: data/01_curated/fasta/filtered.fna
+
   output_excluded: data/01_curated/excluded
 
   qc_dir: data/01_curated/qc_reports
   metadata_dir: data/01_curated/metadata/
 
-  temp_typing_dir: data/98_typing_tool_jobs/
+  temp_typing_dir: data/01_curated/fasta/temporary_web_crawler_data
 
 parameters:
   threads: 8
@@ -22,7 +24,7 @@ seqkit:
 
 criteria:
   length_threshold: 7000
-  ambigious_threshold: 0.1
+  ambiguous_threshold: 0.1
   identity_threshold: 0.9
 
 cd-hit:
