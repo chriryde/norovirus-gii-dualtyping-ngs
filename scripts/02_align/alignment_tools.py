@@ -9,7 +9,7 @@ from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
 
-## funktion för alignment
+## function for alignment
 def alignment(input_file, output_file, log_file):
     
     try:
@@ -51,7 +51,7 @@ def alignment(input_file, output_file, log_file):
 
 
 
-## funktion för att plocka ut regioner
+## function to get specific regions 
 def get_region(input_metadata_csv, input_file, output_file, start, end):
     df = pd.read_csv(input_metadata_csv)
 

@@ -1,6 +1,5 @@
 import alignment_tools as at
 
-
 ## från global alignment:
 import pandas as pd
 import subprocess
@@ -21,13 +20,6 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as file:
 
 
 ##########
-
-paths_config = config["paths"]
-# INPUT_FASTA = PROJECT_ROOT / paths_config["input_fasta"]
-
-# OUTPUT_FASTA = PROJECT_ROOT / paths_config["output_fasta"]
-# GLOBAL_LOG = PROJECT_ROOT / paths_config['global_log']
-##############################
 
 
 ## runs global alignment, stores raw msa file + global log file
