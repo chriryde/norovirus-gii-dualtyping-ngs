@@ -3,6 +3,7 @@ from pathlib import Path
 import yaml
 import pandas as pd
 import subprocess
+import math
 
 from Bio import SeqIO
 from Bio.Seq import Seq
@@ -62,32 +63,65 @@ def get_region(input_metadata_csv, input_file, output_file, start, end):
     for index, row in df.iterrows():
         ## update to the exact names in input_metadata_csv:
         ## update in pipe_align as well
-        seq_dict[row['accession']] = (row[start], row[end])
+
+        if not math.isnan(row[start]) and not math.isnan(row[end]):
+            seq_dict[row['accession']] = (int(row[start]), int(row[end]))
 
 
 
     with open(str(input_file)) as in_handle, open(output_file, "w") as out_handle:
         for record in SeqIO.parse(in_handle, "fasta"):
             accession = record.id
-            seq = str(record.seq).upper()
+            if accession in seq_dict.keys():
+                seq = str(record.seq).upper()
 
-            region = seq[seq_dict[accession][0]: seq_dict[accession][1]+1]
-        
-            new_record = SeqRecord(
-                Seq(region),
-                id = accession,
-                name = accession,
-                description = record.description
-            )
+                region = seq[seq_dict[accession][0]: seq_dict[accession][1]+1]
+            
+                new_record = SeqRecord(
+                    Seq(region),
+                    id = accession,
+                    name = accession,
+                    description = record.description
+                )
 
-            SeqIO.write(new_record, out_handle, "fasta")
+                SeqIO.write(new_record, out_handle, "fasta")
 
     return output_file
 
 
 
 
+## function for getting specific genotypes or p-types 
 
+def get_genotype_or_ptype(input_file, input_metadata_csv, output_file, column, type):
+    
+    ## input_fasta = filtered.fasta/ fil med alla 700 sekvenser
+    ## input_metadata_csv = tabell med info
+    ## output_file = fasta-fil med alla sekvenser från vald genotype/p-typ
+    ## column = genotyp eller p-type
+    ## type = namn på genotyp eller p-typ
+    
+    df = pd.read_csv(input_metadata_csv)
 
+    
+
+    seq_set = set()
+
+        # check that all names match the csv file
+    for index, row in df.iterrows():
+        ## update to the exact names in input_metadata_csv:
+        ## update in pipe_align as well
+        if row[column] == type:
+                seq_set.add(row['accession'])
+            
+        
+
+    with open(str(input_file)) as in_handle, open(output_file, "w") as out_handle:
+            
+        new_record = [record for record in SeqIO.parse(in_handle, "fasta") if record.id in seq_set]
+
+        SeqIO.write(new_record, out_handle, "fasta")
+
+    return output_file
 
 
