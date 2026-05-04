@@ -8,11 +8,76 @@ import time
 import csv
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+from Bio.SeqRecord import SeqRecord
 from collections import defaultdict
 from contextlib import ExitStack
 from pathlib import Path
 from typing import Any
 from Bio import SeqIO
+
+vp1_names: set[str] = {
+    "VP1",
+    "vp1",
+    "capsid VP1",
+    "viral protein 1",
+    "capsid protein VP1",
+    "major capsid protein",
+    "major viral capsid protein",
+    "major capsid protein VP1"
+}
+
+rdrp_names: set[str] = {
+    "RdRp",
+    "rdrp",
+    "RNA-dependent RNA polymerase"
+}
+
+polyprotein_names: set[str] = {
+    "polyprotein",
+    "nonstructural polyprotein"
+}
+
+def make_row_full_information():
+    return {
+        "BLAST_score"     : None,
+        "begin"           : None,
+        "end"             : None,
+        "length"          : None,
+        "p_type"          : None,
+        "p_subtype"       : None,
+        "rdrp_start"      : None,
+        "rdrp_end"        : None,
+        "rdrp_source"     : None,
+        "genotype"        : None,
+        "genotype_subtype": None,
+        "vp1_start"       : None,
+        "vp1_end"         : None,
+        "has_overlap"     : None,
+        "overlap"         : None
+    }
+
+def make_row_region_information():
+    return {
+        "rdrp_start"      : None,
+        "rdrp_end"        : None,
+        "rdrp_source"     : None,
+        "vp1_start"       : None,
+        "vp1_end"         : None,
+        "has_overlap"     : None,
+        "overlap"         : None
+    }
+
+def make_row_typing_information():
+    return {
+        "BLAST_score"     : None,
+        "begin"           : None,
+        "end"             : None,
+        "length"          : None,
+        "p_type"          : None,
+        "p_subtype"       : None,
+        "genotype"        : None,
+        "genotype_subtype": None
+    }
 
 
 def get_accessions(INPUT_FASTA: Path) -> set[str]:
@@ -24,7 +89,7 @@ def get_accessions(INPUT_FASTA: Path) -> set[str]:
     return accessions
 
 
-def get_GII_sequences(INPUT_METADATA: Path) -> set[str]:
+def get_GII_sequences(INPUT_METADATA: Path, accessions: set[str]) -> set[str]:
     gii_accessions: set[str] = set()
 
     with open(INPUT_METADATA, "r", encoding="utf-8") as file:
@@ -32,11 +97,11 @@ def get_GII_sequences(INPUT_METADATA: Path) -> set[str]:
             meta_record: dict[str, Any] = json.loads(line)
 
             accession: str = meta_record["accession"]
-        
-            if meta_record.get("virus", {}).get("taxId") == 122929 \
-                or meta_record.get("virus", {}).get("organismName") == "Norovirus GII":
+            if accession in accessions:
+                if meta_record.get("virus", {}).get("taxId") == 122929 \
+                    or meta_record.get("virus", {}).get("organismName") == "Norovirus GII":
 
-                gii_accessions.add(accession)
+                    gii_accessions.add(accession)
 
     return gii_accessions
 
@@ -91,8 +156,6 @@ def get_unique_sequences(INPUT_FASTA: Path) -> set[str]:
             text=True,
             check=True
         )
-        # print(deduplicated_filtered.stdout)
-        # print(deduplicated_filtered.stderr)
     except subprocess.CalledProcessError as err:
         print("Command failed:")
         print("cmd", err.cmd)
@@ -147,32 +210,119 @@ def get_ambiguous_filtered_sequences(
 
 
 def extract_and_save_to_fasta(
-    INPUT_FASTA: Path, 
+    INPUT_FASTA: Path,
     accessions: set[str],
-    OUTPUT_FASTA: str
+    OUTPUT_FASTA: Path,
 ) -> Path:
-    with open(INPUT_FASTA) as in_handle, \
-        open(OUTPUT_FASTA, "w") as out_handle:
+    with INPUT_FASTA.open("r", encoding="utf-8") as in_handle, \
+         OUTPUT_FASTA.open("w", encoding="utf-8") as out_handle:
 
         for seq_record in SeqIO.parse(in_handle, "fasta"):
-            accession = seq_record.id.split(":")[0]
+            accession = seq_record.id.split(":", 1)[0]
+
             if accession in accessions:
                 SeqIO.write(seq_record, out_handle, "fasta")
 
     return OUTPUT_FASTA
 
 
-def typing_tool_intialise(INPUT_FASTA: Path):
+def get_features(feature_name: str) -> set[str]:
+    match feature_name:
+        case "vp1":
+            return vp1_names
+        case "rdrp":
+            return rdrp_names | polyprotein_names
+        case "junction":
+            return vp1_names | rdrp_names | polyprotein_names
+        case _:
+            raise ValueError(f"Unknown feature_name: {feature_name}")
+
+
+def get_feature_name(seq_record) -> str:
+    feature = seq_record.description.replace(seq_record.id, "", 1).strip()
+    feature = feature.split("[", 1)[0].strip()
+    return feature
+
+
+def extract_cds_feature_to_fasta(
+    INPUT_CDS_FASTA: Path, 
+    accessions: set[str],
+    OUTPUT_FASTA: str,
+    feature_name: str,
+) -> Path:
+    # written: dict[str: str] = defaultdict()
+
+    with INPUT_CDS_FASTA.open("r", encoding="utf-9") as in_handle, \
+        OUTPUT_FASTA.open("w", encoding="utf-8") as out_handle:
+        
+        features = get_features(feature_name)
+
+        for seq_record in SeqIO.parse(in_handle, "fasta"):
+            accession = seq_record.id.split(":")[0]
+
+            if accession not in accessions:
+                continue
+
+            feature = get_feature_name(seq_record)
+
+            if feature not in features:
+                continue
+
+            SeqIO.write(seq_record, out_handle, "fasta")
+
+    return OUTPUT_FASTA
+
+
+def extract_junction_sequences_to_fasta(
+    INPUT_FASTA: Path,
+    REGION_CSV: Path,
+    accessions: set[str],
+    OUTPUT_FASTA: Path,
+) -> Path:
+    region_df = pd.read_csv(REGION_CSV).set_index("accession")
+
+    with INPUT_FASTA.open("r", encoding="utf-8") as in_handle, \
+        OUTPUT_FASTA.open("w", encoding="utf-8") as out_handle:
+
+        for record in SeqIO.parse(in_handle, "fasta"):
+            accession = record.id.split(":", 1)[0]
+
+            if accession not in accessions:
+                continue
+
+            if accession not in region_df.index:
+                continue
+
+            row = region_df.loc[accession]
+
+            rdrp_start = int(row["rdrp_start"])
+            vp1_end = int(row["vp1_end"])
+
+            start = rdrp_start - 1
+            end = vp1_end
+
+            junction_record = SeqRecord(
+                record.seq[start:end],
+                id=f"{accession}:{rdrp_start}-{vp1_end}",
+                description="ORF1_ORF2_junction",
+            )
+
+            SeqIO.write(junction_record, out_handle, "fasta")
+    
+    return OUTPUT_FASTA
+
+
+def typing_tool_intialise(INPUT_FASTA: Path, name: str, batch_size: int = 500):
     JOB_DIR: Path = INPUT_FASTA.parent / "temporary_web_crawler_data"
     JOB_DIR.mkdir(parents=True, exist_ok=True)
 
-    JOB_STATE_TSV = JOB_DIR / "job_ids.tsv"
+    JOB_STATE_TSV = JOB_DIR / f"{name}_job_ids.tsv"
 
     seq_count = sum(1 for _ in SeqIO.parse(str(INPUT_FASTA), "fasta"))
-    n_batches: int = max(1, math.ceil(seq_count / 500))
+    n_batches: int = max(1, math.ceil(seq_count / batch_size))
 
     BATCHES_PATH: list[Path] = [
-        JOB_DIR / f"batch_{i + 1}.fasta"
+        JOB_DIR / f"{name}_batch_{i + 1}.fasta"
         for i in range(n_batches)
     ]
 
@@ -243,8 +393,8 @@ def typing_tool_intialise(INPUT_FASTA: Path):
             writer.writerow([job_id, "in_progress"])
 
 
-def typing_tool_get_results(JOB_DIR) -> Path | None:
-    JOB_STATE_TSV = JOB_DIR / "job_ids.tsv"
+def typing_tool_get_results(JOB_DIR: Path, name: str) -> Path | None:
+    JOB_STATE_TSV = JOB_DIR / f"{name}_job_ids.tsv"
 
     job_ids_status = defaultdict()
 
@@ -279,7 +429,7 @@ def typing_tool_get_results(JOB_DIR) -> Path | None:
                     csv_link.click()
 
                 download = download_info.value
-                output_path = JOB_DIR / f"job_{job_id}_table.csv"
+                output_path = JOB_DIR / f"{name}_job_{job_id}_table.csv"
                 download.save_as(str(output_path))
 
                 job_ids_status[job_id] = "completed"
@@ -307,11 +457,11 @@ def typing_tool_get_results(JOB_DIR) -> Path | None:
 
     if download_complete == True:
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        COMBINED_CSV = JOB_DIR.parent / f"typing_results_{timestamp}.csv"
+        COMBINED_CSV = JOB_DIR / f"{name}_typing_results_{timestamp}.csv"
 
         dfs = []
 
-        for file in JOB_DIR.glob("*job_*_table.csv"):
+        for file in JOB_DIR.glob(f"*{name}_job_*_table.csv"):
             df = pd.read_csv(file)
             dfs.append(df)
     
@@ -327,117 +477,103 @@ def clean_up_temporary_files(TARGET_DIR):
     shutil.rmtree(TARGET_DIR)
 
 
-def get_genomic_region_info(
-    TYPING_FILE: Path, 
-    option: str = "typing", 
+def get_genomic_info(
+    OUTPUT_CSV: Path,
+    typing_information: bool = True,
+    TYPING_FILE: Path | None = None,
+    region_information: bool = False,
     CDS_FASTA: Path | None = None
 ) -> Path | None:
-    def make_row_complete_region():
-        return {
-            "BLAST_score"     : None,
-            "begin"           : None,
-            "end"             : None,
-            "length"          : None,
-            "p_type"          : None,
-            "p_subtype"       : None,
-            "rdrp_start"      : None,
-            "rdrp_end"        : None,
-            "genotype"        : None,
-            "genotype_subtype": None,
-            "vp1_start"       : None,
-            "vp1_end"         : None
-        }
-    
-    def make_row_typing_region():
-        return {
-            "BLAST_score"     : None,
-            "begin"           : None,
-            "end"             : None,
-            "length"          : None,
-            "p_type"          : None,
-            "p_subtype"       : None,
-            "genotype"        : None,
-            "genotype_subtype": None
-        }
+    if region_information and typing_information:
+        region_dict = defaultdict(make_row_full_information)
+    elif typing_information:
+        region_dict = defaultdict(make_row_typing_information)
+    elif region_information:
+        region_dict = defaultdict(make_row_region_information)
 
-    if option == "typing":
-        region_dict = defaultdict(make_row_typing_region)
-
-    elif option == "complete":
+    if region_information:
         if not CDS_FASTA:
-            print(f"Provide supplementary files for 'complete' information: CDS_FASTA and accessions of intrest.")
-
-        region_dict = defaultdict(make_row_complete_region)
-
-        vp1_names = {
-            "VP1",
-            "capsid VP1",
-            "viral protein 1",
-            "capsid protein VP1",
-            "major capsid protein",
-            "major viral capsid protein",
-            "major capsid protein VP1"
-        }
-
-        rdrp_names = {
-            "RdRp",
-            "RNA-dependent RNA polymerase"
-        }
-
-        polyprotein_names = {
-            "polyprotein",
-            "nonstructural polyprotein"
-        }
+            print(f"CDS_FASTA is required when region_information=True")
 
         for record in SeqIO.parse(CDS_FASTA, "fasta"):
             accession, coords = record.id.split(":")
-
             begin, end = coords.split("-")
+
+            begin = int(begin)
+            end = int(end)
 
             coding_region = record.description.replace(record.id, "", 1).strip()
             coding_region = coding_region.split("[", 1)[0].strip()
-
-            if coding_region in vp1_names:
-                region_dict[accession]["vp1_start"] = int(begin)
-                region_dict[accession]["vp1_end"] = int(end)
-                continue
                 
             if coding_region in rdrp_names:
-                region_dict[accession]["rdrp_start"] = int(begin)
-                region_dict[accession]["rdrp_end"] = int(end)
+                region_dict[accession]["rdrp_start"] = begin
+                region_dict[accession]["rdrp_end"] = end
+                region_dict[accession]["rdrp_source"] = "annotated_rdrp"
                 continue
 
             if coding_region in polyprotein_names:
-                if region_dict[accession]["rdrp_start"] is not None:
-                    continue
-                region_dict[accession]["rdrp_start"] = 3500
-                region_dict[accession]["rdrp_end"] = int(end)
+                if region_dict[accession]["rdrp_start"] is None and end >= 5000:
+                    region_dict[accession]["rdrp_start"] = max(begin, end - 2200)
+                    region_dict[accession]["rdrp_end"] = end
+                    region_dict[accession]["rdrp_source"] = "polyprotein_fallback"
                 continue
-    else:
-        print(f"Provide a valid option for information (default:'typing', 'complete').")
-        return None
-    
-    with open(TYPING_FILE, "r", encoding="utf-8", newline="") as csvfile:
-        reader = csv.DictReader(csvfile)
 
-        for row in reader:
-            accession = row["name"]
-            region_dict[accession]["BLAST_score"] = row["BLAST score"]
-            region_dict[accession]["begin"] = row["begin"]
-            region_dict[accession]["end"] = row["end"]
-            region_dict[accession]["length"] = row["length"]
+            if coding_region in vp1_names:
+                region_dict[accession]["vp1_start"] = begin
+                region_dict[accession]["vp1_end"] = end
+                continue
 
-            p_subtype = row["polymerase subtype"]
-            if p_subtype == "":
-                p_subtype = "None"
-            region_dict[accession]["p_type"] = row["polymerase type"].split()[0]
-            region_dict[accession]["p_subtype"] = p_subtype
+        for accession in region_dict.keys():
+            rdrp_start = region_dict[accession]["rdrp_start"]
+            rdrp_end = region_dict[accession]["rdrp_end"]
+            vp1_start = region_dict[accession]["vp1_start"]
+            vp1_end = region_dict[accession]["vp1_end"]
+
+            if rdrp_end is not None and vp1_start is not None:
+                overlap = rdrp_end - vp1_start + 1
+
+                if overlap > 0:
+                    region_dict[accession]["has_overlap"] = True
+                    region_dict[accession]["overlap"] = overlap
+                else:
+                    region_dict[accession]["has_overlap"] = False
+                    region_dict[accession]["overlap"] = 0
+            else:            
+                region_dict[accession]["has_overlap"] = False
+                region_dict[accession]["overlap"] = 0
+
             
-            genotype_subtype = row["capsid subtype"]
-            if genotype_subtype == "":
-                genotype_subtype = "None"
-            region_dict[accession]["genotype"] = row["capsid type"]
-            region_dict[accession]["genotype_subtype"] = genotype_subtype
+            if region_dict[accession]["rdrp_source"] == "polyprotein_fallback" \
+                and (
+                    rdrp_start is not None
+                    and rdrp_end is not None
+                    and rdrp_start < 3500
+                    and rdrp_end > 5000
+                ):
+                region_dict[accession]["rdrp_start"] = 3500
+    
+    if typing_information:
+        with open(TYPING_FILE, "r", encoding="utf-8", newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+
+            for row in reader:
+                accession = row["name"]
+                region_dict[accession]["BLAST_score"] = row["BLAST score"]
+                region_dict[accession]["begin"] = row["begin"]
+                region_dict[accession]["end"] = row["end"]
+                region_dict[accession]["length"] = row["length"]
+
+                p_subtype = row["polymerase subtype"]
+                if p_subtype == "":
+                    p_subtype = "None"
+                region_dict[accession]["p_type"] = row["polymerase type"].split()[0]
+                region_dict[accession]["p_subtype"] = p_subtype
+                
+                genotype_subtype = row["capsid subtype"]
+                if genotype_subtype == "":
+                    genotype_subtype = "None"
+                region_dict[accession]["genotype"] = row["capsid type"]
+                region_dict[accession]["genotype_subtype"] = genotype_subtype
 
     if not region_dict:
         return None
@@ -446,7 +582,6 @@ def get_genomic_region_info(
     df.index.name = "accession"
     df = df.reset_index()
 
-    OUTPUT_CSV = TYPING_FILE.parent / "specification.csv"
     df.to_csv(OUTPUT_CSV, index=False)
 
     return OUTPUT_CSV
@@ -475,3 +610,55 @@ def export_excluded_sequences(OUTPUT_CSV: Path, **sets_dict: set[str]) -> None:
                 accession not in sets_dict["annotated_sequences"],
                 accession not in sets_dict["non_ambiguous_sequences"]
             ])
+
+
+def get_rdrp_sequences(REGION_CSV: Path, min_length: int = 100) -> set[str]:
+    df = pd.read_csv(REGION_CSV)
+
+    rdrp_length = df["rdrp_end"] - df["rdrp_start"] + 1
+
+    rdrp_df = df[
+        df["rdrp_start"].notna()
+        & df["rdrp_end"].notna()
+        & (rdrp_length >= min_length)
+    ]
+
+    
+    return set(rdrp_df["accession"].astype(str))
+
+
+def get_vp1_sequences(REGION_CSV: Path, min_length: int = 100) -> set[str]:
+    df = pd.read_csv(REGION_CSV)
+
+    vp1_length = df["vp1_end"] - df["vp1_start"] + 1
+
+    vp1_df = df[
+        df["vp1_start"].notna()
+        & df["vp1_end"].notna()
+        & (vp1_length >= min_length)
+    ]
+
+    return set(vp1_df["accession"].astype(str))
+
+
+def get_junction_sequences(
+    REGION_CSV: Path,
+    min_rdrp_length: int = 100,
+    min_vp1_length: int = 100
+) -> set[str]:
+    df = pd.read_csv(REGION_CSV)
+
+    rdrp_length = df["rdrp_end"] - df["rdrp_start"] + 1
+    vp1_length = df["vp1_end"] - df["vp1_start"] + 1
+
+    junction_df = df[
+        df["rdrp_start"].notna()
+        & df["rdrp_end"].notna()
+        & df["vp1_start"].notna()
+        & df["vp1_end"].notna()
+        & (rdrp_length >= min_rdrp_length)
+        & (vp1_length >= min_vp1_length)
+        & (df["has_overlap"] == True)
+    ]
+
+    return set(junction_df["accession"].astype(str))

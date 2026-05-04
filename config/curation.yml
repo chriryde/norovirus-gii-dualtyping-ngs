@@ -1,14 +1,29 @@
 paths:
   extracted_dir: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data
+
   input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/genomic.fna
+  input_cds_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/cds.fna
   input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report.jsonl
   input_annotation: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/annotation_report.jsonl
-  input_cds: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/cds.fna
 
-  gii_fasta: data/01_curated/fasta/gii_fasta.fna
-  filtered_fasta: data/01_curated/fasta/filtered.fna
+  complete_fasta: data/01_curated/fasta/complete.fna
+  complete_cds_fasta: data/01_curated/fasta/complete_cds.fna
+  complete_filtered_fasta: data/01_curated/fasta/complete_filtered.fna
+  complete_full_specification: data/01_curated/metadata/complete_full_specification.csv
+  final_complete_fasta: data/01_curated/metadata/final_complete.fna
+
+  partial_fasta: data/01_curated/fasta/partial.fna
+  partial_cds_fasta: data/01_curated/fasta/partial_cds.fna
+  partial_filtered_fasta: data/01_curated/fasta/partial_filtered.fna
+  partial_full_specification: data/01_curated/metadata/partial_full_specification.csv
+  final_partial_fasta: data/01_curated/metadata/final_partial.fna
+
+  partial_region_information: data/01_curated/metadata/partial_region_specification.csv
+
+  
+
   excluded_csv: data/01_curated/qc_reports/excluded.csv
-
+  
   fasta_dir: data/01_curated/fasta
   qc_dir: data/01_curated/qc_reports
   metadata_dir: data/01_curated/metadata/
