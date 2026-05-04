@@ -4,16 +4,18 @@
 
 paths:
   input_fasta: data/02_alignments/msa_trimmed/trimmed_msa_test.fasta
-  # vp1_aln: data/02_aligments/...
-  # rdrp_aln: data/02_aligments/..
+  vp1_aln: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
+  rdrp_aln: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
   output_dir: data/03_primer_evaluation/novel/varvamp_outputs
   reference_library: data/03_primer_evaluation/novel/reference_library
 
 
 varvamp:
   scheme: single
-  opt_length: 700
-  max_length: 800
+  opt_length_complete: 700
+  max_length_complete: 800
+  opt_length_rdrp: 400
+  max_length_rdrp: 800
   threshold: 0.9
   #n_ambig: 4
   #database: #location of the BLAST db
