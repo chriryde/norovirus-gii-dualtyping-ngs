@@ -34,6 +34,7 @@ COMBINED_PRIMERS: Path = PROJECT_ROOT / Path(
     )
 )
 
+#kommentera in detta när vi ska köra ett nytt jobb
 # pt.typing_tool_intialise(
 #     COMBINED_PRIMERS,
 #     "test"
