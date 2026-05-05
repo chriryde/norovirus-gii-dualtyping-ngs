@@ -1,6 +1,5 @@
 import yaml
 import subprocess
-import json
 import csv
 
 from collections import defaultdict
