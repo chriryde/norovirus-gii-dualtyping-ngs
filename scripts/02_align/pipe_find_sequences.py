@@ -13,30 +13,32 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as file:
 paths_config = config["paths"]
 
 
-# GENOTYPES = at.get_genotype_or_ptype(
-#     PROJECT_ROOT / paths_config["vp1_fasta"],
-#     PROJECT_ROOT / paths_config["input_metadata"],
-#     PROJECT_ROOT / paths_config["genotypes"],
-#     "genotype",
-#     ["GII.2", "GII.3", "GII.4", "GII.17"]
-# )
+# ## get rdrp region
+RDRP_FASTA = at.get_region(
+    PROJECT_ROOT / paths_config["input_metadata"],
+    PROJECT_ROOT /paths_config["input_fasta"],
+    PROJECT_ROOT /paths_config["rdrp_fasta"],
+    "rdrp_start",
+    "rdrp_end"
+)
 
-# # # ## runs get p_type
+ ## get vp1 region
+VP1_FASTA = at.get_region(
+    PROJECT_ROOT / paths_config["input_metadata"],
+    PROJECT_ROOT / paths_config["input_fasta"],
+    PROJECT_ROOT / paths_config["vp1_fasta"],
+    "vp1_start",
+    "vp1_end"
+)
 
-# P_TYPES = at.get_genotype_or_ptype(
-#     PROJECT_ROOT / paths_config["rdrp_fasta"],
-#     PROJECT_ROOT / paths_config["input_metadata"],
-#     PROJECT_ROOT / paths_config["p_types"],
-#     "p_type",
-#     ["GII.P16", "GII.P17", "GII.P21", "GII.P31"]
-# )
-
-
-## removes similiar sequences
-# CLUSTERED_GENOTYPES = cd.cluster_sequences(
-#     PROJECT_ROOT / paths_config["genotypes"],
-#     PROJECT_ROOT / paths_config["clustered_genotypes"]
-# )
+# ## get rdrp+vp1 region
+RDRP_VP1_FASTA = at.get_region(
+    PROJECT_ROOT /paths_config["input_metadata"],
+    PROJECT_ROOT /paths_config["input_fasta"],
+    PROJECT_ROOT /paths_config["rdrp_vp1_fasta"],
+    "rdrp_start",
+    "vp1_end"
+)
 
 
 
@@ -217,8 +219,27 @@ final_accesions = rare_types_accessions | clustered_accessions
 
 
 ## create new fasta file with all rare types + clustered sequences
-FINAL_FASTA = cd.get_sequences(
+FINAL_GLOBAL = cd.get_sequences(
     PROJECT_ROOT / paths_config["input_fasta"], 
-    PROJECT_ROOT / paths_config["final_fasta"],
+    PROJECT_ROOT / paths_config["final_global"],
+    final_accesions
+)
+
+FINAL_RDRP = cd.get_sequences(
+    PROJECT_ROOT / paths_config["rdrp_fasta"], 
+    PROJECT_ROOT / paths_config["final_rdrp"],
+    final_accesions
+)
+
+FINAL_VP1 = cd.get_sequences(
+    PROJECT_ROOT / paths_config["vp1_fasta"], 
+    PROJECT_ROOT / paths_config["final_vp1"],
+    final_accesions
+)
+
+
+FINAL_RDRP_VP1 = cd.get_sequences(
+    PROJECT_ROOT / paths_config["rdrp_vp1_fasta"], 
+    PROJECT_ROOT / paths_config["final_rdrp_vp1"],
     final_accesions
 )
