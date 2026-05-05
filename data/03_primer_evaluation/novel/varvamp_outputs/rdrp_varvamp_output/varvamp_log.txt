@@ -158,5 +158,5 @@ Result:	 1 amplicons.
 Job:	 Finalizing output. 
 Result:	 all done 
 
-varVAMP 1.3.2 finished in 7.515263 sec!
-2026-05-05 16:20:36.438821
+varVAMP 1.3.2 finished in 8.186078 sec!
+2026-05-05 16:48:03.085019

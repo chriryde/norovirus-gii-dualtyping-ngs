@@ -117,3 +117,14 @@ Result:	 1006 fw and 1224 rv potential primers
 Result:	 99 fw and 107 rv primers
 Job:	 Finding potential amplicons. 
 Result:	 169 potential amplicons
+
+BLAST results: varVAMP predicted non-specific amplicons:
+	> 11/169 amplicons could produce amplicons with the blast db.
+	> will attempt to avoid them in the final list of amplicons
+Job:	 Finding amplicons with low penalties. 
+Result:	 7 amplicons.
+Job:	 Finalizing output. 
+Result:	 all done 
+
+varVAMP 1.3.2 finished in 349.124828 sec!
+2026-05-05 16:47:51.400376
