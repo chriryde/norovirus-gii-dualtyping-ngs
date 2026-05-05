@@ -8,6 +8,7 @@ import time
 import csv
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+from Bio.SeqFeature import BeforePosition, AfterPosition
 from Bio.SeqRecord import SeqRecord
 from collections import defaultdict
 from contextlib import ExitStack
@@ -226,90 +227,107 @@ def extract_and_save_to_fasta(
     return OUTPUT_FASTA
 
 
-def get_features(feature_name: str) -> set[str]:
-    match feature_name:
-        case "vp1":
-            return vp1_names
-        case "rdrp":
-            return rdrp_names | polyprotein_names
-        case "junction":
-            return vp1_names | rdrp_names | polyprotein_names
-        case _:
-            raise ValueError(f"Unknown feature_name: {feature_name}")
-
-
-def get_feature_name(seq_record) -> str:
-    feature = seq_record.description.replace(seq_record.id, "", 1).strip()
-    feature = feature.split("[", 1)[0].strip()
-    return feature
-
-
-def extract_cds_feature_to_fasta(
-    INPUT_CDS_FASTA: Path, 
+def extract_and_save_to_genbank(
+    INPUT_GENBANK: Path,
     accessions: set[str],
-    OUTPUT_FASTA: str,
-    feature_name: str,
+    OUTPUT_GENBANK: Path,
 ) -> Path:
-    # written: dict[str: str] = defaultdict()
+    with INPUT_GENBANK.open("r", encoding="utf-8") as in_handle, \
+         OUTPUT_GENBANK.open("w", encoding="utf-8") as out_handle:
 
-    with INPUT_CDS_FASTA.open("r", encoding="utf-9") as in_handle, \
-        OUTPUT_FASTA.open("w", encoding="utf-8") as out_handle:
+        for seq_record in SeqIO.parse(in_handle, "genbank"):
+            accession = seq_record.id
+
+            if accession in accessions:
+                SeqIO.write(seq_record, out_handle, "genbank")
+
+    return OUTPUT_GENBANK
+
+
+# def get_features(feature_name: str) -> set[str]:
+#     match feature_name:
+#         case "vp1":
+#             return vp1_names
+#         case "rdrp":
+#             return rdrp_names | polyprotein_names
+#         case "junction":
+#             return vp1_names | rdrp_names | polyprotein_names
+#         case _:
+#             raise ValueError(f"Unknown feature_name: {feature_name}")
+
+
+# def get_feature_name(seq_record) -> str:
+#     feature = seq_record.description.replace(seq_record.id, "", 1).strip()
+#     feature = feature.split("[", 1)[0].strip()
+#     return feature
+
+
+# def extract_cds_feature_to_fasta(
+#     INPUT_CDS_FASTA: Path, 
+#     accessions: set[str],
+#     OUTPUT_FASTA: Path,
+#     feature_name: str,
+# ) -> Path:
+#     # written: dict[str: str] = defaultdict()
+
+#     with INPUT_CDS_FASTA.open("r", encoding="utf-9") as in_handle, \
+#         OUTPUT_FASTA.open("w", encoding="utf-8") as out_handle:
         
-        features = get_features(feature_name)
+#         features = get_features(feature_name)
 
-        for seq_record in SeqIO.parse(in_handle, "fasta"):
-            accession = seq_record.id.split(":")[0]
+#         for seq_record in SeqIO.parse(in_handle, "fasta"):
+#             accession = seq_record.id.split(":")[0]
 
-            if accession not in accessions:
-                continue
+#             if accession not in accessions:
+#                 continue
 
-            feature = get_feature_name(seq_record)
+#             feature = get_feature_name(seq_record)
 
-            if feature not in features:
-                continue
+#             if feature not in features:
+#                 continue
 
-            SeqIO.write(seq_record, out_handle, "fasta")
+#             SeqIO.write(seq_record, out_handle, "fasta")
 
-    return OUTPUT_FASTA
+#     return OUTPUT_FASTA
 
 
-def extract_junction_sequences_to_fasta(
-    INPUT_FASTA: Path,
-    REGION_CSV: Path,
-    accessions: set[str],
-    OUTPUT_FASTA: Path,
-) -> Path:
-    region_df = pd.read_csv(REGION_CSV).set_index("accession")
+# def extract_junction_sequences_to_fasta(
+#     INPUT_FASTA: Path,
+#     REGION_CSV: Path,
+#     accessions: set[str],
+#     OUTPUT_FASTA: Path,
+# ) -> Path:
+#     region_df = pd.read_csv(REGION_CSV).set_index("accession")
 
-    with INPUT_FASTA.open("r", encoding="utf-8") as in_handle, \
-        OUTPUT_FASTA.open("w", encoding="utf-8") as out_handle:
+#     with INPUT_FASTA.open("r", encoding="utf-8") as in_handle, \
+#         OUTPUT_FASTA.open("w", encoding="utf-8") as out_handle:
 
-        for record in SeqIO.parse(in_handle, "fasta"):
-            accession = record.id.split(":", 1)[0]
+#         for record in SeqIO.parse(in_handle, "fasta"):
+#             accession = record.id.split(":", 1)[0]
 
-            if accession not in accessions:
-                continue
+#             if accession not in accessions:
+#                 continue
 
-            if accession not in region_df.index:
-                continue
+#             if accession not in region_df.index:
+#                 continue
 
-            row = region_df.loc[accession]
+#             row = region_df.loc[accession]
 
-            rdrp_start = int(row["rdrp_start"])
-            vp1_end = int(row["vp1_end"])
+#             rdrp_start = int(row["rdrp_start"])
+#             vp1_end = int(row["vp1_end"])
 
-            start = rdrp_start - 1
-            end = vp1_end
+#             start = rdrp_start - 1
+#             end = vp1_end
 
-            junction_record = SeqRecord(
-                record.seq[start:end],
-                id=f"{accession}:{rdrp_start}-{vp1_end}",
-                description="ORF1_ORF2_junction",
-            )
+#             junction_record = SeqRecord(
+#                 record.seq[start:end],
+#                 id=f"{accession}:{rdrp_start}-{vp1_end}",
+#                 description="ORF1_ORF2_junction",
+#             )
 
-            SeqIO.write(junction_record, out_handle, "fasta")
+#             SeqIO.write(junction_record, out_handle, "fasta")
     
-    return OUTPUT_FASTA
+#     return OUTPUT_FASTA
 
 
 def typing_tool_intialise(INPUT_FASTA: Path, name: str, batch_size: int = 500):
@@ -423,9 +441,9 @@ def typing_tool_get_results(JOB_DIR: Path, name: str) -> Path | None:
                 page.get_by_role("button", name="Go!").click()
 
                 csv_link = page.get_by_role("link", name="Table (CSV format)")
-                csv_link.wait_for(timeout=3000)
+                csv_link.wait_for(timeout=30000)
 
-                with page.expect_download(timeout=1200) as download_info:
+                with page.expect_download(timeout=12000) as download_info:
                     csv_link.click()
 
                 download = download_info.value
@@ -482,7 +500,9 @@ def get_genomic_info(
     typing_information: bool = True,
     TYPING_FILE: Path | None = None,
     region_information: bool = False,
-    CDS_FASTA: Path | None = None
+    CDS_FASTA: Path | None = None,
+    genbank_mode: bool = False,
+    GENBANK_FILE: Path = None
 ) -> Path | None:
     if region_information and typing_information:
         region_dict = defaultdict(make_row_full_information)
@@ -490,38 +510,86 @@ def get_genomic_info(
         region_dict = defaultdict(make_row_typing_information)
     elif region_information:
         region_dict = defaultdict(make_row_region_information)
-
+    
+    print(genbank_mode)
     if region_information:
-        if not CDS_FASTA:
-            print(f"CDS_FASTA is required when region_information=True")
+        if genbank_mode is False:
+            print(f"should be false, now i'm {genbank_mode}")
+            if not CDS_FASTA:
+                print(f"CDS_FASTA is required when region_information=True")
 
-        for record in SeqIO.parse(CDS_FASTA, "fasta"):
-            accession, coords = record.id.split(":")
-            begin, end = coords.split("-")
+            for record in SeqIO.parse(CDS_FASTA, "fasta"):
+                accession, coords = record.id.split(":")
+                begin, end = coords.split("-")
 
-            begin = int(begin)
-            end = int(end)
+                begin = int(begin)
+                end = int(end)
 
-            coding_region = record.description.replace(record.id, "", 1).strip()
-            coding_region = coding_region.split("[", 1)[0].strip()
-                
-            if coding_region in rdrp_names:
-                region_dict[accession]["rdrp_start"] = begin
-                region_dict[accession]["rdrp_end"] = end
-                region_dict[accession]["rdrp_source"] = "annotated_rdrp"
-                continue
-
-            if coding_region in polyprotein_names:
-                if region_dict[accession]["rdrp_start"] is None and end >= 5000:
-                    region_dict[accession]["rdrp_start"] = max(begin, end - 2200)
+                coding_region = record.description.replace(record.id, "", 1).strip()
+                coding_region = coding_region.split("[", 1)[0].strip()
+                    
+                if coding_region in rdrp_names:
+                    region_dict[accession]["rdrp_start"] = begin
                     region_dict[accession]["rdrp_end"] = end
-                    region_dict[accession]["rdrp_source"] = "polyprotein_fallback"
-                continue
+                    region_dict[accession]["rdrp_source"] = "annotated_rdrp"
+                    continue
 
-            if coding_region in vp1_names:
-                region_dict[accession]["vp1_start"] = begin
-                region_dict[accession]["vp1_end"] = end
-                continue
+                if coding_region in polyprotein_names:
+                    if region_dict[accession]["rdrp_start"] is None and end >= 5000:
+
+                        region_dict[accession]["rdrp_start"] = max(begin, end - 2200)
+                        region_dict[accession]["rdrp_end"] = end
+                        region_dict[accession]["rdrp_source"] = "polyprotein_fallback"
+                    continue
+
+                if coding_region in vp1_names:
+                    region_dict[accession]["vp1_start"] = begin
+                    region_dict[accession]["vp1_end"] = end
+                    continue
+
+        elif genbank_mode is True:
+            print(f"should be true, now i'm {genbank_mode}")
+            for seq_record in SeqIO.parse(GENBANK_FILE, "genbank"):
+                accession = seq_record.id
+
+                for feature in seq_record.features:
+                    if accession == "AB541286.1":
+                            print("features")
+                    if feature.type not in ["CDS", "mat_peptide"]:
+                        continue
+                    
+                    if accession == "AB541286.1":
+                        print(f"{feature.type} This is CDS or peptide")
+                    coding_region = feature.qualifiers.get("product", [""])[0]
+
+                    if accession == "AB541286.1":
+                        print(f"{coding_region} This is coding region")
+                    if not coding_region:
+                        continue
+
+                    begin = int(feature.location.start) + 1
+                    end = int(feature.location.end)
+
+                    if coding_region in rdrp_names:
+                        region_dict[accession]["rdrp_start"] = begin
+                        region_dict[accession]["rdrp_end"] = end
+                        region_dict[accession]["rdrp_source"] = "annotated_rdrp"
+                        continue
+                    if coding_region in polyprotein_names:
+                        
+                        if region_dict[accession]["rdrp_start"] is None and end >= 5000:
+                            region_dict[accession]["rdrp_start"] = begin
+                            region_dict[accession]["rdrp_end"] = end
+                            region_dict[accession]["rdrp_source"] = "polyprotein_fallback"
+                        continue
+
+                    if coding_region in vp1_names:
+                        if accession == "AB541286.1":
+                            print(f"This is VP1 {begin} - {end}")
+                            
+                        region_dict[accession]["vp1_start"] = begin
+                        region_dict[accession]["vp1_end"] = end
+                        continue
 
         for accession in region_dict.keys():
             rdrp_start = region_dict[accession]["rdrp_start"]
@@ -563,12 +631,19 @@ def get_genomic_info(
                 region_dict[accession]["end"] = row["end"]
                 region_dict[accession]["length"] = row["length"]
 
-                p_subtype = row["polymerase subtype"]
+                p_type = row["polymerase type"].strip()
+                if p_type == "":
+                    p_type = None
+                else:
+                    p_type = p_type.split()[0]
+
+                region_dict[accession]["p_type"] = p_type
+                
+                p_subtype = row["polymerase subtype"].strip()
                 if p_subtype == "":
                     p_subtype = "None"
-                region_dict[accession]["p_type"] = row["polymerase type"].split()[0]
                 region_dict[accession]["p_subtype"] = p_subtype
-                
+
                 genotype_subtype = row["capsid subtype"]
                 if genotype_subtype == "":
                     genotype_subtype = "None"
@@ -582,7 +657,20 @@ def get_genomic_info(
     df.index.name = "accession"
     df = df.reset_index()
 
+    if (region_information == True):
+        print("HERE I'M NOW")
+        print(df[df["accession"] == "AB541286.1"])
+
     df.to_csv(OUTPUT_CSV, index=False)
+
+    print("WRITING TO:", OUTPUT_CSV.resolve())
+    print(df[df["accession"] == "AB541286.1"].to_dict("records"))
+
+    df.to_csv(OUTPUT_CSV, index=False)
+
+    check_df = pd.read_csv(OUTPUT_CSV)
+    print("READ BACK FROM:", OUTPUT_CSV.resolve())
+    print(check_df[check_df["accession"] == "AB541286.1"].to_dict("records"))
 
     return OUTPUT_CSV
 
@@ -623,7 +711,6 @@ def get_rdrp_sequences(REGION_CSV: Path, min_length: int = 100) -> set[str]:
         & (rdrp_length >= min_length)
     ]
 
-    
     return set(rdrp_df["accession"].astype(str))
 
 
@@ -662,3 +749,110 @@ def get_junction_sequences(
     ]
 
     return set(junction_df["accession"].astype(str))
+
+
+def get_genbank_sequence_completeness(INPUT_GB: Path) -> tuple[set[str],set[str]]:
+    partial_set = set()
+    complete_set = set()
+
+    for seq_record in SeqIO.parse(INPUT_GB, "genbank"):
+        accession = seq_record.id
+
+        has_partial_cds = False
+
+        for feature in seq_record.features:
+            if feature.type != "CDS":
+                continue
+
+            start = feature.location.start
+            end = feature.location.end
+
+            if isinstance(start, BeforePosition) or isinstance(end, AfterPosition):
+                has_partial_cds = True
+                break
+
+        if has_partial_cds:
+            partial_set.add(accession)
+        else:
+            complete_set.add(accession)
+
+    return (complete_set, partial_set)
+
+
+def merge_fasta(INPUT_FASTAS: Path, OUTPUT_FASTA: Path) -> Path:
+    records = []
+
+    for fasta in INPUT_FASTAS:
+        records.extend(SeqIO.parse(fasta, "fasta"))
+
+    SeqIO.write(records, OUTPUT_FASTA, "fasta")
+    return OUTPUT_FASTA
+
+def keep_sequences_with_rdrp_and_vp1(specification_csv: Path) -> set[str]:
+    df = pd.read_csv(specification_csv, low_memory=False)
+
+    required_cols = [
+        "accession",
+        "rdrp_start",
+        "rdrp_end",
+        "vp1_start",
+        "vp1_end",
+    ]
+
+    missing_cols = [col for col in required_cols if col not in df.columns]
+    if missing_cols:
+        raise ValueError(
+            f"{specification_csv} is missing required columns: {missing_cols}"
+        )
+
+    filtered_df = df[
+        df["accession"].notna()
+        & df["rdrp_start"].notna()
+        & df["rdrp_end"].notna()
+        & df["vp1_start"].notna()
+        & df["vp1_end"].notna()
+    ].copy()
+
+    return set(filtered_df["accession"].astype(str).str.strip())
+
+
+def prepare_final_complete_specification(df: pd.DataFrame) -> pd.DataFrame:
+    required_cols = [
+        "accession",
+        "rdrp_start",
+        "rdrp_end",
+        "vp1_start",
+        "vp1_end",
+    ]
+
+    missing_cols = [col for col in required_cols if col not in df.columns]
+    if missing_cols:
+        raise ValueError(f"Missing required columns: {missing_cols}")
+
+    df = df.copy()
+    df["accession"] = df["accession"].astype(str).str.strip()
+
+    region_cols = [
+        "rdrp_start",
+        "rdrp_end",
+        "vp1_start",
+        "vp1_end",
+    ]
+
+    df["_region_score"] = df[region_cols].notna().sum(axis=1)
+
+    df = (
+        df
+        .sort_values("_region_score")
+        .drop_duplicates("accession", keep="last")
+        .drop(columns="_region_score")
+    )
+
+    df = df[
+        df["rdrp_start"].notna()
+        & df["rdrp_end"].notna()
+        & df["vp1_start"].notna()
+        & df["vp1_end"].notna()
+    ].copy()
+
+    return df
