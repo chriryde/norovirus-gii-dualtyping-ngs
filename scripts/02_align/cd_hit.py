@@ -1,11 +1,11 @@
 import subprocess
 from Bio import SeqIO
 
-def cluster_sequences(input_file, output_file):
+def cluster_sequences(input_file, output_file, cutoff = "0.98"):
     try:
         print("Start running cd hit \n")
         with open(output_file, "w") as out_f:
-            cd_hit_cmd = ["cd-hit-est", "-i", str(input_file), "-o", str(output_file), "-c", "0.98"]
+            cd_hit_cmd = ["cd-hit-est", "-i", str(input_file), "-o", str(output_file), "-c", cutoff]
             cluster = subprocess.run(
                 cd_hit_cmd,
                 #stdout=out_f,

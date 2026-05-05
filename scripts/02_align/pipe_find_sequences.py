@@ -1,5 +1,6 @@
 import alignment_tools as at
 import cd_hit as cd
+import partial as pa
 from pathlib import Path
 import yaml
 
@@ -41,7 +42,20 @@ RDRP_VP1_FASTA = at.get_region(
 )
 
 
+# partial_accessions = pa.partial_accessions(
+#     PROJECT_ROOT / paths_config["input_metadata"],
+#     PROJECT_ROOT / paths_config["input_metadata"]
+# )
 
+# PARTIAL_FASTA = cd.get_sequences(
+#     PROJECT_ROOT / paths_config["input_partial"],
+#     PROJECT_ROOT / paths_config["partial_fasta"],
+#     partial_accessions
+# )
+
+# FINAL_RDRP = pa.m(
+    
+# )
 
 ###################################
 # ## runs get genotype
@@ -78,6 +92,14 @@ GII_17 = at.get_genotype_or_ptype(
 )
 
 # # ## runs get p_type
+
+GII_P4 = at.get_genotype_or_ptype(
+    PROJECT_ROOT / paths_config["rdrp_fasta"],
+    PROJECT_ROOT / paths_config["input_metadata"],
+    PROJECT_ROOT / paths_config["gii_p4"],
+    "p_type",
+    "GII.P4"
+)
 
 GII_P16 = at.get_genotype_or_ptype(
     PROJECT_ROOT / paths_config["rdrp_fasta"],
@@ -127,7 +149,8 @@ CLUSTERED_GII_3 = cd.cluster_sequences(
 
 CLUSTERED_GII_4 = cd.cluster_sequences(
     PROJECT_ROOT / paths_config["gii_4"],
-    PROJECT_ROOT / paths_config["clustered_gii_4"]
+    PROJECT_ROOT / paths_config["clustered_gii_4"],
+    "0.95"
 )
 
 CLUSTERED_GII_17 = cd.cluster_sequences(
@@ -135,6 +158,11 @@ CLUSTERED_GII_17 = cd.cluster_sequences(
     PROJECT_ROOT / paths_config["clustered_gii_17"]
 )
 
+
+CLUSTERED_GII_P4 = cd.cluster_sequences(
+    PROJECT_ROOT / paths_config["gii_p16"],
+    PROJECT_ROOT / paths_config["clustered_gii_p4"]
+)
 
 CLUSTERED_GII_P16 = cd.cluster_sequences(
     PROJECT_ROOT / paths_config["gii_p16"],
@@ -175,6 +203,8 @@ common_types_accessions = cd.get_accesions(
 ) | cd.get_accesions(
     PROJECT_ROOT / paths_config["gii_17"]
 ) | cd.get_accesions(
+    PROJECT_ROOT / paths_config["gii_p4"]
+) | cd.get_accesions(
     PROJECT_ROOT / paths_config["gii_p16"]
 ) | cd.get_accesions(
     PROJECT_ROOT / paths_config["gii_p17"]
@@ -199,6 +229,8 @@ clustered_accessions = cd.get_accesions(
 ) | cd.get_accesions(
     PROJECT_ROOT / paths_config["clustered_gii_17"]
 ) | cd.get_accesions(
+    PROJECT_ROOT / paths_config["clustered_gii_p4"]
+)  | cd.get_accesions(
     PROJECT_ROOT / paths_config["clustered_gii_p16"]
 ) | cd.get_accesions(
     PROJECT_ROOT / paths_config["clustered_gii_p17"]
@@ -210,6 +242,8 @@ clustered_accessions = cd.get_accesions(
 
 
 final_accesions = rare_types_accessions | clustered_accessions
+
+
 
 # print(f'raw = {len(raw_set)}')
 # print(f'common = {len(common_types_accessions)}')
