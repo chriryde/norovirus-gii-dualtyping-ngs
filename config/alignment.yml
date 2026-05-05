@@ -68,3 +68,7 @@ paths:
   rdrp_log: data/02_alignments/msa_log/rdrp_log.txt
   vp1_log: data/02_alignments/msa_log/vp1_log.txt
   rdrp_vp1_log:  data/02_alignments/msa_log/rdrp_vp1_log.txt
+
+
+  ## accession
+  accession_tsv: data/02_alignments/inputs/accession_tsv.csv

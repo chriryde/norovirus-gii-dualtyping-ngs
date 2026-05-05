@@ -3,6 +3,7 @@ import cd_hit as cd
 import partial as pa
 from pathlib import Path
 import yaml
+import csv
 
 ALIGN_DIR: Path = Path(__file__).resolve().parent
 PROJECT_ROOT: Path = (ALIGN_DIR.parent).parent
@@ -243,7 +244,12 @@ clustered_accessions = cd.get_accesions(
 
 final_accesions = rare_types_accessions | clustered_accessions
 
+ACCESSION_TSV = PROJECT_ROOT / paths_config["accession_tsv"]
 
+with open(ACCESSION_TSV, 'w', newline='') as tsvfile:
+        writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
+        for accession in final_accesions:
+            writer.writerow([accession])
 
 # print(f'raw = {len(raw_set)}')
 # print(f'common = {len(common_types_accessions)}')
