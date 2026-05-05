@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 b965ca822218b906be651f8636028322  ncbi_dataset/data/data_report.jsonl
 27b63e16f64bce29f1d14735dd3c7ac5  ncbi_dataset/data/annotation_report.jsonl
 be79ab4bb1bbef7a141ce1f5bff1b197  ncbi_dataset/data/cds.fna
 5302f634cbeec3415dd34b62ad5b4065  ncbi_dataset/data/genomic.fna
 0839111f4170f35c9a55ac7287763c51  ncbi_dataset/data/dataset_catalog.json
+=======
+7200f9fe4a877728c28cc768ee1695e4  ncbi_dataset/data/data_report.jsonl
+76a9b03b36110de4cb2d3dceb534b393  ncbi_dataset/data/annotation_report.jsonl
+290da0e55420b58602535ab6b5d4f9b5  ncbi_dataset/data/cds.fna
+de2630c7f11c800e1dbf1f549557f241  ncbi_dataset/data/dataset_catalog.json
+>>>>>>> primer_design
