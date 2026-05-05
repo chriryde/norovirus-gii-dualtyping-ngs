@@ -21,7 +21,8 @@ cmd = [
     "download", 
     "virus", 
     "genome", 
-    "taxon", config["taxon"]
+    "taxon", config["taxon"],
+    "--include", "genome"
 ] # Extract configuration for NCBIdataset virus genome query
 
 download_config = config["download"]

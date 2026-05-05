@@ -35,22 +35,23 @@ HUCAT_GENBANK = project_path(config["paths"]["hucat_genbank"])
 HUCAT_FASTA = project_path(config["paths"]["hucat_fasta"])
 
 HUCAT_COMPLETE_FASTA_PATH = project_path(config["paths"]["hucat_complete_fasta"])
-HUCAT_COMPLETE_FILTERED_FASTA_PATH = project_path(config["paths"]["hucat_filtered_complete_fasta"])
-HUCAT_COMPLETE_FILTERED_GENBANK_PATH = project_path(config["paths"]["hucat_filtered_complete_genbank"])
+HUCAT_COMPLETE_FILTERED_FASTA_PATH = project_path(config["paths"]["hucat_complete_filtered_fasta"])
+HUCAT_COMPLETE_FILTERED_GENBANK_PATH = project_path(config["paths"]["hucat_complete_filtered_genbank"])
 
 HUCAT_PARTIAL_FASTA_PATH = project_path(config["paths"]["hucat_partial_fasta"])
-HUCAT_PARTIAL_FILTERED_FASTA_PATH = project_path(config["paths"]["hucat_filtered_partial_fasta"])
-HUCAT_PARTIAL_FILTERED_GENBANK_PATH = project_path(config["paths"]["hucat_filtered_partial_genbank"])
+HUCAT_PARTIAL_FILTERED_FASTA_PATH = project_path(config["paths"]["hucat_partial_filtered_fasta"])
+HUCAT_PARTIAL_FILTERED_GENBANK_PATH = project_path(config["paths"]["hucat_partial_filtered_genbank"])
 
 FINAL_COMPLETE_FASTA = project_path(config["paths"]["final_complete_fasta"])
 FINAL_PARTIAL_FASTA = project_path(config["paths"]["final_partial_fasta"])
 
-if TEMP_TYPING_DIR.is_dir():
+if not TEMP_TYPING_DIR.is_dir():
     print("shouldn't run this")
 
     complete_sequences, partial_sequences = ct.get_sequence_completeness(
         INPUT_METADATA
     )
+    print(len(complete_sequences))
 
     SeqIO.convert(HUCAT_GENBANK, "genbank", HUCAT_FASTA, "fasta")
 
@@ -59,6 +60,7 @@ if TEMP_TYPING_DIR.is_dir():
     )
 
     partial_sequences = partial_sequences - genbank_complete_sequences
+    print(len(partial_sequences))
 
     hucat_complete_sequences = genbank_complete_sequences - complete_sequences
     hucat_partial_sequences = genbank_partial_sequences - partial_sequences
@@ -224,6 +226,13 @@ if TEMP_TYPING_DIR.is_dir():
         HUCAT_COMPLETE_FASTA_PATH
     )
 
+    hucat_complete_gii_sequences: set[str] = ct.get_GII_sequences(
+        HUCAT_GENBANK,
+        hucat_complete_sequences,
+        genbank_mode=True
+    )
+    assert(hucat_complete_gii_sequences)
+
     hucat_complete_length_filtered_sequences: set[str] = ct.get_length_filtered_sequences(
         HUCAT_COMPLETE_FASTA,
         config["criteria"]["length_threshold"]
@@ -243,7 +252,7 @@ if TEMP_TYPING_DIR.is_dir():
     
     hucat_complete_filtered_sequences: set[str] = hucat_complete_sequences \
         & hucat_complete_length_filtered_sequences & hucat_complete_unique_sequences \
-        & hucat_complete_non_ambiguous_sequences
+        & hucat_complete_non_ambiguous_sequences & hucat_complete_gii_sequences
     assert hucat_complete_filtered_sequences
 
     HUCAT_COMPLETE_FILTERED_FASTA: Path = ct.extract_and_save_to_fasta(
@@ -271,6 +280,13 @@ if TEMP_TYPING_DIR.is_dir():
         hucat_partial_sequences,
         HUCAT_PARTIAL_FASTA_PATH
     )
+
+    hucat_partial_gii_sequences: set[str] = ct.get_GII_sequences(
+        HUCAT_GENBANK,
+        hucat_partial_sequences,
+        genbank_mode=True
+    )
+    assert(hucat_partial_gii_sequences)
 
     hucat_partial_unique_sequences: set[str] = ct.get_unique_sequences(
         HUCAT_PARTIAL_FASTA
@@ -310,17 +326,17 @@ if TEMP_TYPING_DIR.is_dir():
 
     hucat_partial_rdrp_filtered_sequences: set[str] = hucat_partial_sequences \
         & hucat_partials_rdrp & hucat_partial_unique_sequences \
-        & hucat_partial_non_ambiguous_sequences
+        & hucat_partial_non_ambiguous_sequences & hucat_partial_gii_sequences
     assert(hucat_partial_rdrp_filtered_sequences)
 
     hucat_partial_vp1_filtered_sequences: set[str] = hucat_partial_sequences \
         & hucat_partials_vp1 & hucat_partial_unique_sequences \
-        & hucat_partial_non_ambiguous_sequences
+        & hucat_partial_non_ambiguous_sequences & hucat_partial_gii_sequences
     assert(hucat_partial_vp1_filtered_sequences)
 
     hucat_partial_junction_filtered_sequences: set[str] = hucat_partial_sequences \
         & hucat_partials_junction & hucat_partial_unique_sequences \
-        & hucat_partial_non_ambiguous_sequences
+        & hucat_partial_non_ambiguous_sequences & hucat_partial_gii_sequences
     assert(hucat_partial_junction_filtered_sequences)
 
     hucat_partial_all_filtered_sequences = hucat_partial_rdrp_filtered_sequences \
@@ -469,8 +485,12 @@ partial_df = pd.concat(
 )
 
 partial_df.to_csv(FULL_PARTIAL_SPECIFICATION, index=False)
+FULL_PARTIAL_SPECIFICATION = ct.filter_csv_on_ptype_genotype(FULL_PARTIAL_SPECIFICATION, FULL_PARTIAL_SPECIFICATION)
+partial_df = pd.read_csv(FULL_PARTIAL_SPECIFICATION)
 
 final_partial_sequences = set(partial_df["accession"].dropna().astype(str).str.strip())
+
+
 
 MERGED_COMPLETE_FASTA = project_path(config["paths"]["merged_complete_fasta"])
 MERGED_PARTIAL_FASTA = project_path(config["paths"]["merged_partial_fasta"])
@@ -496,5 +516,20 @@ ct.extract_and_save_to_fasta(
     final_partial_sequences,
     FINAL_PARTIAL_FASTA
 )
+
+final_partial_sequences = ct.get_accessions(FINAL_PARTIAL_FASTA)
+
+FULL_PARTIAL_SPECIFICATION = ct.filter_csv_accessions(
+    FULL_PARTIAL_SPECIFICATION, 
+    FULL_PARTIAL_SPECIFICATION,
+    final_partial_sequences
+)
+partial_df = pd.read_csv(FULL_PARTIAL_SPECIFICATION)
+
+complete_ass = ct.assert_accessions(FINAL_COMPLETE_FASTA, FULL_COMPLETE_SPECIFICATION)
+print(len(complete_ass))
+
+partial_ass = ct.assert_accessions(FINAL_PARTIAL_FASTA, FULL_PARTIAL_SPECIFICATION)
+print(len(partial_ass))
 
 # ct.clean_up_temporary_files(TYPING_CSV)
