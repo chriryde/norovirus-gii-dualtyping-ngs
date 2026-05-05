@@ -1,4 +1,4 @@
-accession,rdrp_start,rdrp_end,vp1_start,vp1_end
-MH218628.1,5000,5500, 5480, 6000
-MH218576.1,5200,5800, 5780, 6200
+accession,p_type,p_subtype,rdrp_start,rdrp_end,genotype,genotype_subtype,vp1_start,vp1_end
+MH218628.1,GII.P31,None,3572.0,5101.0,GII.4,Sydney_2012,5085,6707
+MH218629.1,GII.P31,None,3572.0,5101.0,GII.4,Sydney_2012,5085,6707
 
