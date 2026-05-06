@@ -16,19 +16,17 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as file:
 paths_config = config["paths"]
 
 
-# CLUSTERED_RDRP = cd.cluster_sequences(
-#     PROJECT_ROOT / paths_config["final_rdrp"], 
-#     PROJECT_ROOT / paths_config["clustered_rdrp"])
-
-
 
 df_complete = pd.read_csv(str(PROJECT_ROOT / paths_config["input_metadata"]))
 df_partial = pd.read_csv(str(PROJECT_ROOT / paths_config["partial_metadata"]))
+
 MERGED_CSV = PROJECT_ROOT / paths_config["merged_csv"]
 merged = pd.concat([df_complete, df_partial], ignore_index=True)
 
 merged = merged.drop_duplicates(subset = "accession")
 merged.to_csv(MERGED_CSV, index = False)
+
+
 
 GII_P7 = at.get_genotype_or_ptype(
     PROJECT_ROOT / paths_config["final_rdrp"],
@@ -95,6 +93,22 @@ CLUSTERED_GII_P31 = cd.cluster_sequences(
 
 ## set containing all accessions from complete sequences
 raw_set = cd.get_accesions(PROJECT_ROOT / paths_config["final_rdrp"])
+
+
+
+#########################################
+POLYMERASE_BEFORE_CDHIT_TSV = PROJECT_ROOT / paths_config["polymerase_before_cdhit_tsv"]
+
+with open(POLYMERASE_BEFORE_CDHIT_TSV, 'w', newline='') as tsvfile:
+        writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
+        writer.writerow(['accession'])
+        for accession in raw_set:
+            writer.writerow([accession])
+
+
+#########################################3
+
+
 
 
 ## set for all accesions for sequences that were sent to cd hit:

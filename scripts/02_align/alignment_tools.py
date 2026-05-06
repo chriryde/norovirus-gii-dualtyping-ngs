@@ -86,6 +86,7 @@ def get_region(input_metadata_csv, input_file, output_file, start, end, type):
 
                 SeqIO.write(new_record, out_handle, "fasta")
 
+    print(df[type].unique())
     return output_file
 
 

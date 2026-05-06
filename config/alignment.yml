@@ -109,6 +109,21 @@ paths:
   rdrp_clustered_gii_p21: data/02_alignments/rdrp/rdrp_clustered_gii_p21.fasta
   rdrp_clustered_gii_p31: data/02_alignments/rdrp/rdrp_clustered_gii_p31.fasta
 
+
+  vp1_gii_3: data/02_alignments/vp1/vp1_gii_3.fasta
+  vp1_gii_4: data/02_alignments/vp1/vp1_gii_4.fasta
+  vp1_gii_6: data/02_alignments/vp1/vp1_gii_6.fasta
+
+  vp1_clustered_gii_3: data/02_alignments/vp1/vp1_clustered_gii_3.fasta
+  vp1_clustered_gii_4: data/02_alignments/vp1/vp1_clustered_gii_4.fasta
+  vp1_clustered_gii_6: data/02_alignments/vp1/vp1_clustered_gii_6.fasta
+
+
   final_rdrp_accession_tsv: data/02_alignments/inputs/final_rdrp_accession_tsv.csv
+  final_vp1_accession_tsv: data/02_alignments/inputs/final_vp1_accession_tsv.csv
   merged_csv: data/02_alignments/inputs/merged_csv.csv
-  polymerase: data/02_alignments/inputs/polymerase.fasta
+  polymerase: data/02_alignments/msa_inputs/polymerase.fasta
+  vp1: data/02_alignments/msa_inputs/vp1.fasta
+
+  polymerase_before_cdhit_tsv: data/02_alignments/inputs/polymerase_before_cdhit_tsv.csv
+  vp1_before_cdhit_tsv: data/02_alignments/inputs/vp1_before_cdhit_tsv.csv

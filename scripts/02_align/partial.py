@@ -11,6 +11,7 @@ def partial_accessions(complete_metadata_csv, partial_metadata_csv):
     
     df_full = pd.read_csv(complete_metadata_csv)
 
+
     genotype_dict = {}
     p_type_dict = {}
     could_not_assign = set()
@@ -39,6 +40,8 @@ def partial_accessions(complete_metadata_csv, partial_metadata_csv):
     print(f'alla förekommande p-typer i full: {p_type_dict}')
     
     df_partial = pd.read_csv(partial_metadata_csv)
+    print(df_full["p_type"].unique())
+    print(df_full["genotype"].unique())
 
     rdrp_partial = set()
     vp1_partial = set()
