@@ -9,7 +9,8 @@ paths:
   output_dir: data/03_primer_evaluation/novel/varvamp_outputs
   reference_library: data/03_primer_evaluation/novel/reference_library
   web_crawler_data : data/03_primer_evaluation/novel/temporary_web_crawler_data
-  metadata_dir: data/01_curated/metadata/final_complete_full_specification.csv
+  complete_specification: data/01_curated/output/final_complete_specification.csv
+  final_complete_fna: data/01_curated/output/final_complete.fna
 
 
 varvamp:

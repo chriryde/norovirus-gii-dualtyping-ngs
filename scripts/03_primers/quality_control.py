@@ -10,7 +10,7 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 
 TEMPORARY_WEB_CRAWLER_DATA_CSV = PROJECT_ROOT / Path(config["paths"]["web_crawler_data"]) / "test_typing_data.csv"
-REFERENCE_SEQUENCE_CSV = Path(config["paths"]["metadata_dir"])
+REFERENCE_SEQUENCE_CSV = Path(config["paths"]["complete_sequence"])
 
 all_typed_sequences = {}
 all_reference_sequences = {}

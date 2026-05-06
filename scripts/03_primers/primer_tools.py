@@ -4,11 +4,13 @@ import datetime
 import math
 import time
 import subprocess
+import sys
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from collections import defaultdict
 from contextlib import ExitStack
 from pathlib import Path
 from Bio import SeqIO
+
 
 
 def extract_amplicons(
@@ -242,6 +244,49 @@ def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY,
     print('avslutar primerdesign')
 
     return VARVAMP_OUTPUT_DIR
+
+def varvamp_fast(scheme, opt_length, max_length,
+             INPUT_FASTA, OUTPUT_DIR, name):
+    print('startar primerdesign')
+    VARVAMP_OUTPUT_DIR = OUTPUT_DIR / f"{name}_varvamp_output"
+    VARVAMP_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    try:
+        cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
+                str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
+        deduplicated_filtered = subprocess.run(
+            cmd,
+            check=True
+        )
+    except subprocess.CalledProcessError as err:
+        print("Command failed:")
+        print("cmd", err.cmd)
+        print("returncode", err.returncode)
+        print("stdout", err.stdout)
+        print("stderr", err.stderr)
+        raise
+    print('avslutar primerdesign')
+
+    return VARVAMP_OUTPUT_DIR
+
+def correct_primer_position(REFERENCE, PRIMER_TSV, PRIMER_BED):
+    print('correcting primer choordinates')
+
+    try:
+        cmd = [sys.executable, 'correct_primer_positions.py', str(REFERENCE), str(PRIMER_TSV), str(PRIMER_BED)]
+        deduplicated_filtered = subprocess.run(
+            cmd,
+            check=True
+        )
+    except subprocess.CalledProcessError as err:
+        print("Command failed:")
+        print("cmd", err.cmd)
+        print("returncode", err.returncode)
+        print("stdout", err.stdout)
+        print("stderr", err.stderr)
+        raise
+    print('done correcting primer choordinates')
+    
 
 def filter(TSV_PRIMERS, OUTPUT_DIR):
     print('removing primers outside bp 4000-6500')
