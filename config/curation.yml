@@ -1,15 +1,61 @@
 paths:
   extracted_dir: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data
-  input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/test_specification.fna
-  input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report_test_spec.jsonl
-  input_annotation: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/annotation_test_spec.jsonl
-  input_cds: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/cds_test_spec.fna
 
-  output_fasta: data/01_curated/fasta/filtered.fna
-  output_excluded: data/01_curated/excluded
+  # NCBI |-------|
+  input_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/genomic.fna
+  input_cds_fasta: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/cds.fna
+  input_metadata: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/data_report.jsonl
+  input_annotation: data/00_raw/ncbi_datasets/extracted/ncbi_dataset/data/annotation_report.jsonl
 
+  # COMPLETE NCBI
+  complete_fasta: data/01_curated/fasta/complete.fna
+  complete_cds_fasta: data/01_curated/fasta/complete_cds.fna
+  complete_filtered_fasta: data/01_curated/fasta/complete_filtered.fna
+  complete_full_specification: data/01_curated/metadata/complete_full_specification.csv
+
+  # PARTIAL NCBI
+  partial_fasta: data/01_curated/fasta/partial.fna
+  partial_cds_fasta: data/01_curated/fasta/partial_cds.fna
+  partial_filtered_fasta: data/01_curated/fasta/partial_filtered.fna
+  partial_region_information: data/01_curated/metadata/partial_region_specification.csv
+  partial_full_specification: data/01_curated/metadata/partial_full_specification.csv
+
+  # HUCAT |-------|
+  hucat_genbank: data/00_raw/hucat/noroII.gb
+  hucat_fasta: data/00_raw/hucat/noroII.fna
+
+  # COMPLETE HUCAT
+  hucat_complete_fasta: data/01_curated/fasta/hucat_complete.fna
+  hucat_complete_filtered_fasta: data/01_curated/fasta/huca_complete_filtered.fna
+  hucat_complete_filtered_genbank: data/01_curated/fasta/huca_complete_filtered.gb
+  hucat_complete_full_specification: data/01_curated/metadata/hucat_complete_full_specification.csv
+
+  # PARTIAL HUCAT
+  hucat_partial_fasta: data/01_curated/fasta/hucat_partial.fna
+  hucat_partial_filtered_fasta: data/01_curated/fasta/huca_partial_filtered.fna
+  hucat_partial_filtered_genbank: data/01_curated/fasta/huca_partial_filtered.gb
+  hucat_partial_region_information: data/01_curated/metadata/hucat_partial_region_specification.csv
+  hucat_partial_full_specification: data/01_curated/metadata/hucat_partial_full_specification.csv
+
+  # MERGED FILES
+  merged_complete_fasta: data/01_curated/fasta/merged_complete.fna
+  merged_partial_fasta: data/01_curated/fasta/merged_partial.fna
+
+  # FINAL
+  final_complete_fasta: data/01_curated/output/final_complete.fna
+  final_complete_full_specification: data/01_curated/output/final_complete_specification.csv
+
+  final_partial_fasta: data/01_curated/output/final_partial.fna
+  final_partial_full_specification: data/01_curated/output/final_partial_specification.csv
+
+  # OTHER
+  excluded_csv: data/01_curated/qc_reports/excluded.csv
+
+  fasta_dir: data/01_curated/fasta
   qc_dir: data/01_curated/qc_reports
   metadata_dir: data/01_curated/metadata/
+
+  temp_typing_dir: data/01_curated/fasta/temporary_web_crawler_data
 
 parameters:
   threads: 8
@@ -19,9 +65,5 @@ seqkit:
   deduplicate: true
 
 criteria:
-  length_threshold: 7000
-  ambigious_threshold: 0.1
-  identity_threshold: 0.9
-
-cd-hit:
-  word_length: 7
+  length_threshold: 6000
+  ambiguous_threshold: 0.1

@@ -1,0 +1,3 @@
+amlicon_name	amplicon_length	primer_name	primer_name_all_primers	pool	start	stop	seq	size	gc_best	temp_best	mean_gc	mean_temp	penalty	off_target_amplicons
+varVAMP_0	400	varVAMP_0_LEFT	LEFT_0	1	1	23	GACAAGAGCCAATGTTCAGATGG	23	47.8	60.1	47.8	60.1	1.7	No
+varVAMP_0	400	varVAMP_0_RIGHT	RIGHT_16	1	380	400	GCACTTCAAAWCCACCTGCAT	21	47.6	60.0	47.6	59.8	0.7	No

@@ -206,5 +206,9 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# local files
-data/03_primer_evaluation/novel/reference_library/*
+data/*primer_evaluation/novel/reference_library/*
+# Other
+data/*_curated/fasta/temporary_web_crawler_data/*
+data/*_raw/hucat/noroII*
+data/*_raw/ncbi_datasets/extracted/ncbi_dataset/data/*.json*
+data/*_raw/ncbi_datasets/extracted/*

@@ -3,6 +3,7 @@ import pandas as pd
 import datetime
 import math
 import time
+import subprocess
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from collections import defaultdict
 from contextlib import ExitStack
@@ -218,3 +219,59 @@ def typing_tool_get_results(JOB_DIR: Path, name: str) -> Path | None:
     
     return None
 
+def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY,
+             INPUT_FASTA, OUTPUT_DIR, name):
+    print('startar primerdesign')
+    VARVAMP_OUTPUT_DIR = OUTPUT_DIR / f"{name}_varvamp_output"
+    VARVAMP_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    try:
+        cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
+                '-db', str(REFERENCE_LIBRARY), str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
+        deduplicated_filtered = subprocess.run(
+            cmd,
+            check=True
+        )
+    except subprocess.CalledProcessError as err:
+        print("Command failed:")
+        print("cmd", err.cmd)
+        print("returncode", err.returncode)
+        print("stdout", err.stdout)
+        print("stderr", err.stderr)
+        raise
+    print('avslutar primerdesign')
+
+    return VARVAMP_OUTPUT_DIR
+
+def filter(TSV_PRIMERS, OUTPUT_DIR):
+    print('removing primers outside bp 4000-6500')
+
+    all_primers = set()
+    excluded_dict = set()
+    counter = 0
+
+    #open and filter the output file from varVamp
+    with open(TSV_PRIMERS, 'r') as file:
+        tsv_reader = csv.reader(file, delimiter='\t')
+        for row in tsv_reader:
+            if counter != 0:
+                all_primers.add(tuple(row))
+                start = int(row[5])
+                if type(start) is int:
+                    if start < 4500 or start > 6000:
+                        excluded_dict.add(tuple(row))
+            counter += 1
+    
+        curated_primers = all_primers - excluded_dict
+
+    #create new tsc file with filtered primers   
+    header = ('amplicon_name', 'amplicon_length', 'primer_name', 'primer_name_all_primers', 
+                'pool', 'start', 'stop', 'seq', 'size', 'gc_best', 'temp_best', 'mean_gc', 
+                 'mean_temp', 'penalty', 'off_target_amplicons')
+    
+    TSV_FILTERED_PRIMERS = OUTPUT_DIR / 'primers_filtered.tsv'
+    with open(TSV_FILTERED_PRIMERS, 'w', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter='\t')
+        writer.writerow(header)
+        writer.writerows(sorted(curated_primers))
+    print(f'Total amount of potential primers after filtration: {len(curated_primers)}') 
