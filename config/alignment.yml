@@ -2,24 +2,25 @@
 paths: 
   #extracted_dir: data/01_curated/fasta
   ## input files from curation:
-  input_fasta: data/01_curated/metadata/final_complete.fna
-  input_partial: data/01_curated/metadata/final_partial.fna
-  input_metadata: data/01_curated/metadata/final_complete_full_specification.csv
-  partial_metadata: data/01_curated/metadata/final_partial_full_specification.csv
+  input_fasta: data/01_curated/output/final_complete.fna
+  input_partial: data/01_curated/output/final_partial.fna
+  input_metadata: data/01_curated/output/final_complete_specification.csv
+  partial_metadata: data/01_curated/output/final_partial_specification.csv
 
 
-  ## files containg partial sequences 
-  rdrp_fasta: data/02_alignments/inputs/rdrp_sequences.fasta
-  vp1_fasta: data/02_alignments/inputs/vp1_sequences.fasta
+  ## files containg rdrp or vp1 regions from complete sequences 
+  rdrp_complete_fasta: data/02_alignments/rdrp/rdrp_sequences.fasta
+  vp1_complete_fasta: data/02_alignments/vp1/vp1_sequences.fasta
   rdrp_vp1_fasta: data/02_alignments/inputs/rdrp_vp1.fasta
-  
+  # partial_fasta: data/02_alignments/inputs/partial.fasta
+  partial_rdrp_fasta: data/02_alignments/rdrp/partial_rdrp.fasta
+  partial_vp1_fasta: data/02_alignments/vp1/partial_vp1.fasta
 
-  ## input files for the alignments
-  final_global: data/02_alignments/inputs/final_global.fasta
-  final_rdrp: data/02_alignments/inputs/final_rdrp.fasta
-  final_vp1: data/02_alignments/inputs/final_vp1.fasta
-  final_rdrp_vp1: data/02_alignments/inputs/final_rdrp_vp1.fasta
 
+  ## filtered rdrp and vp1 files
+  filtered_rdrp: data/02_alignments/rdrp/filtered_rdrp.fasta
+  filtered_vp1: data/02_alignments/vp1/filtered_vp1.fasta
+  # final_rdrp_vp1: data/02_alignments/inputs/filtered_rdrp_vp1.fasta
 
 
   ## output files, genotype/p-type:
@@ -40,7 +41,7 @@ paths:
   gii_p31: data/02_alignments/sequences_types/gii_p31.fasta
   
 
-  ## output files after cd-hit
+## output files after cd-hit
   #clustered_genotypes: data/02_alignments/sequences_types/clustered_genotypes.fasta
   clustered_gii_2: data/02_alignments/sequences_types/clustered_gii_2.fasta
   clustered_gii_3: data/02_alignments/sequences_types/clustered_gii_3.fasta
@@ -54,13 +55,28 @@ paths:
   clustered_gii_p31: data/02_alignments/sequences_types/clustered_gii_p31.fasta
   
 
+  ###################
+### files containing correct regions from partial fasta files
+  rdrp_partial: data/02_alignments/rdrp/rdrp_partial.fasta
+  vp1_partial: data/02_alignments/vp1/vp1_partial.fasta
+
+
 
 
 #### MSA-files
+
+  ## correct input files for the alignments
+  ## ändrat mapp:
+  final_global: data/02_alignments/msa_inputs/final_global.fasta
+  final_rdrp: data/02_alignments/msa_inputs/final_rdrp.fasta
+  final_vp1: data/02_alignments/msa_inputs/final_vp1.fasta
+  final_rdrp_vp1: data/02_alignments/msa_inputs/final_rdrp_vp1.fasta
+  ###
+
   ## output files from msa:
   output_global: data/02_alignments/msa_raw/msa_raw.fasta
-  output_rdrp: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
-  output_vp1: data/02_alignments/msa_raw/vp1_msa_raw.fasta
+  output_msa_rdrp: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
+  output_msa_vp1: data/02_alignments/msa_raw/vp1_msa_raw.fasta
   output_rdrp_vp1: data/02_alignments/msa_raw/rdrp_vp1_raw.fasta
 
   ## log files form msa:

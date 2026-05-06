@@ -30,19 +30,19 @@ GLOBAL_FASTA, GLOBAL_LOG = at.alignment(
 ) 
 
 # # # ## runs rdrp alignment, stores raw msa file + rdrp log file
-# RDRP_ALIGN, RDRP_LOG = at.alignment(
-#     PROJECT_ROOT /paths_config["final_rdrp"], 
-#     PROJECT_ROOT /paths_config["output_rdrp"],
-#     PROJECT_ROOT /paths_config['rdrp_log']
-# ) 
+RDRP_ALIGN, RDRP_LOG = at.alignment(
+    PROJECT_ROOT /paths_config["final_rdrp"], 
+    PROJECT_ROOT /paths_config["output_msa_rdrp"],
+    PROJECT_ROOT /paths_config['rdrp_log']
+) 
 
 
 # # # ## runs vp1 alignment, stores raw msa file + vp1 log file
-# VP1_ALIGN, VP1_LOG = at.alignment(
-#     PROJECT_ROOT /paths_config["final_vp1"], 
-#     PROJECT_ROOT /paths_config["output_vp1"],
-#     PROJECT_ROOT /paths_config['vp1_log']
-# ) 
+VP1_ALIGN, VP1_LOG = at.alignment(
+    PROJECT_ROOT /paths_config["final_vp1"], 
+    PROJECT_ROOT /paths_config["output_msa_vp1"],
+    PROJECT_ROOT /paths_config['vp1_log']
+) 
 
 
 # # # ## runs rdrp+vp1 alignment, stores raw msa file + rdrp+vp1 log file
