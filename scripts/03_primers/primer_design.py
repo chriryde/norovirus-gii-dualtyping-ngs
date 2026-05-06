@@ -58,13 +58,11 @@ pt.filter(TSV_PRIMERS_COMPLETE, OUTPUT_COMPLETE_DIR)
 
 #varVamp for RDRP
 
-
 OUTPUT_RDRP_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp, REFERENCE_LIBRARY,
             INPUT_FASTA_RDRP, OUTPUT_DIR, 'rdrp')
 
 TSV_PRIMERS_RDRP = OUTPUT_RDRP_DIR / "primers.tsv"
 pt.filter(TSV_PRIMERS_RDRP, OUTPUT_RDRP_DIR)
-
 
 #varVamp for VP1
 
