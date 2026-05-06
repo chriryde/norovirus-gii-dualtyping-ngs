@@ -258,6 +258,7 @@ ACCESSION_TSV = PROJECT_ROOT / paths_config["accession_tsv"]
 
 with open(ACCESSION_TSV, 'w', newline='') as tsvfile:
         writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
+        writer.writerow(['accession'])
         for accession in final_accesions:
             writer.writerow([accession])
 
