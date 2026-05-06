@@ -60,6 +60,9 @@ paths:
   rdrp_partial: data/02_alignments/rdrp/rdrp_partial.fasta
   vp1_partial: data/02_alignments/vp1/vp1_partial.fasta
 
+  partial_gii_p16: data/02_alignments/rdrp/partial_gii_p16.fasta
+  clustered_partial_gii_p16: data/02_alignments/rdrp/clustered_partial_gii_p16.fasta
+
 
 
 
@@ -88,3 +91,24 @@ paths:
 
   ## accession
   accession_tsv: data/02_alignments/inputs/accession_tsv.csv
+  partial_rdrp_tsv: data/02_alignments/inputs/partial_rdrp_tsv.csv
+  partial_vp1_tsv: data/02_alignments/inputs/partial_vp1_tsv.csv
+
+  clustered_rdrp: data/02_alignments/rdrp/clustered_rdrp.fasta
+
+
+
+  rdrp_gii_p7: data/02_alignments/rdrp/rdrp_gii_p7.fasta
+  rdrp_gii_p16: data/02_alignments/rdrp/rdrp_gii_p16.fasta
+  rdrp_gii_p21: data/02_alignments/rdrp/rdrp_gii_p21.fasta
+  rdrp_gii_p31: data/02_alignments/rdrp/rdrp_gii_p31.fasta
+
+
+  rdrp_clustered_gii_p7: data/02_alignments/rdrp/rdrp_clustered_gii_p7.fasta
+  rdrp_clustered_gii_p16: data/02_alignments/rdrp/rdrp_clustered_gii_p16.fasta
+  rdrp_clustered_gii_p21: data/02_alignments/rdrp/rdrp_clustered_gii_p21.fasta
+  rdrp_clustered_gii_p31: data/02_alignments/rdrp/rdrp_clustered_gii_p31.fasta
+
+  final_rdrp_accession_tsv: data/02_alignments/inputs/final_rdrp_accession_tsv.csv
+  merged_csv: data/02_alignments/inputs/merged_csv.csv
+  polymerase: data/02_alignments/inputs/polymerase.fasta

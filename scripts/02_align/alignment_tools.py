@@ -53,7 +53,7 @@ def alignment(input_file, output_file, log_file):
 
 
 ## function to get specific regions 
-def get_region(input_metadata_csv, input_file, output_file, start, end):
+def get_region(input_metadata_csv, input_file, output_file, start, end, type):
     df = pd.read_csv(input_metadata_csv)
 
 
@@ -64,7 +64,7 @@ def get_region(input_metadata_csv, input_file, output_file, start, end):
         ## update to the exact names in input_metadata_csv:
         ## update in pipe_align as well
 
-        if not math.isnan(row[start]) and not math.isnan(row[end]):
+        if not math.isnan(row[start]) and not math.isnan(row[end]) and not row[type] == "Could" and not pd.isna(row[type]) and not row[type] == "Could not assign":
             seq_dict[row['accession']] = (int(row[start]), int(row[end]))
 
 

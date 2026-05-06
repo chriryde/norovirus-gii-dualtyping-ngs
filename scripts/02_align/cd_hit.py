@@ -1,11 +1,11 @@
 import subprocess
 from Bio import SeqIO
 
-def cluster_sequences(input_file, output_file, cutoff = "0.98"):
+def cluster_sequences(input_file, output_file, cutoff = "0.98", wordsize = "10"):
     try:
         print("Start running cd hit \n")
         with open(output_file, "w") as out_f:
-            cd_hit_cmd = ["cd-hit-est", "-i", str(input_file), "-o", str(output_file), "-c", cutoff]
+            cd_hit_cmd = ["cd-hit-est", "-i", str(input_file), "-o", str(output_file), "-c", cutoff, "-n", wordsize]
             cluster = subprocess.run(
                 cd_hit_cmd,
                 #stdout=out_f,
@@ -23,6 +23,8 @@ def cluster_sequences(input_file, output_file, cutoff = "0.98"):
 
     return (output_file)
 
+
+    
 
 
 def get_accesions(input_file):

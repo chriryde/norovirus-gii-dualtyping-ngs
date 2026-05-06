@@ -99,6 +99,6 @@ def merge_partial_regions(partial_fasta, full_fasta, partial_output):
     
         SeqIO.write(records, out_handle, "fasta")
 
-    return out_handle
+    return partial_output
 
 
