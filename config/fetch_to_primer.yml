@@ -4,12 +4,13 @@
 
 paths:
   input_fasta: data/02_alignments/msa_trimmed/trimmed_msa_test.fasta
-  vp1_aln: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
-  rdrp_aln: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
+  vp1_aln: data/02_alignments/msa_trimmed/vp1_msa_trimmed_without_gi.fasta
+  rdrp_aln: data/02_alignments/msa_trimmed/rdrp_msa_trimmed.fasta
   output_dir: data/03_primer_evaluation/novel/varvamp_outputs
   reference_library: data/03_primer_evaluation/novel/reference_library
   web_crawler_data : data/03_primer_evaluation/novel/temporary_web_crawler_data
-  metadata_dir: data/01_curated/metadata/final_complete_full_specification.csv
+  complete_specification: data/01_curated/output/final_complete_specification.csv
+  final_complete_fna: data/01_curated/output/final_complete.fna
 
 
 varvamp:
