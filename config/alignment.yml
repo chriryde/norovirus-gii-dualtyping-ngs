@@ -39,6 +39,7 @@ paths:
   gii_p17: data/02_alignments/sequences_types/gii_p17.fasta
   gii_p21: data/02_alignments/sequences_types/gii_p21.fasta
   gii_p31: data/02_alignments/sequences_types/gii_p31.fasta
+  gii_p7: data/02_alignments/sequences_types/gii_p7.fasta
   
 
 ## output files after cd-hit
@@ -53,6 +54,8 @@ paths:
   clustered_gii_p17: data/02_alignments/sequences_types/clustered_gii_p17.fasta
   clustered_gii_p21: data/02_alignments/sequences_types/clustered_gii_p21.fasta
   clustered_gii_p31: data/02_alignments/sequences_types/clustered_gii_p31.fasta
+  clustered_gii_p7: data/02_alignments/sequences_types/clustered_gii_p7.fasta
+
   
 
   ###################
@@ -68,7 +71,7 @@ paths:
 
 #### MSA-files
 
-  ## correct input files for the alignments
+  ## not correct input files for the alignments
   ## ändrat mapp:
   final_global: data/02_alignments/msa_inputs/final_global.fasta
   final_rdrp: data/02_alignments/msa_inputs/final_rdrp.fasta
@@ -89,19 +92,20 @@ paths:
   rdrp_vp1_log:  data/02_alignments/msa_log/rdrp_vp1_log.txt
 
 
-  ## accession
+  ## accession not for final
   accession_tsv: data/02_alignments/inputs/accession_tsv.csv
   partial_rdrp_tsv: data/02_alignments/inputs/partial_rdrp_tsv.csv
   partial_vp1_tsv: data/02_alignments/inputs/partial_vp1_tsv.csv
 
   clustered_rdrp: data/02_alignments/rdrp/clustered_rdrp.fasta
 
-
-
+##################################3for prdrp and vp1
   rdrp_gii_p7: data/02_alignments/rdrp/rdrp_gii_p7.fasta
   rdrp_gii_p16: data/02_alignments/rdrp/rdrp_gii_p16.fasta
   rdrp_gii_p21: data/02_alignments/rdrp/rdrp_gii_p21.fasta
   rdrp_gii_p31: data/02_alignments/rdrp/rdrp_gii_p31.fasta
+
+  rdrp_gii_could: data/02_alignments/rdrp/rdrp_gii_could.fasta
 
 
   rdrp_clustered_gii_p7: data/02_alignments/rdrp/rdrp_clustered_gii_p7.fasta
@@ -119,11 +123,22 @@ paths:
   vp1_clustered_gii_6: data/02_alignments/vp1/vp1_clustered_gii_6.fasta
 
 
-  final_rdrp_accession_tsv: data/02_alignments/inputs/final_rdrp_accession_tsv.csv
-  final_vp1_accession_tsv: data/02_alignments/inputs/final_vp1_accession_tsv.csv
   merged_csv: data/02_alignments/inputs/merged_csv.csv
-  polymerase: data/02_alignments/msa_inputs/polymerase.fasta
-  vp1: data/02_alignments/msa_inputs/vp1.fasta
+
 
   polymerase_before_cdhit_tsv: data/02_alignments/inputs/polymerase_before_cdhit_tsv.csv
   vp1_before_cdhit_tsv: data/02_alignments/inputs/vp1_before_cdhit_tsv.csv
+
+## final accessions for the alignments
+  final_rdrp_accession_tsv: data/02_alignments/inputs/final_rdrp_accession_tsv.csv
+  final_vp1_accession_tsv: data/02_alignments/inputs/final_vp1_accession_tsv.csv
+  final_final_global_accession_tsv: data/02_alignments/inputs/final_final_global_accession_tsv.csv
+  final_final_rdrp_accession_tsv: data/02_alignments/inputs/final_final_rdrp_accession_tsv.csv
+
+
+
+  ## Real final files for alignment:
+  final_final_global: data/02_alignments/msa_inputs/final_final_global.fasta
+  polymerase: data/02_alignments/msa_inputs/polymerase.fasta
+  vp1: data/02_alignments/msa_inputs/capsid.fasta
+  polymerase_correct: data/02_alignments/msa_inputs/polymerase_correct.fasta

@@ -5,10 +5,8 @@
 0	1626nt, >PP658552.1... *
 1	1626nt, >LC769681.1... at +/95.88%
 >Cluster 2
-0	1626nt, >LC769701.1... *
->Cluster 3
 0	1626nt, >PV275048.1... *
->Cluster 4
+>Cluster 3
 0	1623nt, >PZ240487.1... *
 1	1623nt, >PX631121.1... at +/97.97%
 2	1623nt, >PX285874.1... at +/97.29%
@@ -21,15 +19,15 @@
 9	1623nt, >PQ273191.1... at +/95.63%
 10	1623nt, >PQ195894.1... at +/95.87%
 11	1623nt, >PQ195923.1... at +/96.55%
->Cluster 5
+>Cluster 4
 0	1623nt, >PV275062.1... *
 1	1623nt, >PV275065.1... at +/97.91%
 2	1623nt, >PQ207944.1... at +/96.98%
->Cluster 6
+>Cluster 5
 0	1623nt, >PQ213436.1... *
 1	1623nt, >OL943799.1... at +/98.64%
 2	1623nt, >OL943800.1... at +/96.43%
->Cluster 7
+>Cluster 6
 0	1623nt, >PQ215575.1... *
 1	1623nt, >PQ215578.1... at +/95.81%
 2	1623nt, >PQ218468.1... at +/96.06%
@@ -54,48 +52,45 @@
 21	1623nt, >OR065090.1... at +/95.13%
 22	1623nt, >KY947546.1... at +/95.01%
 23	1623nt, >PQ207927.1... at +/96.12%
->Cluster 8
+>Cluster 7
 0	1623nt, >MZ233536.1... *
 1	1620nt, >OR051787.1... at +/96.36%
->Cluster 9
+>Cluster 8
 0	1623nt, >MT729788.1... *
->Cluster 10
+>Cluster 9
 0	1623nt, >MT028542.1... *
->Cluster 11
-0	1623nt, >MT031821.1... *
-1	1623nt, >PQ195926.1... at +/95.44%
->Cluster 12
+>Cluster 10
 0	1623nt, >MN400355.2... *
->Cluster 13
+>Cluster 11
 0	1623nt, >MH413070.1... *
->Cluster 14
+>Cluster 12
 0	1623nt, >MH218669.1... *
->Cluster 15
+>Cluster 13
 0	1623nt, >MG049692.1... *
 1	1623nt, >MG548737.1... at +/96.92%
 2	1623nt, >MZ291634.1... at +/95.50%
->Cluster 16
+>Cluster 14
 0	1623nt, >MW581004.1... *
 1	1623nt, >MW581008.1... at +/97.35%
->Cluster 17
+>Cluster 15
 0	1623nt, >MN308019.1... *
->Cluster 18
+>Cluster 16
 0	1623nt, >OR051927.1... *
->Cluster 19
-0	1623nt, >MN588303.1... *
->Cluster 20
+>Cluster 17
 0	1623nt, >KY947547.1... *
->Cluster 21
+>Cluster 18
 0	1623nt, >PQ195913.1... *
->Cluster 22
+>Cluster 19
+0	1623nt, >PQ195926.1... *
+>Cluster 20
 0	1623nt, >PQ214837.1... *
->Cluster 23
+>Cluster 21
 0	1623nt, >KJ710245.2... *
->Cluster 24
+>Cluster 22
 0	1623nt, >KC962453.2... *
->Cluster 25
+>Cluster 23
 0	1623nt, >KC962462.3... *
->Cluster 26
+>Cluster 24
 0	1620nt, >PQ207926.1... *
->Cluster 27
+>Cluster 25
 0	1620nt, >PQ207947.1... *

@@ -135,6 +135,14 @@ GII_P4 = at.get_genotype_or_ptype(
     "GII.P4"
 )
 
+GII_P7 = at.get_genotype_or_ptype(
+    PROJECT_ROOT / paths_config["rdrp_complete_fasta"],
+    PROJECT_ROOT / paths_config["input_metadata"],
+    PROJECT_ROOT / paths_config["gii_p7"],
+    "p_type",
+    "GII.P7"
+)
+
 GII_P16 = at.get_genotype_or_ptype(
     PROJECT_ROOT / paths_config["rdrp_complete_fasta"],
     PROJECT_ROOT / paths_config["input_metadata"],
@@ -184,7 +192,12 @@ CLUSTERED_GII_3 = cd.cluster_sequences(
 CLUSTERED_GII_4 = cd.cluster_sequences(
     PROJECT_ROOT / paths_config["gii_4"],
     PROJECT_ROOT / paths_config["clustered_gii_4"],
-    "0.95"
+    "0.9"
+)
+
+CLUSTERED_GII_P7 = cd.cluster_sequences(
+    PROJECT_ROOT / paths_config["gii_p7"],
+    PROJECT_ROOT / paths_config["clustered_gii_p7"]
 )
 
 CLUSTERED_GII_17 = cd.cluster_sequences(
@@ -236,6 +249,8 @@ common_types_accessions = cd.get_accesions(
 ) | cd.get_accesions(
     PROJECT_ROOT / paths_config["gii_p4"]
 ) | cd.get_accesions(
+    PROJECT_ROOT / paths_config["gii_p7"]
+) | cd.get_accesions(
     PROJECT_ROOT / paths_config["gii_p16"]
 ) | cd.get_accesions(
     PROJECT_ROOT / paths_config["gii_p17"]
@@ -261,8 +276,10 @@ clustered_accessions = cd.get_accesions(
     PROJECT_ROOT / paths_config["clustered_gii_17"]
 ) | cd.get_accesions(
     PROJECT_ROOT / paths_config["clustered_gii_p4"]
-)  | cd.get_accesions(
+) | cd.get_accesions(
     PROJECT_ROOT / paths_config["clustered_gii_p16"]
+) | cd.get_accesions(
+    PROJECT_ROOT / paths_config["clustered_gii_p7"]
 ) | cd.get_accesions(
     PROJECT_ROOT / paths_config["clustered_gii_p17"]
 ) | cd.get_accesions(
@@ -298,6 +315,21 @@ FINAL_GLOBAL = cd.get_sequences(
     PROJECT_ROOT / paths_config["final_global"],
     final_accesions
 )
+
+# FINAL_FINAL_GLOBAL, final_final_global_accessions = cd.remove_unsure_seq(
+#       FINAL_GLOBAL,
+#       PROJECT_ROOT / paths_config["final_final_global"],
+#       PROJECT_ROOT / paths_config["input_metadata"],
+#       final_accesions
+# )
+
+# FINAL_FINAL_GLOBAL_ACCESSION_TSV = PROJECT_ROOT / paths_config["final_final_global_accession_tsv"]
+
+# with open(FINAL_FINAL_GLOBAL_ACCESSION_TSV, 'w', newline='') as tsvfile:
+#         writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
+#         writer.writerow(['accession'])
+#         for accession in final_final_global_accessions:
+#             writer.writerow([accession])
 
 
 #### clustered rdrp and vp1
@@ -398,7 +430,7 @@ VP1_PARTIAL = at.get_region(
 
 
 FINAL_RDRP = pa.merge_partial_regions(
-    PARTIAL_RDRP_FASTA,
+    RDRP_PARTIAL,
     FILTERED_RDRP,
     PROJECT_ROOT / paths_config["final_rdrp"]
 )
@@ -406,7 +438,7 @@ FINAL_RDRP = pa.merge_partial_regions(
 ## merge vp1 regioner från complete & partial sekvenser
 ## fil som ska användas i msa
 FINAL_VP1 = pa.merge_partial_regions(
-    PARTIAL_VP1_FASTA,
+    VP1_PARTIAL,
     FILTERED_VP1,
     PROJECT_ROOT / paths_config["final_vp1"]
 )
