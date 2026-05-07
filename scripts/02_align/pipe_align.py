@@ -23,31 +23,31 @@ paths_config = config["paths"]
 
 
 ## runs global alignment, stores raw msa file + global log file
-GLOBAL_FASTA, GLOBAL_LOG = at.alignment(
-    PROJECT_ROOT / paths_config["final_global"], 
-    PROJECT_ROOT / paths_config["output_global"],
-    PROJECT_ROOT /paths_config['global_log']
-) 
+# GLOBAL_FASTA, GLOBAL_LOG = at.alignment(
+#     PROJECT_ROOT / paths_config["final_global"], 
+#     PROJECT_ROOT / paths_config["output_global"],
+#     PROJECT_ROOT /paths_config['global_log']
+# ) 
 
-# # ## runs rdrp alignment, stores raw msa file + rdrp log file
+# # # ## runs rdrp alignment, stores raw msa file + rdrp log file
 RDRP_ALIGN, RDRP_LOG = at.alignment(
-    PROJECT_ROOT /paths_config["final_rdrp"], 
-    PROJECT_ROOT /paths_config["output_rdrp"],
+    PROJECT_ROOT /paths_config["polymerase_correct"], 
+    PROJECT_ROOT /paths_config["output_msa_rdrp"],
     PROJECT_ROOT /paths_config['rdrp_log']
 ) 
 
 
-# # ## runs vp1 alignment, stores raw msa file + vp1 log file
+# # # ## runs vp1 alignment, stores raw msa file + vp1 log file
 VP1_ALIGN, VP1_LOG = at.alignment(
-    PROJECT_ROOT /paths_config["final_vp1"], 
-    PROJECT_ROOT /paths_config["output_vp1"],
+    PROJECT_ROOT /paths_config["vp1"], 
+    PROJECT_ROOT /paths_config["output_msa_vp1"],
     PROJECT_ROOT /paths_config['vp1_log']
 ) 
 
 
-# # ## runs rdrp+vp1 alignment, stores raw msa file + rdrp+vp1 log file
-RDRP_VP1_ALIGN, RDRP_VP1_LOG = at.alignment(
-    PROJECT_ROOT / paths_config["final_rdrp_vp1"], 
-    PROJECT_ROOT / paths_config["output_rdrp_vp1"],
-    PROJECT_ROOT / paths_config['rdrp_vp1_log']
-) 
+# # # ## runs rdrp+vp1 alignment, stores raw msa file + rdrp+vp1 log file
+# RDRP_VP1_ALIGN, RDRP_VP1_LOG = at.alignment(
+#     PROJECT_ROOT / paths_config["final_rdrp_vp1"], 
+#     PROJECT_ROOT / paths_config["output_rdrp_vp1"],
+#     PROJECT_ROOT / paths_config['rdrp_vp1_log']
+# ) 
