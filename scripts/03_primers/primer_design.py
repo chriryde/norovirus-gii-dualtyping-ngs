@@ -55,39 +55,39 @@ max_length_rdrp = config_varvamp["max_length_rdrp"]
 # OUTPUT_COMPLETE_DIR = pt.varvamp(scheme, opt_length, max_length,
 #             REFERENCE_LIBRARY, INPUT_FASTA, OUTPUT_DIR, 'complete')
 
-OUTPUT_COMPLETE_DIR = pt.varvamp_fast(scheme, opt_length, max_length,
-                        INPUT_FASTA, OUTPUT_DIR, 'complete')
+# OUTPUT_COMPLETE_DIR = pt.varvamp_fast(scheme, opt_length, max_length,
+#                         INPUT_FASTA, OUTPUT_DIR, 'complete')
 
-PATH_TO_PRIMER_TSV = OUTPUT_COMPLETE_DIR / 'primers.tsv'
-PATH_TO_PRIMER_BED = OUTPUT_COMPLETE_DIR / 'primers.bed'
-pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
+# PATH_TO_PRIMER_TSV = OUTPUT_COMPLETE_DIR / 'primers.tsv'
+# PATH_TO_PRIMER_BED = OUTPUT_COMPLETE_DIR / 'primers.bed'
+# pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
 
-TSV_PRIMERS_COMPLETE = OUTPUT_COMPLETE_DIR / "primers.tsv"
-pt.filter(TSV_PRIMERS_COMPLETE, OUTPUT_COMPLETE_DIR)
+# TSV_PRIMERS_COMPLETE = OUTPUT_COMPLETE_DIR / "primers.tsv"
+# pt.filter(TSV_PRIMERS_COMPLETE, OUTPUT_COMPLETE_DIR)
 
 
 #varVamp for RDRP
 
 OUTPUT_RDRP_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp, REFERENCE_LIBRARY,
-            INPUT_FASTA_RDRP, OUTPUT_DIR, 'rdrp')
+            INPUT_FASTA_RDRP, OUTPUT_DIR, 'rdrp_initial')
 
-PATH_TO_PRIMER_TSV = OUTPUT_COMPLETE_DIR / 'primers.tsv'
-PATH_TO_PRIMER_BED = OUTPUT_COMPLETE_DIR / 'primers.bed'
+PATH_TO_PRIMER_TSV = OUTPUT_RDRP_DIR / 'primers.tsv'
+PATH_TO_PRIMER_BED = OUTPUT_RDRP_DIR / 'primers.bed'
 pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
 
-TSV_PRIMERS_RDRP = OUTPUT_RDRP_DIR / "primers.tsv"
-pt.filter(TSV_PRIMERS_RDRP, OUTPUT_RDRP_DIR)
+# TSV_PRIMERS_RDRP = OUTPUT_RDRP_DIR / "primers.tsv"
+# pt.filter(TSV_PRIMERS_RDRP, OUTPUT_RDRP_DIR)
 
 #varVamp for VP1
 
 #Run varVamp through linux with reference library
 OUTPUT_VP1_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp,
-            REFERENCE_LIBRARY, INPUT_FASTA_VP1, OUTPUT_DIR, 'vp1')
+            REFERENCE_LIBRARY, INPUT_FASTA_VP1, OUTPUT_DIR, 'vp1_initial')
 
-PATH_TO_PRIMER_TSV = OUTPUT_COMPLETE_DIR / 'primers.tsv'
-PATH_TO_PRIMER_BED = OUTPUT_COMPLETE_DIR / 'primers.bed'
+PATH_TO_PRIMER_TSV = OUTPUT_VP1_DIR / 'primers.tsv'
+PATH_TO_PRIMER_BED = OUTPUT_VP1_DIR / 'primers.bed'
 pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
 
-TSV_PRIMERS_VP1 = OUTPUT_VP1_DIR / "primers.tsv"
-pt.filter(TSV_PRIMERS_VP1, OUTPUT_VP1_DIR)
+# TSV_PRIMERS_VP1 = OUTPUT_VP1_DIR / "primers.tsv"
+# pt.filter(TSV_PRIMERS_VP1, OUTPUT_VP1_DIR)
 
