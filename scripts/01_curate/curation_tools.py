@@ -845,11 +845,18 @@ def prepare_final_complete_specification(df: pd.DataFrame) -> pd.DataFrame:
 def filter_csv_on_ptype_genotype(INPUT_CSV: Path, OUTPUT_CSV: Path) -> Path:
     df = pd.read_csv(INPUT_CSV)
 
-    has_ptype = df["p_type"].fillna("").astype(str).str.strip() != ""
-    has_genotype = df["genotype"].fillna("").astype(str).str.strip() != ""
+    ptype_clean = df["p_type"].fillna("").astype(str).str.strip()
+    genotype_clean = df["genotype"].fillna("").astype(str).str.strip()
+
+    invalid_values = [""] #, "could", "could not assign"]
+
+    has_ptype = ~ptype_clean.str.lower().isin(invalid_values)
+    has_genotype = ~genotype_clean.str.lower().isin(invalid_values)
 
     filtered_df = df[has_ptype | has_genotype].copy()
 
+    filtered_df.replace("Could", "Could not assign", inplace=True)
+    
     filtered_df.to_csv(OUTPUT_CSV, index=False)
 
     return OUTPUT_CSV
