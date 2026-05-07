@@ -467,6 +467,8 @@ print(
 )
 
 complete_df.to_csv(FULL_COMPLETE_SPECIFICATION, index=False)
+FULL_COMPLETE_SPECIFICATION = ct.filter_csv_on_ptype_genotype(FULL_COMPLETE_SPECIFICATION, FULL_COMPLETE_SPECIFICATION)
+complete_df = pd.read_csv(FULL_COMPLETE_SPECIFICATION)
 
 final_complete_sequences = set(
     complete_df["accession"].dropna().astype(str).str.strip()
@@ -489,8 +491,6 @@ FULL_PARTIAL_SPECIFICATION = ct.filter_csv_on_ptype_genotype(FULL_PARTIAL_SPECIF
 partial_df = pd.read_csv(FULL_PARTIAL_SPECIFICATION)
 
 final_partial_sequences = set(partial_df["accession"].dropna().astype(str).str.strip())
-
-
 
 MERGED_COMPLETE_FASTA = project_path(config["paths"]["merged_complete_fasta"])
 MERGED_PARTIAL_FASTA = project_path(config["paths"]["merged_partial_fasta"])
