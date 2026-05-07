@@ -11,7 +11,7 @@ paths:
   ## files containg rdrp or vp1 regions from complete sequences 
   rdrp_complete_fasta: data/02_alignments/rdrp/rdrp_sequences.fasta
   vp1_complete_fasta: data/02_alignments/vp1/vp1_sequences.fasta
-  rdrp_vp1_fasta: data/02_alignments/inputs/rdrp_vp1.fasta
+  # rdrp_vp1_fasta: data/02_alignments/inputs/rdrp_vp1.fasta
   # partial_fasta: data/02_alignments/inputs/partial.fasta
   partial_rdrp_fasta: data/02_alignments/rdrp/partial_rdrp.fasta
   partial_vp1_fasta: data/02_alignments/vp1/partial_vp1.fasta
@@ -63,8 +63,8 @@ paths:
   rdrp_partial: data/02_alignments/rdrp/rdrp_partial.fasta
   vp1_partial: data/02_alignments/vp1/vp1_partial.fasta
 
-  partial_gii_p16: data/02_alignments/rdrp/partial_gii_p16.fasta
-  clustered_partial_gii_p16: data/02_alignments/rdrp/clustered_partial_gii_p16.fasta
+  # partial_gii_p16: data/02_alignments/rdrp/partial_gii_p16.fasta
+  # clustered_partial_gii_p16: data/02_alignments/rdrp/clustered_partial_gii_p16.fasta
 
 
 
@@ -93,11 +93,11 @@ paths:
 
 
   ## accession not for final
-  accession_tsv: data/02_alignments/inputs/accession_tsv.csv
-  partial_rdrp_tsv: data/02_alignments/inputs/partial_rdrp_tsv.csv
-  partial_vp1_tsv: data/02_alignments/inputs/partial_vp1_tsv.csv
+  accession_tsv: data/02_alignments/accessions/accession_tsv.csv
+  partial_rdrp_tsv: data/02_alignments/accessions/partial_rdrp_tsv.csv
+  partial_vp1_tsv: data/02_alignments/accessions/partial_vp1_tsv.csv
 
-  clustered_rdrp: data/02_alignments/rdrp/clustered_rdrp.fasta
+  # clustered_rdrp: data/02_alignments/rdrp/clustered_rdrp.fasta
 
 ##################################3for prdrp and vp1
   rdrp_gii_p7: data/02_alignments/rdrp/rdrp_gii_p7.fasta
@@ -123,7 +123,7 @@ paths:
   vp1_clustered_gii_6: data/02_alignments/vp1/vp1_clustered_gii_6.fasta
 
 
-  merged_csv: data/02_alignments/inputs/merged_csv.csv
+  merged_csv: data/02_alignments/accessions/merged_csv.csv
 
 
   polymerase_before_cdhit_tsv: data/02_alignments/inputs/polymerase_before_cdhit_tsv.csv
@@ -138,7 +138,7 @@ paths:
 
 
   ## Real final files for alignment:
-  final_final_global: data/02_alignments/msa_inputs/final_final_global.fasta
+  # final_final_global: data/02_alignments/msa_inputs/final_final_global.fasta
   polymerase: data/02_alignments/msa_inputs/polymerase.fasta
   vp1: data/02_alignments/msa_inputs/capsid.fasta
   polymerase_correct: data/02_alignments/msa_inputs/polymerase_correct.fasta
