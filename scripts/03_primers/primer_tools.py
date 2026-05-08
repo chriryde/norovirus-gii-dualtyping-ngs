@@ -20,25 +20,29 @@ def extract_amplicons(
     right_primer: str,
     INPUT_FASTA: Path,
     OUTPUT_DIR: Path
-) -> Path:
+    )-> Path:
     
-    left_primer = f"varVAMP_{left_primer}_LEFT"
-    right_primer = f"varVAMP_{right_primer}_RIGHT"
+    left_primer = left_primer
+    right_primer = right_primer
 
     start = 0
     with open(LEFT_PRIMER_FILE, 'r') as file:
         tsv_reader = csv.reader(file, delimiter='\t')
+        print(left_primer)
         for row in tsv_reader:
-            if left_primer == row[2]:
-                start = int(row[5])
+            if left_primer == row[0]:
+                print(row[4])
+                start = int(row[4])
                 break 
     
     stop = 0
     with open(RIGHT_PRIMER_FILE, 'r') as file:
         tsv_reader = csv.reader(file, delimiter='\t')
         for row in tsv_reader:
-            if right_primer == row[2]:
-                stop = int(row[6])
+            if right_primer == row[0]:
+                print(row[4])
+                stop = int(row[4])
+            
                 break 
 
     assert(start != 0)
@@ -62,7 +66,7 @@ def extract_amplicons(
 
 
 def typing_tool_intialise(INPUT_FASTA: Path, name: str, batch_size: int = 500):
-    JOB_DIR: Path = INPUT_FASTA.parent / "temporary_web_crawler_data"
+    JOB_DIR: Path = INPUT_FASTA.parent / "web_crawler_data"
     JOB_DIR.mkdir(parents=True, exist_ok=True)
 
     JOB_STATE_TSV = JOB_DIR / f"{name}_job_ids.tsv"
@@ -221,7 +225,7 @@ def typing_tool_get_results(JOB_DIR: Path, name: str) -> Path | None:
     
     return None
 
-def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY,
+def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY, ambiguous_bases,
              INPUT_FASTA, OUTPUT_DIR, name):
     print('startar primerdesign')
     VARVAMP_OUTPUT_DIR = OUTPUT_DIR / f"{name}_varvamp_output"
@@ -229,7 +233,7 @@ def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY,
 
     try:
         cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
-                '-db', str(REFERENCE_LIBRARY), str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
+                '-db', str(REFERENCE_LIBRARY), '-a', str(ambiguous_bases), str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
         deduplicated_filtered = subprocess.run(
             cmd,
             check=True

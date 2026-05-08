@@ -3,7 +3,7 @@
 #döp om dessa till vilken path man har, kanske även vill göra flera olika fetch, till olika aligments beroende på vilken sekvens som den har
 
 paths:
-  input_fasta: data/02_alignments/msa_trimmed/trimmed_msa_test.fasta
+  input_fasta: data/02_alignments/msa_trimmed/global_msa_trimmed.fasta
   vp1_aln: data/02_alignments/msa_trimmed/vp1_msa_trimmed_without_gi.fasta
   rdrp_aln: data/02_alignments/msa_trimmed/rdrp_msa_trimmed.fasta
   output_dir: data/03_primer_evaluation/novel/varvamp_outputs
@@ -11,6 +11,7 @@ paths:
   web_crawler_data : data/03_primer_evaluation/novel/temporary_web_crawler_data
   complete_specification: data/01_curated/output/final_complete_specification.csv
   final_complete_fna: data/01_curated/output/final_complete.fna
+  complete_consenus: data/03_primer_evaluation/novel/varvamp_outputs/complete_varvamp_output/ambiguous_consensus.fasta
 
 
 varvamp:
@@ -20,7 +21,7 @@ varvamp:
   opt_length_rdrp: 400
   max_length_rdrp: 800
   threshold: 0.9
-  #n_ambig: 4
+  n_ambig: 5
   #database: #location of the BLAST db
 
 # optional arguments to varvamp:
