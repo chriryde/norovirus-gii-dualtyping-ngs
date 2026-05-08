@@ -48,9 +48,21 @@ config_varvamp = config["varvamp"]
 scheme = config_varvamp["scheme"]
 opt_length = config_varvamp["opt_length_complete"]
 max_length = config_varvamp["max_length_complete"]
+
 opt_length_rdrp = config_varvamp["opt_length_rdrp"]
 max_length_rdrp = config_varvamp["max_length_rdrp"]
-n_ambig = config_varvamp["n_ambig"]
+
+opt_length_vp1 = config_varvamp["opt_length_vp1"]
+max_length_vp1 = config_varvamp["max_length_vp1"]
+
+threshold_rdrp = config_varvamp["threshold_rdrp"]
+threshold_vp1 = config_varvamp["threshold_vp1"]
+
+n_ambig_rdrp = config_varvamp["n_ambig_rdrp"]
+n_ambig_vp1 = config_varvamp["n_ambig_vp1"]
+
+output_folder_name_rdrp = 'rdrp_3'
+output_folder_name_vp1 = 'vp1_5'
 
 #Run varVamp through linux with reference library
 
@@ -70,15 +82,15 @@ n_ambig = config_varvamp["n_ambig"]
 
 #varVamp for RDRP
 
-OUTPUT_RDRP_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp, REFERENCE_LIBRARY,
-                                n_ambig, INPUT_FASTA_RDRP, OUTPUT_DIR, 'rdrp_test')
-
 # OUTPUT_RDRP_DIR = pt.varvamp_fast(scheme, opt_length_rdrp, max_length_rdrp,
 #                         INPUT_FASTA_RDRP, OUTPUT_DIR, 'rdrp_test_tiled')
 
-PATH_TO_PRIMER_TSV = OUTPUT_RDRP_DIR / 'primers.tsv'
-PATH_TO_PRIMER_BED = OUTPUT_RDRP_DIR / 'primers.bed'
-pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
+# OUTPUT_RDRP_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp, REFERENCE_LIBRARY,
+#                                 n_ambig_rdrp, INPUT_FASTA_RDRP, OUTPUT_DIR, output_folder_name_rdrp)
+
+# PATH_TO_PRIMER_TSV = OUTPUT_RDRP_DIR / 'primers.tsv'
+# PATH_TO_PRIMER_BED = OUTPUT_RDRP_DIR / 'primers.bed'
+# pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
 
 # TSV_PRIMERS_RDRP = OUTPUT_RDRP_DIR / "primers.tsv" 
 # pt.filter(TSV_PRIMERS_RDRP, OUTPUT_RDRP_DIR)
@@ -86,11 +98,13 @@ pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_B
 #varVamp for VP1
 
 #Run varVamp through linux with reference library
-OUTPUT_VP1_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp,
-                            REFERENCE_LIBRARY, n_ambig, INPUT_FASTA_VP1, OUTPUT_DIR, 'vp1_test')
-
 # OUTPUT_VP1_DIR = pt.varvamp_fast(scheme, opt_length_rdrp, max_length_rdrp,
 #                                 INPUT_FASTA_VP1, OUTPUT_DIR, 'vp1_test')
+
+OUTPUT_VP1_DIR = pt.varvamp(scheme, opt_length_vp1, max_length_vp1,
+                            REFERENCE_LIBRARY, n_ambig_vp1, INPUT_FASTA_VP1, OUTPUT_DIR,
+                             output_folder_name_vp1)
+
 
 PATH_TO_PRIMER_TSV = OUTPUT_VP1_DIR / 'primers.tsv'
 PATH_TO_PRIMER_BED = OUTPUT_VP1_DIR / 'primers.bed'

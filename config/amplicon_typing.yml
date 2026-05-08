@@ -2,6 +2,7 @@
 paths: 
   ## input files:
   input_fasta: data/01_curated/output/final_complete.fna
+  small_input_fasta: data/02_alignments/msa_inputs/final_global.fasta
   input_dir: data/03_primer_evaluation/novel/varvamp_outputs/select_primers.tsv
   
   ## output files:
@@ -9,4 +10,4 @@ paths:
   output_fasta_dir: data/03_primer_evaluation/novel/fasta
 
   ## temp files:
-  web_crawler_dir: data/03_primer_evaluation/novel/web_crawler_data
+  web_crawler_dir: data/03_primer_evaluation/novel/fasta/web_crawler_data

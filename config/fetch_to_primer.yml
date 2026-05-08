@@ -18,10 +18,20 @@ varvamp:
   scheme: single
   opt_length_complete: 700
   max_length_complete: 800
+
+
   opt_length_rdrp: 400
-  max_length_rdrp: 800
-  threshold: 0.9
-  n_ambig: 5
+  max_length_rdrp: 700
+
+  opt_length_vp1: 350
+  max_length_vp1: 600
+
+  threshold_rdrp: 0.85
+  threshold_vp1: 0.85
+
+  n_ambig_rdrp: 4
+  n_ambig_vp1: 5
+
   #database: #location of the BLAST db
 
 # optional arguments to varvamp:

@@ -18,31 +18,32 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as f:
 SELECTED_PRIMERS = PROJECT_ROOT / Path(config["paths"]["input_dir"]) 
 
 INPUT_FASTA = PROJECT_ROOT / Path(config["paths"]["input_fasta"])
+INPUT_SHORT_FASTA = PROJECT_ROOT / Path(config["paths"]["small_input_fasta"])
 EXTRACTED_FASTA = PROJECT_ROOT / Path(config["paths"]["extracted_fasta"])
 OUTPUT_FASTA_DIR = PROJECT_ROOT / Path(config["paths"]["output_fasta_dir"])
 
 TYPING_DIR = PROJECT_ROOT / Path(config["paths"]["web_crawler_dir"])
 
-COMBINED_PRIMERS: Path = PROJECT_ROOT / Path(
-    pt.extract_amplicons(
-        SELECTED_PRIMERS,
-        'LEFT',
-        SELECTED_PRIMERS,
-        'RIGHT',
-        INPUT_FASTA,
-        OUTPUT_FASTA_DIR
-    )
-)
+# COMBINED_PRIMERS: Path = PROJECT_ROOT / Path(
+#     pt.extract_amplicons(
+#         SELECTED_PRIMERS,
+#         '3',
+#         SELECTED_PRIMERS,
+#         '3',
+#         INPUT_FASTA,
+#         OUTPUT_FASTA_DIR
+#     )
+# )
 
-##kommentera in detta när vi ska köra ett nytt jobb
-pt.typing_tool_intialise(
-    COMBINED_PRIMERS,
-    "fist run"
-)
+#kommentera in detta när vi ska köra ett nytt jobb
+# pt.typing_tool_intialise(
+#     COMBINED_PRIMERS,
+#     "primer_pair_3_full_length_run"
+# )
 
 COMBINED_TYPING_CSV: Path | None = pt.typing_tool_get_results(
     TYPING_DIR,
-    "first run"
+    "primer_pair_3_full_length_run"
 )
 if COMBINED_TYPING_CSV is None:
     print(f"Typing tool results are not finished yet. Halting pipeline.")

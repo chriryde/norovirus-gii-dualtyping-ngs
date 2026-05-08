@@ -22,14 +22,14 @@ def extract_amplicons(
     OUTPUT_DIR: Path
     )-> Path:
     
-    left_primer = left_primer
-    right_primer = right_primer
+    left_primer = f'LEFT_{left_primer}'
+    right_primer = f'RIGHT_{right_primer}'
 
     start = 0
     with open(LEFT_PRIMER_FILE, 'r') as file:
         tsv_reader = csv.reader(file, delimiter='\t')
-        print(left_primer)
         for row in tsv_reader:
+            print(row[0])
             if left_primer == row[0]:
                 print(row[4])
                 start = int(row[4])
@@ -233,7 +233,8 @@ def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY, ambiguous_bases,
 
     try:
         cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
-                '-db', str(REFERENCE_LIBRARY), '-a', str(ambiguous_bases), str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
+                '-db', str(REFERENCE_LIBRARY), '-a', str(ambiguous_bases),
+                 str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
         deduplicated_filtered = subprocess.run(
             cmd,
             check=True
