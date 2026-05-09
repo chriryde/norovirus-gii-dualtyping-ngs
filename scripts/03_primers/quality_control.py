@@ -10,7 +10,7 @@ CONFIG_PATH = PROJECT_ROOT / "config" / "fetch_to_primer.yml"
 with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 
-TEMPORARY_WEB_CRAWLER_DATA_CSV = PROJECT_ROOT / Path(config["paths"]["web_crawler_data"]) / "test_typing_data.csv"
+WEB_CRAWLER_DATA_CSV = PROJECT_ROOT / Path(config["paths"]["web_crawler_data"]) / "primer_pair_3_full_length_run_typing_results_20260508_190326.csv"
 REFERENCE_SEQUENCE_CSV = Path(config["paths"]["complete_specification"])
 
 all_typed_sequences = {}
@@ -25,7 +25,7 @@ missmatches_vp1_detailed = defaultdict(list)
 
 
 
-with open(TEMPORARY_WEB_CRAWLER_DATA_CSV, 'r') as file:
+with open(WEB_CRAWLER_DATA_CSV, 'r') as file:
     csv_reader = csv.DictReader(file, delimiter=',')
     next(csv_reader)
     for row in csv_reader:
