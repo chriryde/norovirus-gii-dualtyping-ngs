@@ -6,7 +6,7 @@ import yaml
 PRIMER_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = PRIMER_DIR.parent.parent
 
-CONFIG_PATH = PROJECT_ROOT / "config" / "amplicon_typing.yml"
+CONFIG_PATH = PROJECT_ROOT / "config" / "typing.yml"
 
 with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
