@@ -19,15 +19,15 @@ OUTPUT_FASTA_DIR = PROJECT_ROOT / Path(config["paths"]["output_partials_fasta_di
 
 TYPING_DIR = PROJECT_ROOT / Path(config["paths"]["web_crawler_dir"])
 
-##kommentera in detta när vi ska köra ett nytt jobb
-# pt.typing_tool_intialise(
-#     EXTRACTED_FASTA,
-#     "primer_pair_3_rdrp_run"
-# )
+#kommentera in detta när vi ska köra ett nytt jobb
+pt.typing_tool_intialise(
+    EXTRACTED_FASTA,
+    "primer_pair_3_rdrp_run_2"
+)
 
 RDRPD_TYPING_CSV: Path | None = pt.typing_tool_get_results(
     TYPING_DIR,
-    "primer_pair_3_rdrp_run"
+    "primer_pair_3_rdrp_run_2"
 )
 if RDRPD_TYPING_CSV is None:
     print(f"Typing tool results are not finished yet. Halting pipeline.")

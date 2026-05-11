@@ -10,8 +10,9 @@ CONFIG_PATH = PROJECT_ROOT / "config" / "fetch_to_primer.yml"
 with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 
+#WEB_CRAWLER_DATA_CSV_VP1 = PROJECT_ROOT / Path(config["paths"]["web_crawler_data"]) / "primer_pair_3_rdrp_run_typing_results_20260511_142616.csv"
 WEB_CRAWLER_DATA_CSV = PROJECT_ROOT / Path(config["paths"]["web_crawler_data"]) / "primer_pair_3_partial_vp1_run_typing_results_20260511_144109.csv"
-REFERENCE_SEQUENCE_CSV = Path(config["paths"]["complete_specification"])
+REFERENCE_SEQUENCE_CSV = Path(config["paths"]["merged_reference"])
 
 all_typed_sequences = {}
 all_reference_sequences = {}
@@ -64,8 +65,10 @@ for typed_sequence in all_typed_sequences.keys():
             missmatches_detailed[mismatch_key].append(typed_sequence)
     else:
         number_of_non_existant_accession_numbers += 1
-        print(f'error: accession number {typed_sequence} does not exist in reference file')
+        print(f'error: accession number {typed_sequence} does not exist in reference file')        
         continue
+
+print(matches)
 
 #check matches for rdrp
 for typed_sequence in all_typed_sequences.keys():
@@ -96,14 +99,14 @@ for typed_sequence in all_typed_sequences.keys():
         if all_typed_sequences[typed_sequence][1] == all_reference_sequences[typed_sequence][1]:
             matches_vp1.append(typed_sequence)
         else:
-            print(all_typed_sequences[typed_sequence][1])
-            print(all_reference_sequences[typed_sequence][1])
+            #print(all_typed_sequences[typed_sequence][1])
+            #print(all_reference_sequences[typed_sequence][1])
             mismatch_key = f"VP1 Typed: {typed_vp1}  Reference typed: {reference_vp1}"
             missmatches_vp1_detailed[mismatch_key].append(typed_sequence)
     else:
         continue
 
-total = len(all_typed_sequences) - number_of_non_existant_accession_numbers
+total = len(all_typed_sequences) 
 
 print(f"\nTotal results:")
 print(f"  Correctly typed (both): {len(matches)}/{total} ({100*len(matches)/total:.1f}%)")
