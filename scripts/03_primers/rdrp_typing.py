@@ -8,7 +8,7 @@ from pathlib import Path
 PRIMER_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = PRIMER_DIR.parent.parent
 
-CONFIG_PATH = PROJECT_ROOT / "config" / "amplicon_typing.yml"
+CONFIG_PATH = PROJECT_ROOT / "config" / "typing.yml"
 
 with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
@@ -114,7 +114,7 @@ def extract_from_primer_to_end(input_fasta, rdrp_primer, output_fasta):
                 stop = len(genome_seq)
                 extracted_seq = genome_seq[start:stop]
 
-                out.write(f">{record.id}_region_{start}_to_{stop}\n")
+                out.write(f">{record.id}_region_{start}_{stop}\n")
                 out.write(extracted_seq + "\n")
 
             elif len(matches) > 1:

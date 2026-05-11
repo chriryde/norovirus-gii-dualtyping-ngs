@@ -14,7 +14,7 @@ paths:
   output_partials_fasta_dir: data/03_primer_evaluation/novel/fasta/output_partials
 
   ## partials
-  web_crawler_dir_partials: data/03_primer_evaluation/novel/fasta/web_crawler_data/partials
+  #web_crawler_dir_partials: data/03_primer_evaluation/novel/fasta/web_crawler_data/partials
 
   vp1_partial: data/02_alignments/msa_inputs/capsid.fasta
   output_fasta_vp1_amplicon: data/03_primer_evaluation/novel/fasta/vp1_partial_amplicon_for_typing.fasta
