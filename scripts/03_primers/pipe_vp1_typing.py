@@ -17,19 +17,19 @@ INPUT_FASTA = PROJECT_ROOT / Path(config["paths"]["vp1_partial"])
 EXTRACTED_FASTA = PROJECT_ROOT / Path(config["paths"]["output_fasta_vp1_amplicon"])
 OUTPUT_FASTA_DIR = PROJECT_ROOT / Path(config["paths"]["output_partials_fasta_dir"])
 
-TYPING_DIR = PROJECT_ROOT / Path(config["paths"]["web_crawler_dir_partials"])
+TYPING_DIR = PROJECT_ROOT / Path(config["paths"]["web_crawler_dir"])
 
 #kommentera in detta när vi ska köra ett nytt jobb
 # pt.typing_tool_intialise(
-#     COMBINED_PRIMERS,
-#     "primer_pair_3_full_length_run"
+#     EXTRACTED_FASTA,
+#     "primer_pair_3_partial_vp1_run"
 # )
 
-COMBINED_TYPING_CSV: Path | None = pt.typing_tool_get_results(
+VP1_TYPING_CSV: Path | None = pt.typing_tool_get_results(
     TYPING_DIR,
-    "primer_pair_3_rdrp_typing"
+    "primer_pair_3_partial_vp1_run"
 )
-if COMBINED_TYPING_CSV is None:
+if VP1_TYPING_CSV is None:
     print(f"Typing tool results are not finished yet. Halting pipeline.")
     raise SystemExit
 
