@@ -1,0 +1,12 @@
+>forward_primer
+GGTGATGATGARATWGTSAGCAC
+>reverse_primer
+CWGCWGTGAACGCRTTCCC
+>reverse_compliment_reverse_primer
+GGGAAGCGYTTCACWGCWG
+>Livsmedelsverket_fw_primer_inner
+CNTGGGAGGGCGATCGCAA
+>Livsmedelsverket_rw_primer_inner
+ATACCACCAGCATRHCCRTTRTA
+>reverse_compliment_Livsmedelsverket_rw_primer_inner
+TAYAAYGYYGDTAYGGGTGGTAT
