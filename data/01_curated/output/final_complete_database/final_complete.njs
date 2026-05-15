@@ -6,7 +6,7 @@
   "description": "data/01_curated/output/final_complete_database/final_complete.combined.fasta",
   "number-of-letters": 9240677,
   "number-of-sequences": 1226,
-  "last-updated": "2026-05-13T16:25:00",
+  "last-updated": "2026-05-15T23:06:00",
   "number-of-volumes": 1,
   "bytes-total": 2702401,
   "bytes-to-cache": 2329566,
