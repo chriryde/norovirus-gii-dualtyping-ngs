@@ -22,11 +22,18 @@ paths_config = config["paths"]
 ##########
 
 
-## runs global alignment, stores raw msa file + global log file
-GLOBAL_FASTA, GLOBAL_LOG = at.alignment(
-    PROJECT_ROOT / paths_config["final_global"], 
-    PROJECT_ROOT / paths_config["output_global"],
-    PROJECT_ROOT /paths_config['global_log']
+# ## runs global alignment, stores raw msa file + global log file
+# GLOBAL_FASTA, GLOBAL_LOG = at.alignment(
+#     PROJECT_ROOT / paths_config["final_global"], 
+#     PROJECT_ROOT / paths_config["output_global"],
+#     PROJECT_ROOT /paths_config['global_log']
+# ) 
+
+## runs new global with added full genomes, stores raw msa file + global log file
+GLOBAL_WITH_ADDED_FASTA, GLOBAL_WITH_ADDED_LOG = at.alignment(
+    PROJECT_ROOT / paths_config["final_global_with_added"], 
+    PROJECT_ROOT / paths_config["output_global_with_added"],
+    PROJECT_ROOT /paths_config['global_with_added_log']
 ) 
 
 # # # ## runs rdrp alignment, stores raw msa file + rdrp log file
