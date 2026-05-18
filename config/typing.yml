@@ -18,6 +18,7 @@ paths:
 
   vp1_partial: data/02_alignments/msa_inputs/capsid.fasta
   output_fasta_vp1_amplicon: data/03_primer_evaluation/novel/fasta/vp1_partial_amplicon_for_typing.fasta
+  output_fasta_vp1_amplicon_ny_kort : data/03_primer_evaluation/novel/fasta/short_vp1_partial_amplicon_for_typing.fasta
 
   rdrp_partial: data/02_alignments/msa_inputs/polymerase_correct_1.fasta
   output_fasta_rdrp: data/03_primer_evaluation/novel/fasta/rdrp_partial_amplicon_for_typing.fasta

@@ -14,20 +14,22 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as f:
 
 
 INPUT_FASTA = PROJECT_ROOT / Path(config["paths"]["vp1_partial"])
-EXTRACTED_FASTA = PROJECT_ROOT / Path(config["paths"]["output_fasta_vp1_amplicon"])
-OUTPUT_FASTA_DIR = PROJECT_ROOT / Path(config["paths"]["output_partials_fasta_dir"])
+EXTRACTED_FASTA = PROJECT_ROOT / Path(config["paths"]["output_fasta_vp1_amplicon_ny_kort"])
+OUTPUT_FASTA_DIR = PROJECT_ROOT / Path(config["paths"]["output_fasta_dir"])
 
 TYPING_DIR = PROJECT_ROOT / Path(config["paths"]["web_crawler_dir"])
 
-#kommentera in detta när vi ska köra ett nytt jobb
+##kommentera in detta när vi ska köra ett nytt jobb
 # pt.typing_tool_intialise(
 #     EXTRACTED_FASTA,
-#     "primer_pair_3_partial_vp1_run"
+##     "primer_pair_3_partial_vp1_run"
+# #    "short_vp1_primer_pair_3"
 # )
 
 VP1_TYPING_CSV: Path | None = pt.typing_tool_get_results(
     TYPING_DIR,
-    "primer_pair_3_partial_vp1_run"
+   ## "primer_pair_3_partial_vp1_run"
+    ##"short_vp1_primer_pair_3"
 )
 if VP1_TYPING_CSV is None:
     print(f"Typing tool results are not finished yet. Halting pipeline.")

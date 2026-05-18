@@ -21,7 +21,7 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 
 VP1_FASTA = PROJECT_ROOT/ Path(config['paths']['vp1_partial'])
-OUTPUT_FASTA_VP1 = PROJECT_ROOT / Path(config["paths"]["output_fasta_vp1_amplicon"])
+OUTPUT_FASTA_VP1 = PROJECT_ROOT / Path(config["paths"]["output_fasta_vp1_amplicon_ny_kort"])
 
 IUPAC = {
     "A": {"A"},
@@ -42,7 +42,9 @@ IUPAC = {
     "N": {"A", "C", "G", "T"},
 }
 
-VP1_primer = 'CWGCWGTGAACGCRTTCCC'
+#VP1_primer = 'CWGCWGTGAACGCRTTCCC'
+VP1_primer = 'GCAAGCCCCTAATGGTGAGTTT'
+
 
 def iupac_mismatches(primer, target):
     mismatches = 0
@@ -105,13 +107,13 @@ def type_VP1(OUTPUT_FASTA_VP1, VP1_FASTA, primer):
     with open(OUTPUT_FASTA_VP1, "w") as out:
             for record in SeqIO.parse(VP1_FASTA, "fasta"):
                 primer_coord = find_best_iupac_match(primer, record)['end']
-                if 330 < primer_coord < 350:
-                    extracted_seq = record.seq[start:primer_coord] ####
+                #if 330 < primer_coord < 350:
+                extracted_seq = record.seq[start:primer_coord] ####
                     
-                    assert(extracted_seq)
-                    out.write(f">{record.id}_region_{start}_{primer_coord}\n")
-                    out.write(str(extracted_seq) + "\n")
-                else:
-                    print('sequence out of range')
+                assert(extracted_seq)
+                out.write(f">{record.id}_region_{start}_{primer_coord}\n")
+                out.write(str(extracted_seq) + "\n")
+            # else:
+            #     print('sequence out of range')
 
 type_VP1(OUTPUT_FASTA_VP1, VP1_FASTA, VP1_primer)

@@ -10,9 +10,25 @@ CONFIG_PATH = PROJECT_ROOT / "config" / "fetch_to_primer.yml"
 with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 
+##paths for longer amplicon
 #WEB_CRAWLER_DATA_CSV_VP1 = PROJECT_ROOT / Path(config["paths"]["web_crawler_data"]) / "primer_pair_3_rdrp_run_typing_results_20260511_142616.csv"
 WEB_CRAWLER_DATA_CSV = PROJECT_ROOT / Path(config["paths"]["web_crawler_data"]) / "primer_pair_3_partial_vp1_run_typing_results_20260511_144109.csv"
 REFERENCE_SEQUENCE_CSV = Path(config["paths"]["merged_reference"])
+
+##paths for short amplicon
+# WEB_CRAWLER_DATA_CSV = PROJECT_ROOT / Path(config["paths"]["web_crawler_data_short"])
+# REFERENCE_SEQUENCE_CSV = PROJECT_ROOT / Path(config["paths"]["complete_specification"])
+
+
+# PRIMER_DIR = Path(__file__).resolve().parent
+# PROJECT_ROOT = PRIMER_DIR.parent.parent
+
+# CONFIG_PATH = PROJECT_ROOT / "config" / "fetch_to_primer.yml"
+# with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+#     config = yaml.safe_load(f)
+
+# WEB_CRAWLER_DATA_CSV = PROJECT_ROOT / Path(config["paths"]["web_crawler_data_short"]) 
+# REFERENCE_SEQUENCE_CSV = Path(config["paths"]["complete_specification"])
 
 all_typed_sequences = {}
 all_reference_sequences = {}
