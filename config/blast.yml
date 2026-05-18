@@ -1,0 +1,8 @@
+paths:
+  primer_candidates: data/03_primer_evaluation/novel/fasta/primer_candidates.fna
+  primer_converted: data/04_pcr_blast/primer_panels/all_primers.fna
+  fasta_input: data/01_curated/output/final_complete.fna
+  blast_output: data/04_pcr_blast/assayblast/blast_results.tsv
+  assay_analysis: data/04_pcr_blast/assayblast/assay_analysis.tsv
+
+  expand_script: scripts/04_pcr/expand_degenrate_primers.py
