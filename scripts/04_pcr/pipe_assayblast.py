@@ -62,7 +62,7 @@ cmd_analyze = [
     "-o", str(ANALYZE_OUTPUT),
     "--mismatch", "3",
     "--only-primer",
-    "--distance", "1000"
+    "--distance", "5000"
 ]
 
 result = subprocess.run(

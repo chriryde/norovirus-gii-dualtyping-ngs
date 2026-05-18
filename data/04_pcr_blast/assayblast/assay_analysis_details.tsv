@@ -747,38 +747,38 @@ PQ373142.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 PQ373142.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M3,1	D797	4604:4626:+,5424:5442:-
 PQ373142.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M3,3	D797	4604:4626:+,5424:5442:-
 PQ373142.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M3,2	D797	4604:4626:+,5424:5442:-
-PQ100946.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
-PQ100946.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
+PQ100946.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
+PQ100946.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
 PQ100946.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M1	D	5409:5427:-
-PQ100946.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
-PQ100946.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
-PQ100946.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
-PQ100946.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
-PQ100946.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
-PQ100947.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
-PQ100947.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
+PQ100946.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
+PQ100946.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
+PQ100946.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
+PQ100946.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
+PQ100946.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
+PQ100947.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
+PQ100947.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
 PQ100947.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M1	D	5409:5427:-
-PQ100947.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
-PQ100947.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
-PQ100947.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
-PQ100947.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
-PQ100947.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
-PQ100948.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
-PQ100948.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
+PQ100947.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
+PQ100947.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
+PQ100947.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
+PQ100947.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
+PQ100947.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
+PQ100948.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
+PQ100948.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
 PQ100948.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M1	D	5409:5427:-
-PQ100948.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
-PQ100948.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
-PQ100948.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
-PQ100948.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
-PQ100948.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
-PQ100949.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
-PQ100949.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
+PQ100948.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
+PQ100948.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
+PQ100948.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
+PQ100948.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
+PQ100948.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
+PQ100949.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
+PQ100949.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
 PQ100949.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M1	D	5409:5427:-
-PQ100949.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
-PQ100949.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
-PQ100949.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
-PQ100949.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
-PQ100949.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
+PQ100949.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
+PQ100949.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
+PQ100949.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
+PQ100949.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
+PQ100949.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
 PP498986.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
 PP498986.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 PP498986.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
@@ -1332,7 +1332,13 @@ OP686904.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 OP686904.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M1,3	D797	4595:4617:+,5415:5433:-
 OP686904.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M1,1	D797	4595:4617:+,5415:5433:-
 OP686904.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M1,2	D797	4595:4617:+,5415:5433:-
-OP686904.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (+)	+	pass	M3	D	61:79:+
+OP686904.1	reverse_primer_var1,forward_primer_var1	lin	reverse_primer_var1 (+),forward_primer_var1 (+)	++	FAIL	M3,1	D4515	61:79:+,4595:4617:+
+OP686904.1	reverse_primer_var1,forward_primer_var2	lin	reverse_primer_var1 (+),forward_primer_var2 (+)	++	FAIL	M3,2	D4515	61:79:+,4595:4617:+
+OP686904.1	reverse_primer_var1,forward_primer_var3	lin	reverse_primer_var1 (+),forward_primer_var3 (+)	++	FAIL	M3,2	D4515	61:79:+,4595:4617:+
+OP686904.1	reverse_primer_var1,forward_primer_var4	lin	reverse_primer_var1 (+),forward_primer_var4 (+)	++	FAIL	M3,3	D4515	61:79:+,4595:4617:+
+OP686904.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (+),forward_primer_var5 (+)	++	FAIL	M3,2	D4515	61:79:+,4595:4617:+
+OP686904.1	reverse_primer_var1,forward_primer_var6	lin	reverse_primer_var1 (+),forward_primer_var6 (+)	++	FAIL	M3,3	D4515	61:79:+,4595:4617:+
+OP686904.1	reverse_primer_var1,forward_primer_var7	lin	reverse_primer_var1 (+),forward_primer_var7 (+)	++	FAIL	M3,3	D4515	61:79:+,4595:4617:+
 OP689557.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
 OP689557.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 OP689557.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
@@ -2133,8 +2139,8 @@ MN447471.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),r
 MN447471.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),reverse_primer_var5 (-)	+-	pass	M3,3	D797	4589:4611:+,5409:5427:-
 MN447471.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M3,2	D797	4589:4611:+,5409:5427:-
 MN447471.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M3,3	D797	4589:4611:+,5409:5427:-
-MN453358.1	forward_primer_var1,reverse_primer_var4	lin	forward_primer_var1 (+)	+	pass	M1	D	4586:4608:+
-MN453359.1	forward_primer_var1,reverse_primer_var4	lin	forward_primer_var1 (+)	+	pass	M3	D	4586:4608:+
+MN453358.1	forward_primer_var1,reverse_primer_var2	lin	forward_primer_var1 (+)	+	pass	M1	D	4586:4608:+
+MN453359.1	forward_primer_var1,reverse_primer_var2	lin	forward_primer_var1 (+)	+	pass	M3	D	4586:4608:+
 MN525276.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
 MN525276.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 MN525276.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
@@ -2297,7 +2303,7 @@ MH979229.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 MH979229.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 MH979229.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 MH979229.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M3,1	D797	4595:4617:+,5415:5433:-
-MH979230.1	forward_primer_var1,reverse_primer_var4	lin	forward_primer_var1 (+)	+	pass	M3	D	4598:4620:+
+MH979230.1	forward_primer_var1,reverse_primer_var2	lin	forward_primer_var1 (+)	+	pass	M3	D	4598:4620:+
 MK282256.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M3,2	D797	4604:4626:+,5424:5442:-
 MK282256.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M3,1	D797	4604:4626:+,5424:5442:-
 MK282256.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M3,3	D797	4604:4626:+,5424:5442:-
@@ -2873,26 +2879,26 @@ MH218657.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 MH218657.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 MH218657.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 MH218657.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M3,1	D797	4595:4617:+,5415:5433:-
-MH218658.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M1	D	5409:5427:-
-MH218658.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5409:5427:-
+MH218658.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M1	D	5409:5427:-
+MH218658.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5409:5427:-
 MH218658.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M0	D	5409:5427:-
-MH218658.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5409:5427:-
-MH218658.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5409:5427:-
-MH218658.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5409:5427:-
-MH218658.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5409:5427:-
-MH218658.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M2	D	5409:5427:-
+MH218658.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5409:5427:-
+MH218658.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5409:5427:-
+MH218658.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5409:5427:-
+MH218658.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5409:5427:-
+MH218658.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M2	D	5409:5427:-
 MH218660.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M1,3	D797	4595:4617:+,5415:5433:-
 MH218660.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),reverse_primer_var5 (-)	+-	pass	M1,3	D797	4595:4617:+,5415:5433:-
 MH218660.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M1,2	D797	4595:4617:+,5415:5433:-
 MH218660.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M1,3	D797	4595:4617:+,5415:5433:-
-MH218661.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
-MH218661.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
+MH218661.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
+MH218661.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
 MH218661.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M1	D	5409:5427:-
-MH218661.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
-MH218661.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
-MH218661.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
-MH218661.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
-MH218661.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
+MH218661.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
+MH218661.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
+MH218661.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
+MH218661.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
+MH218661.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
 MH218662.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
 MH218662.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 MH218662.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
@@ -4884,14 +4890,14 @@ PV843276.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 PV843276.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 PV843276.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 PV843276.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M3,1	D797	4595:4617:+,5415:5433:-
-PV806172.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
-PV806172.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
+PV806172.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
+PV806172.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
 PV806172.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M1	D	5409:5427:-
-PV806172.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
-PV806172.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
-PV806172.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
-PV806172.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
-PV806172.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
+PV806172.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
+PV806172.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
+PV806172.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
+PV806172.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
+PV806172.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
 PV806173.1	forward_primer_var5,reverse_primer_var1	exp	forward_primer_var5 (+),reverse_primer_var1 (-)	+-	pass	M3,2	D797	4589:4611:+,5409:5427:-
 PV806173.1	forward_primer_var5,reverse_primer_var2	exp	forward_primer_var5 (+),reverse_primer_var2 (-)	+-	pass	M3,1	D797	4589:4611:+,5409:5427:-
 PV806173.1	forward_primer_var5,reverse_primer_var3	exp	forward_primer_var5 (+),reverse_primer_var3 (-)	+-	pass	M3,1	D797	4589:4611:+,5409:5427:-
@@ -5248,7 +5254,13 @@ OR546394.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 OR546394.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M1,3	D797	4591:4613:+,5411:5429:-
 OR546394.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M1,1	D797	4591:4613:+,5411:5429:-
 OR546394.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M1,2	D797	4591:4613:+,5411:5429:-
-OR546394.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (+)	+	pass	M3	D	57:75:+
+OR546394.1	reverse_primer_var1,forward_primer_var1	lin	reverse_primer_var1 (+),forward_primer_var1 (+)	++	FAIL	M3,1	D4515	57:75:+,4591:4613:+
+OR546394.1	reverse_primer_var1,forward_primer_var2	lin	reverse_primer_var1 (+),forward_primer_var2 (+)	++	FAIL	M3,2	D4515	57:75:+,4591:4613:+
+OR546394.1	reverse_primer_var1,forward_primer_var3	lin	reverse_primer_var1 (+),forward_primer_var3 (+)	++	FAIL	M3,2	D4515	57:75:+,4591:4613:+
+OR546394.1	reverse_primer_var1,forward_primer_var4	lin	reverse_primer_var1 (+),forward_primer_var4 (+)	++	FAIL	M3,3	D4515	57:75:+,4591:4613:+
+OR546394.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (+),forward_primer_var5 (+)	++	FAIL	M3,2	D4515	57:75:+,4591:4613:+
+OR546394.1	reverse_primer_var1,forward_primer_var6	lin	reverse_primer_var1 (+),forward_primer_var6 (+)	++	FAIL	M3,3	D4515	57:75:+,4591:4613:+
+OR546394.1	reverse_primer_var1,forward_primer_var7	lin	reverse_primer_var1 (+),forward_primer_var7 (+)	++	FAIL	M3,3	D4515	57:75:+,4591:4613:+
 OR546395.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M1,2	D797	4591:4613:+,5411:5429:-
 OR546395.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M1,3	D797	4591:4613:+,5411:5429:-
 OR546395.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M1,1	D797	4591:4613:+,5411:5429:-
@@ -5257,7 +5269,13 @@ OR546395.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 OR546395.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M1,3	D797	4591:4613:+,5411:5429:-
 OR546395.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M1,1	D797	4591:4613:+,5411:5429:-
 OR546395.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M1,2	D797	4591:4613:+,5411:5429:-
-OR546395.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (+)	+	pass	M3	D	57:75:+
+OR546395.1	reverse_primer_var1,forward_primer_var1	lin	reverse_primer_var1 (+),forward_primer_var1 (+)	++	FAIL	M3,1	D4515	57:75:+,4591:4613:+
+OR546395.1	reverse_primer_var1,forward_primer_var2	lin	reverse_primer_var1 (+),forward_primer_var2 (+)	++	FAIL	M3,2	D4515	57:75:+,4591:4613:+
+OR546395.1	reverse_primer_var1,forward_primer_var3	lin	reverse_primer_var1 (+),forward_primer_var3 (+)	++	FAIL	M3,2	D4515	57:75:+,4591:4613:+
+OR546395.1	reverse_primer_var1,forward_primer_var4	lin	reverse_primer_var1 (+),forward_primer_var4 (+)	++	FAIL	M3,3	D4515	57:75:+,4591:4613:+
+OR546395.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (+),forward_primer_var5 (+)	++	FAIL	M3,2	D4515	57:75:+,4591:4613:+
+OR546395.1	reverse_primer_var1,forward_primer_var6	lin	reverse_primer_var1 (+),forward_primer_var6 (+)	++	FAIL	M3,3	D4515	57:75:+,4591:4613:+
+OR546395.1	reverse_primer_var1,forward_primer_var7	lin	reverse_primer_var1 (+),forward_primer_var7 (+)	++	FAIL	M3,3	D4515	57:75:+,4591:4613:+
 OR546396.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M2,2	D797	4591:4613:+,5411:5429:-
 OR546396.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M2,3	D797	4591:4613:+,5411:5429:-
 OR546396.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M2,1	D797	4591:4613:+,5411:5429:-
@@ -5567,14 +5585,14 @@ OP609646.1	reverse_primer_var4,reverse_primer_var5	exp	reverse_primer_var4 (+),r
 OP609646.1	reverse_primer_var4,reverse_primer_var6	exp	reverse_primer_var4 (+),reverse_primer_var6 (-)	+-	pass	M3,1	D0	5411:5428:+,5415:5433:-
 OP609646.1	reverse_primer_var4,reverse_primer_var7	exp	reverse_primer_var4 (+),reverse_primer_var7 (-)	+-	pass	M3,3	D0	5411:5428:+,5415:5433:-
 OP609646.1	reverse_primer_var4,reverse_primer_var8	exp	reverse_primer_var4 (+),reverse_primer_var8 (-)	+-	pass	M3,2	D0	5411:5428:+,5415:5433:-
-ON706286.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M1	D	5405:5423:-
-ON706286.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5405:5423:-
+ON706286.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M1	D	5405:5423:-
+ON706286.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5405:5423:-
 ON706286.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M0	D	5405:5423:-
-ON706286.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5405:5423:-
-ON706286.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5405:5423:-
-ON706286.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5405:5423:-
-ON706286.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5405:5423:-
-ON706286.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M2	D	5405:5423:-
+ON706286.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5405:5423:-
+ON706286.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5405:5423:-
+ON706286.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5405:5423:-
+ON706286.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5405:5423:-
+ON706286.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M2	D	5405:5423:-
 MW581004.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M1,2	D797	4595:4617:+,5415:5433:-
 MW581004.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M1,1	D797	4595:4617:+,5415:5433:-
 MW581004.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M1,2	D797	4595:4617:+,5415:5433:-
@@ -7545,30 +7563,30 @@ MN588307.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 MN588307.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 MN588307.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
 MN588307.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
-MW284776.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M1	D	5409:5427:-
-MW284776.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5409:5427:-
+MW284776.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M1	D	5409:5427:-
+MW284776.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5409:5427:-
 MW284776.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M0	D	5409:5427:-
-MW284776.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5409:5427:-
-MW284776.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5409:5427:-
-MW284776.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5409:5427:-
-MW284776.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5409:5427:-
-MW284776.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M2	D	5409:5427:-
-MW284778.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M1	D	5409:5427:-
-MW284778.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5409:5427:-
+MW284776.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5409:5427:-
+MW284776.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5409:5427:-
+MW284776.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5409:5427:-
+MW284776.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5409:5427:-
+MW284776.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M2	D	5409:5427:-
+MW284778.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M1	D	5409:5427:-
+MW284778.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5409:5427:-
 MW284778.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M0	D	5409:5427:-
-MW284778.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5409:5427:-
-MW284778.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5409:5427:-
-MW284778.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5409:5427:-
-MW284778.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5409:5427:-
-MW284778.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M2	D	5409:5427:-
-MW284784.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M1	D	5409:5427:-
-MW284784.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5409:5427:-
+MW284778.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5409:5427:-
+MW284778.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5409:5427:-
+MW284778.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5409:5427:-
+MW284778.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5409:5427:-
+MW284778.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M2	D	5409:5427:-
+MW284784.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M1	D	5409:5427:-
+MW284784.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5409:5427:-
 MW284784.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M0	D	5409:5427:-
-MW284784.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5409:5427:-
-MW284784.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5409:5427:-
-MW284784.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5409:5427:-
-MW284784.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5409:5427:-
-MW284784.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M2	D	5409:5427:-
+MW284784.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5409:5427:-
+MW284784.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5409:5427:-
+MW284784.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5409:5427:-
+MW284784.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5409:5427:-
+MW284784.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M2	D	5409:5427:-
 MW009068.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M2,1	D797	4630:4652:+,5450:5468:-
 MW009068.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M2,0	D797	4630:4652:+,5450:5468:-
 MW009068.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M2,2	D797	4630:4652:+,5450:5468:-
@@ -7650,14 +7668,14 @@ KY947550.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 KY947550.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
 KY947550.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
 KY947550.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M3,2	D797	4595:4617:+,5415:5433:-
-PX631122.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
-PX631122.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
+PX631122.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
+PX631122.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
 PX631122.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M1	D	5409:5427:-
-PX631122.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
-PX631122.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
-PX631122.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
-PX631122.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
-PX631122.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
+PX631122.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
+PX631122.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
+PX631122.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
+PX631122.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
+PX631122.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
 OR793082.1	forward_primer_var3,reverse_primer_var1	exp	forward_primer_var3 (+),reverse_primer_var1 (-)	+-	pass	M3,3	D797	4591:4613:+,5411:5429:-
 OR793082.1	forward_primer_var3,reverse_primer_var2	exp	forward_primer_var3 (+),reverse_primer_var2 (-)	+-	pass	M3,2	D797	4591:4613:+,5411:5429:-
 OR793082.1	forward_primer_var3,reverse_primer_var3	exp	forward_primer_var3 (+),reverse_primer_var3 (-)	+-	pass	M3,2	D797	4591:4613:+,5411:5429:-
@@ -7754,14 +7772,14 @@ OR793094.1	forward_primer_var3,reverse_primer_var5	exp	forward_primer_var3 (+),r
 OR793094.1	forward_primer_var3,reverse_primer_var6	exp	forward_primer_var3 (+),reverse_primer_var6 (-)	+-	pass	M3,2	D797	4591:4613:+,5411:5429:-
 OR793094.1	forward_primer_var3,reverse_primer_var7	exp	forward_primer_var3 (+),reverse_primer_var7 (-)	+-	pass	M3,2	D797	4591:4613:+,5411:5429:-
 OR793094.1	forward_primer_var3,reverse_primer_var8	exp	forward_primer_var3 (+),reverse_primer_var8 (-)	+-	pass	M3,1	D797	4591:4613:+,5411:5429:-
-OR793097.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M1	D	5405:5423:-
-OR793097.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5405:5423:-
+OR793097.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M1	D	5405:5423:-
+OR793097.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M2	D	5405:5423:-
 OR793097.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M0	D	5405:5423:-
-OR793097.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5405:5423:-
-OR793097.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5405:5423:-
-OR793097.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5405:5423:-
-OR793097.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5405:5423:-
-OR793097.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M2	D	5405:5423:-
+OR793097.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M1	D	5405:5423:-
+OR793097.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M2	D	5405:5423:-
+OR793097.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M3	D	5405:5423:-
+OR793097.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M1	D	5405:5423:-
+OR793097.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M2	D	5405:5423:-
 OR793098.1	forward_primer_var1,reverse_primer_var1	exp	forward_primer_var1 (+),reverse_primer_var1 (-)	+-	pass	M3,3	D797	4600:4622:+,5420:5438:-
 OR793098.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M3,2	D797	4600:4622:+,5420:5438:-
 OR793098.1	forward_primer_var1,reverse_primer_var3	exp	forward_primer_var1 (+),reverse_primer_var3 (-)	+-	pass	M3,2	D797	4600:4622:+,5420:5438:-
@@ -8638,14 +8656,14 @@ PQ641315.1	forward_primer_var1,reverse_primer_var5	exp	forward_primer_var1 (+),r
 PQ641315.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M2,1	D797	4627:4649:+,5447:5465:-
 PQ641315.1	forward_primer_var1,reverse_primer_var7	exp	forward_primer_var1 (+),reverse_primer_var7 (-)	+-	pass	M2,3	D797	4627:4649:+,5447:5465:-
 PQ641315.1	forward_primer_var1,reverse_primer_var8	exp	forward_primer_var1 (+),reverse_primer_var8 (-)	+-	pass	M2,2	D797	4627:4649:+,5447:5465:-
-PQ507173.1	forward_primer_var4,reverse_primer_var1	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
-PQ507173.1	reverse_primer_var8,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
+PQ507173.1	reverse_primer_var1,forward_primer_var5	lin	reverse_primer_var1 (-)	-	pass	M2	D	5409:5427:-
+PQ507173.1	forward_primer_var4,reverse_primer_var2	lin	reverse_primer_var2 (-)	-	pass	M1	D	5409:5427:-
 PQ507173.1	forward_primer_var4,reverse_primer_var3	lin	reverse_primer_var3 (-)	-	pass	M1	D	5409:5427:-
-PQ507173.1	forward_primer_var3,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
-PQ507173.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
-PQ507173.1	forward_primer_var5,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
-PQ507173.1	forward_primer_var3,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
-PQ507173.1	reverse_primer_var8,reverse_primer_var5	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
+PQ507173.1	forward_primer_var5,reverse_primer_var4	lin	reverse_primer_var4 (-)	-	pass	M0	D	5409:5427:-
+PQ507173.1	forward_primer_var4,reverse_primer_var5	lin	reverse_primer_var5 (-)	-	pass	M3	D	5409:5427:-
+PQ507173.1	forward_primer_var3,reverse_primer_var6	lin	reverse_primer_var6 (-)	-	pass	M2	D	5409:5427:-
+PQ507173.1	reverse_primer_var8,reverse_primer_var7	lin	reverse_primer_var7 (-)	-	pass	M2	D	5409:5427:-
+PQ507173.1	reverse_primer_var8,reverse_primer_var8	lin	reverse_primer_var8 (-)	-	pass	M1	D	5409:5427:-
 PQ507174.1	forward_primer_var1,reverse_primer_var2	exp	forward_primer_var1 (+),reverse_primer_var2 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
 PQ507174.1	forward_primer_var1,reverse_primer_var4	exp	forward_primer_var1 (+),reverse_primer_var4 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-
 PQ507174.1	forward_primer_var1,reverse_primer_var6	exp	forward_primer_var1 (+),reverse_primer_var6 (-)	+-	pass	M3,3	D797	4595:4617:+,5415:5433:-

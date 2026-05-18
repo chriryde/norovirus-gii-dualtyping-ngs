@@ -1,7 +1,7 @@
-# File was written with BLAST outfmt=7, assay_blast v2.0. More information at the end of the file.
-# BLASTN 2.17.0+
+# File was written with BLAST outfmt=7, assay_blast v2.2. More information at the end of the file.
+# BLASTN 2.16.0+
 # Query: forward_primer_var1
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1215 hits found
 forward_primer_var1	PQ310234.1	95.652	23	1	0	1	23	4600	4622	0.015	31.8	plus	23
@@ -1219,9 +1219,9 @@ forward_primer_var1	PV275045.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var1	PV275044.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var1	PV275040.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var1	PX285872.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: forward_primer_var2
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1156 hits found
 forward_primer_var2	PQ310234.1	100.000	23	0	0	1	23	4600	4622	0.003	34.3	plus	23
@@ -2380,9 +2380,9 @@ forward_primer_var2	PQ215525.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var2	PX563327.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var2	PX285874.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var2	PX631121.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: forward_primer_var3
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1241 hits found
 forward_primer_var3	PQ207945.1	100.000	23	0	0	1	23	4610	4632	0.003	34.3	plus	23
@@ -3626,9 +3626,9 @@ forward_primer_var3	MW661284.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var3	MZ312111.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var3	OL898513.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var3	PP658552.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: forward_primer_var4
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1195 hits found
 forward_primer_var4	PP645200.1	100.000	23	0	0	1	23	4595	4617	0.003	34.3	plus	23
@@ -4826,9 +4826,9 @@ forward_primer_var4	OR069406.1	84.211	19	3	0	4	22	6567	6549	21	21.3	minus	23
 forward_primer_var4	MZ272475.1	84.211	19	3	0	4	22	6571	6553	21	21.3	minus	23
 forward_primer_var4	MZ272053.1	84.211	19	3	0	4	22	6571	6553	21	21.3	minus	23
 forward_primer_var4	OL898513.1	84.211	19	3	0	4	22	6571	6553	21	21.3	minus	23
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: forward_primer_var5
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1228 hits found
 forward_primer_var5	PP564829.1	95.652	23	1	0	1	23	4595	4617	0.015	31.8	plus	23
@@ -6059,9 +6059,9 @@ forward_primer_var5	PQ273190.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var5	PQ273185.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var5	PQ273184.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var5	PQ273182.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: forward_primer_var6
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1214 hits found
 forward_primer_var6	PQ304613.1	100.000	23	0	0	1	23	4600	4622	0.003	34.3	plus	23
@@ -7278,9 +7278,9 @@ forward_primer_var6	OK376254.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var6	OK376253.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var6	PQ273195.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
 forward_primer_var6	PX285872.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: forward_primer_var7
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1229 hits found
 forward_primer_var7	PP564829.1	100.000	23	0	0	1	23	4595	4617	0.003	34.3	plus	23
@@ -8512,9 +8512,9 @@ forward_primer_var7	PQ100949.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var7	PQ100948.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var7	PQ100947.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var7	PQ100946.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: forward_primer_var8
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1213 hits found
 forward_primer_var8	PQ304632.1	100.000	23	0	0	1	23	4596	4618	0.003	34.3	plus	23
@@ -9730,9 +9730,9 @@ forward_primer_var8	MW661284.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var8	MZ312111.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var8	OL898513.1	82.609	23	4	0	1	23	4589	4611	2.6	24.3	plus	23
 forward_primer_var8	OP686904.1	82.609	23	4	0	1	23	4595	4617	2.6	24.3	plus	23
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: reverse_primer_var1
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1068 hits found
 reverse_primer_var1	PQ304632.1	94.737	19	1	0	1	19	5434	5416	0.68	26.3	minus	19
@@ -10803,9 +10803,9 @@ reverse_primer_var1	PX285872.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var1	PX631121.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var1	PZ240506.1	84.211	19	3	0	1	19	5430	5412	21	21.3	minus	19
 reverse_primer_var1	PZ240487.1	84.211	19	3	0	1	19	5430	5412	21	21.3	minus	19
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: reverse_primer_var2
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1280 hits found
 reverse_primer_var2	PQ641315.1	100.000	19	0	0	1	19	5465	5447	0.12	28.8	minus	19
@@ -12088,9 +12088,9 @@ reverse_primer_var2	OL898506.1	84.211	19	3	0	1	19	5439	5421	21	21.3	minus	19
 reverse_primer_var2	OP686904.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var2	OR536475.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var2	PV275062.1	84.211	19	3	0	1	19	5451	5433	21	21.3	minus	19
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: reverse_primer_var3
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1205 hits found
 reverse_primer_var3	OR793097.1	100.000	19	0	0	1	19	5423	5405	0.12	28.8	minus	19
@@ -13298,9 +13298,9 @@ reverse_primer_var3	PZ221927.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var3	PZ221922.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var3	PZ221917.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var3	PZ221915.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: reverse_primer_var4
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1294 hits found
 reverse_primer_var4	PQ507173.1	100.000	19	0	0	1	19	5427	5409	0.12	28.8	minus	19
@@ -14597,9 +14597,9 @@ reverse_primer_var4	MW981327.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var4	OL943802.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var4	OL898511.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var4	PV275062.1	84.211	19	3	0	1	19	5451	5433	21	21.3	minus	19
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: reverse_primer_var5
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1209 hits found
 reverse_primer_var5	PQ304632.1	100.000	19	0	0	1	19	5434	5416	0.12	28.8	minus	19
@@ -15811,9 +15811,9 @@ reverse_primer_var5	PZ221927.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var5	PZ221922.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var5	PZ221917.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var5	PZ221915.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: reverse_primer_var6
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1300 hits found
 reverse_primer_var6	PQ304632.1	94.737	19	1	0	1	19	5434	5416	0.68	26.3	minus	19
@@ -17116,9 +17116,9 @@ reverse_primer_var6	OP901692.1	84.211	19	3	0	1	19	5427	5409	21	21.3	minus	19
 reverse_primer_var6	PQ310459.1	84.211	19	3	0	1	19	5442	5424	21	21.3	minus	19
 reverse_primer_var6	PQ304633.1	84.211	19	3	0	1	19	5443	5425	21	21.3	minus	19
 reverse_primer_var6	PQ273187.1	84.211	19	3	0	1	19	5427	5409	21	21.3	minus	19
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: reverse_primer_var7
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1205 hits found
 reverse_primer_var7	MK753033.1	100.000	19	0	0	1	19	5429	5411	0.12	28.8	minus	19
@@ -18326,9 +18326,9 @@ reverse_primer_var7	PX631121.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var7	PZ240506.1	84.211	19	3	0	1	19	5430	5412	21	21.3	minus	19
 reverse_primer_var7	PZ240487.1	84.211	19	3	0	1	19	5430	5412	21	21.3	minus	19
 reverse_primer_var7	PZ234772.1	84.211	19	3	0	1	19	5442	5424	21	21.3	minus	19
-# BLASTN 2.17.0+
+# BLASTN 2.16.0+
 # Query: reverse_primer_var8
-# Database: /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
+# Database: /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete
 # Fields: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject strand, query length
 # 1458 hits found
 reverse_primer_var8	KY947548.1	100.000	19	0	0	1	19	5429	5411	0.12	28.8	minus	19
@@ -19791,7 +19791,7 @@ reverse_primer_var8	PZ221917.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 reverse_primer_var8	PZ221915.1	84.211	19	3	0	1	19	5433	5415	21	21.3	minus	19
 # BLAST processed 16 queries
 #
-# assay_blast: Calculated evalue 104.2 from option mismatch=3
-# BLAST call: blastn -query /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/04_pcr_blast/primer_panels/all_primers.fna -db /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete -word_size 7 -gapopen 1000 -gapextend 1000 -reward 5 -penalty -4 -perc_identity 81.58 -qcov_hsp_perc 81.58 -evalue 104.2 -max_target_seqs 1000000000 -num_threads 1 -outfmt '7 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore sstrand qlen' -dust no -out /home/chriryde/courses/norovirus-gii-dualtyping-ngs/data/04_pcr_blast/assayblast/blast_results.tsv
+# assay_blast: Calculated evalue 135.09 from option mismatch=3
+# BLAST call: blastn -query /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/04_pcr_blast/primer_panels/all_primers.fna -db /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/01_curated/output/final_complete_database/final_complete -word_size 7 -gapopen 1000 -gapextend 1000 -reward 5 -penalty -4 -perc_identity 81.58 -qcov_hsp_perc 81.58 -evalue 135.09 -max_target_seqs 1000000000 -num_threads 1 -outfmt '7 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore sstrand qlen' -dust no -out /Users/karolinailieva/Documents/UU/Kandidatarbete/norovirus-gii-dualtyping-ngs/data/04_pcr_blast/assayblast/blast_results.tsv
 # queryids: forward_primer_var1 forward_primer_var2 forward_primer_var3 forward_primer_var4 forward_primer_var5 forward_primer_var6 forward_primer_var7 forward_primer_var8 reverse_primer_var1 reverse_primer_var2 reverse_primer_var3 reverse_primer_var4 reverse_primer_var5 reverse_primer_var6 reverse_primer_var7 reverse_primer_var8
 # sourceids: PZ221915.1 PZ221917.1 PZ221922.1 PZ221927.1 PZ234772.1 PZ240487.1 PZ240506.1 PZ136053.1 PZ136058.1 PX631121.1 PX285872.1 PX285874.1 PX563327.1 PV784272.1 PV784273.1 PV784275.1 PV784277.1 PV784279.1 PV784285.1 PV784287.1 PV784296.1 PV784297.1 PV784298.1 PV784302.1 PV784303.1 PV784304.1 PV784318.1 PV784323.1 PV784324.1 PV784331.1 PV784338.1 PV784344.1 PV784345.1 PV784347.1 PV750877.1 PV750882.1 PV750891.1 PV750894.1 PV765567.1 PV765571.1 PV635313.1 PV275040.1 PV275044.1 PV275045.1 PV275046.1 PV275052.1 PV275060.1 PV275062.1 PQ213436.1 PQ213437.1 PQ215525.1 PQ215528.1 PQ215538.1 PQ215539.1 PQ215540.1 PQ215541.1 PQ215542.1 PQ215543.1 PQ215544.1 PQ215545.1 PQ215546.1 PQ215575.1 PQ215578.1 PQ215579.1 PQ218468.1 PQ273182.1 PQ273184.1 PQ273185.1 PQ273187.1 PQ273190.1 PQ273194.1 PQ273195.1 PQ273196.1 PQ273200.1 PQ304610.1 PQ304611.1 PQ304614.1 PQ304633.1 PQ310235.1 PQ310459.1 PQ310518.1 PQ310519.1 PQ310520.1 PQ310521.1 PQ310522.1 PQ373120.1 PQ373121.1 PQ373122.1 PQ373123.1 PQ373124.1 PQ373126.1 PQ373127.1 PQ373131.1 PQ373132.1 PQ373133.1 PQ373138.1 PQ373139.1 PQ373140.1 PQ373142.1 PQ100946.1 PQ100947.1 PQ100948.1 PQ100949.1 PP498986.1 PP498987.1 PP498988.1 PP549876.1 PP549877.1 PP549878.1 PP549879.1 PP549880.1 PP549881.1 PP549882.1 PP549883.1 PP549884.1 PP549885.1 PP587392.1 PP587393.1 PP658552.1 PP658553.1 PP661667.1 OR844370.1 OR844371.1 OR844372.1 OR844373.1 OR844374.1 OR844375.1 OR844376.1 OR844377.1 OR844378.1 OR844379.1 OR844380.1 OR844381.1 OR844382.1 OR844383.1 PP381824.1 OR062612.1 OR262325.1 OR536466.1 OR536467.1 OR536468.1 OR536469.1 OR536470.1 OR536472.1 OR536473.1 OR536475.1 OR536476.1 OR536477.1 OR536478.1 OR536479.1 OR536480.1 OR536481.1 OR536482.1 OR536483.1 OR536484.1 OR536485.1 OR536486.1 OR536487.1 OR536488.1 OR536489.1 OR536490.1 OR536491.1 OR536492.1 OQ940068.1 OQ940069.1 OQ940070.1 OQ940071.1 OQ940072.1 OQ940073.1 OQ940074.1 OQ940075.1 OQ940076.1 OQ940077.1 OQ940078.1 OQ940079.1 OQ940080.1 OQ940081.1 OQ940082.1 OP901692.1 OP901693.1 OP901694.1 OQ342793.1 OP686903.1 OP686904.1 OP689557.1 OP689558.1 OP689689.1 OP690425.1 OP690426.1 OP690427.1 OP690505.1 OP712196.1 OP712197.1 OP712198.1 OP712199.1 OP037976.1 OP037977.1 OP037978.1 OP037979.1 OP037980.1 OP037981.1 OP037982.1 OP037983.1 ON329737.1 ON569431.1 OK376253.1 OK376254.1 OK376255.1 OK376256.1 OK376258.1 OK376259.1 OK376260.1 OK376261.1 OK376262.1 OK376263.1 OK376264.1 OL451532.1 OL451533.1 OL898506.1 OL898507.1 OL898508.1 OL898509.1 OL898510.1 OL898511.1 OL898512.1 OL898513.1 OL898514.1 OL898515.1 OL898516.1 OL913975.1 OL913976.1 OL913977.1 OL943799.1 OL943800.1 OL943801.1 OL943802.1 NC_039477.1 NC_040876.1 NC_044932.1 MZ291631.1 MZ312111.1 MW981327.1 MZ233536.1 MZ268408.1 MW661246.1 MW661253.1 MW661264.1 MW661266.1 MW661271.1 MW661272.1 MW661273.1 MW661274.1 MW661275.1 MW661278.1 MW661281.1 MW661282.1 MW661284.1 MW243610.2 MW305737.1 MT712130.1 MT712147.1 MT712157.1 MT720841.1 MT724793.1 MT725762.1 MT726225.1 MT729788.1 MT729791.1 MT731279.1 MT731332.1 MT738527.1 MT755733.1 MN853414.1 MN897754.1 MN897755.1 MN897756.1 MT026582.1 MT028542.1 MT029316.1 MT031761.1 MT031821.1 MT032004.1 MT232050.1 MT238671.1 MN400355.2 MN447470.1 MN447471.1 MN453358.1 MN453359.1 MN525276.1 MK752935.1 MK752936.1 MK752938.1 MK753015.1 MK753032.1 MK762621.1 MK762624.1 MK762635.1 MK762638.1 MK764016.1 MK764040.1 MK773584.1 MK789432.1 MK789435.1 MK934772.1 MK629457.1 MK641589.1 MK483908.2 MK483909.2 MH979229.1 MH979230.1 MK282256.1 MK282257.1 MK282258.1 MH413070.1 MH671553.1 MH218570.1 MH218571.1 MH218572.1 MH218573.1 MH218574.1 MH218575.1 MH218576.1 MH218577.1 MH218578.1 MH218579.1 MH218580.1 MH218581.1 MH218582.1 MH218583.1 MH218584.1 MH218585.1 MH218586.1 MH218587.1 MH218588.1 MH218589.1 MH218590.1 MH218591.1 MH218592.1 MH218593.1 MH218594.1 MH218595.1 MH218596.1 MH218597.1 MH218598.1 MH218599.1 MH218600.1 MH218601.1 MH218602.1 MH218603.1 MH218604.1 MH218605.1 MH218606.1 MH218607.1 MH218608.1 MH218609.1 MH218610.1 MH218611.1 MH218612.1 MH218613.1 MH218614.1 MH218615.1 MH218616.1 MH218617.1 MH218618.1 MH218619.1 MH218620.1 MH218621.1 MH218622.1 MH218623.1 MH218624.1 MH218625.1 MH218626.1 MH218627.1 MH218628.1 MH218629.1 MH218630.1 MH218631.1 MH218632.1 MH218633.1 MH218634.1 MH218635.1 MH218636.1 MH218637.1 MH218638.1 MH218639.1 MH218640.1 MH218641.1 MH218642.1 MH218643.1 MH218644.1 MH218645.1 MH218646.1 MH218650.1 MH218651.1 MH218652.1 MH218653.1 MH218654.1 MH218655.1 MH218657.1 MH218658.1 MH218660.1 MH218661.1 MH218662.1 MH218663.1 MH218665.1 MH218666.1 MH218667.1 MH218668.1 MH218669.1 MH218670.1 MH218671.1 MH218672.1 MH218673.1 MH218674.1 MH218675.1 MH218676.1 MH218677.1 MH218678.1 MH218679.1 MH218680.1 MH218681.1 MH218682.1 MH218683.1 MH218684.1 MH218685.1 MH218686.1 MH218687.1 MH218688.1 MH218689.1 MH218690.1 MH218691.1 MH218692.1 MH218693.1 MH218694.1 MH218695.1 MH218696.1 MH218697.1 MH218698.1 MH218699.1 MH218700.1 MH218701.1 MH218702.1 MH218703.1 MH218704.1 MH218705.1 MH218706.1 MH218707.1 MH218708.1 MH218709.1 MH218710.1 MH218711.1 MH218712.1 MH218713.1 MH218714.1 MH218715.1 MH218716.1 MH218717.1 MH218718.1 MH218719.1 MH218731.1 MH218732.1 MH218733.1 MH218734.1 MH218735.1 MH218736.1 MH218737.1 MH218738.1 MH321825.1 MG892908.3 MG892929.3 MG892946.3 MG892953.3 MG892974.3 MG692610.1 MG706448.1 MG745985.1 MG745986.1 MG745987.1 MG745988.1 MG745989.1 MG745990.1 MG745991.1 MG745992.1 MG745993.1 MG745994.1 MG745995.1 MG745996.1 MG745997.1 MG745998.1 MG745999.1 MG746000.1 MG746001.1 MG746002.1 MG746003.1 MG746004.1 MG746005.1 MG746006.1 MG746007.1 MG746008.1 MG746009.1 MG746010.1 MG746011.1 MG746012.1 MG746013.1 MG746014.1 MG746015.1 MG746016.1 MG746017.1 MG746018.1 MG746019.1 MG746020.1 MG746021.1 MG746022.1 MG746023.1 MG746024.1 MG746025.1 MG746026.1 MG746027.1 MG746028.1 MG746029.1 MG746030.1 MG746031.1 MG746032.1 MG746033.1 MG746034.1 MG746035.1 MG746036.1 MG746037.1 MG746038.1 MG746039.1 MG746040.1 MG746041.1 MG746042.1 MG746043.1 MG746044.1 MG746045.1 MG049692.1 MG548737.1 MG572182.1 MG572719.1 MG572730.1 MG572731.1 MG572732.1 MF352142.1 MF352143.1 MF352144.1 LC868426.1 LC868427.1 LC868428.1 LC868429.1 LC868430.1 LC868431.1 LC868432.1 LC868433.1 LC868434.1 LC868435.1 LC868436.1 LC868437.1 LC868438.1 LC918507.1 LC918508.1 LC918509.1 LC918510.1 LC918511.1 LC918512.1 LC918513.1 LC918514.1 LC918515.1 LC918516.1 LC918517.1 LC918518.1 LC918519.1 LC918520.1 LC918521.1 LC918522.1 LC918523.1 LC918524.1 LC919492.1 LC769681.1 LC769682.1 LC769683.1 LC769684.1 LC769685.1 LC769688.1 LC769689.1 LC769691.1 LC769692.1 LC769693.1 LC769694.1 LC769695.1 LC769696.1 LC769697.1 LC769698.1 LC769699.1 LC769700.1 LC769701.1 LC769702.1 LC769703.1 LC769704.1 LC769705.1 LC769706.1 LC769707.1 LC769708.1 LC769709.1 LC769712.1 LC769713.1 LC769714.1 LC769715.1 LC777250.1 LC342059.1 LC369214.1 LC369215.1 LC369216.1 LC369217.1 LC369218.1 LC369219.1 LC369220.1 LC369221.1 LC369222.1 LC369224.1 LC369225.1 LC369227.1 LC369228.1 LC369229.1 LC369230.1 LC369231.1 LC369232.1 LC369233.1 LC369234.1 LC369235.1 LC369236.1 LC369237.1 LC369238.1 LC369239.1 LC369240.1 LC369241.1 LC369242.1 LC369243.1 LC369244.1 LC369245.1 LC369246.1 LC369247.1 LC369248.1 LC369249.1 LC369251.1 LC369252.1 LC369253.1 LC369254.1 LC369255.1 LC369256.1 LC369257.1 LC369258.1 KY905331.1 KY496327.1 KY210920.3 KY210980.3 KX586330.1 KT779557.1 KF895841.2 KF920739.4 KF944110.2 KF944111.3 HM596590.4 GU292831.4 PZ136054.1 PZ136057.1 PZ059667.1 PZ059668.1 PZ059669.1 PZ059670.1 PZ059671.1 PZ059672.1 PV902474.1 PV843276.1 PV806172.1 PV806173.1 PV806174.1 PV765565.1 PV765568.1 PV765570.1 PV746275.1 PV746276.1 PV746277.1 PV746278.1 PV655189.1 PV636607.1 PQ461161.1 PV588655.1 PV588656.1 PV588657.1 PV588658.1 PV588796.1 PV588797.1 PV553834.1 PP498989.1 OR536443.1 OR536445.1 OR536446.1 OR536448.1 OR536449.1 OR536451.1 OR536452.1 OR536453.1 OR536455.1 OR536456.1 OR536461.1 OR536463.1 OR536471.1 OR536474.1 OR536495.1 OR536496.1 OR536497.1 OR536498.1 OR536499.1 PP381831.1 PP267279.1 PP267284.1 PP267285.1 PP267298.1 OR546391.1 OR546392.1 OR546393.1 OR546394.1 OR546395.1 OR546396.1 OR546397.1 OR546398.1 OR546399.1 OR546400.1 OR397766.1 OR397767.1 OR397768.1 OR397769.1 OR397770.1 OR397771.1 OR397772.1 OR397773.1 OR397774.1 OR397775.1 OR397776.1 OR397777.1 OR397778.1 OR397779.1 OR397780.1 OR397781.1 OR397782.1 OR397783.1 OR397784.1 OR397785.1 OR397786.1 OR397787.1 OR397788.1 OP691294.1 OP691295.1 OP609644.1 OP609645.1 OP609646.1 ON706286.1 MW581004.1 MW581005.1 MW581006.1 MW581007.1 MW581008.1 MW581009.1 MW581010.1 MW581011.1 MW581012.1 MZ292759.1 MZ292794.1 MZ291623.1 MZ291626.1 MZ291632.1 MZ291634.1 MZ268407.1 MZ272053.1 MZ272475.1 MZ265063.2 MZ265142.1 MZ265418.1 MZ265480.1 MZ233435.1 MW661247.1 MW661251.1 MW661252.1 MW661254.1 MW661255.1 MW661257.1 MW661258.1 MW661259.1 MW661260.1 MW661261.1 MW661262.1 MW661263.1 MW661265.1 MW661267.1 MW661268.1 MW661269.1 MW661270.1 MW661277.1 MW661279.1 MW661280.1 MW661283.1 MT233268.1 MT218311.1 MT242482.1 MT316122.1 MT158850.1 MT158851.1 MT158852.1 MT158853.1 MT158854.1 MT158855.1 MT158856.1 MT158857.1 MT158858.1 MT158859.1 MT158860.1 MT158861.1 MT158862.1 MN394542.1 MN307993.1 MN307995.1 MN307996.1 MN307997.1 MN307998.1 MN307999.1 MN308001.1 MN308002.1 MN308003.1 MN308008.1 MN308010.1 MN308012.1 MN308014.1 MN308015.1 MN308017.1 MN308018.1 MN308019.1 MN308020.1 MN199033.1 MK614124.1 MK614125.1 MK614126.1 MK614127.1 MK614128.1 MK614129.1 MK614130.1 MK614131.1 MK614132.1 MK614133.1 MK614134.1 MK614135.1 MK614136.1 MK614137.1 MK775029.1 MK775032.1 MK773585.1 MK773587.1 MK762558.1 MK762560.1 MK762564.1 MK762566.1 MK762568.1 MK762626.1 MK762627.1 MK762629.1 MK762632.1 MK762633.1 MK762636.1 MK762637.1 MK762745.1 MK762746.1 MK764013.1 MK764014.1 MK764015.1 MK764021.1 MK764022.1 MK764039.1 MK764041.1 MH041321.1 MH041322.1 MK752934.1 MK752937.1 MK752939.1 MK752941.1 MK752942.1 MK752946.1 MK752947.1 MK753007.1 MK753008.1 MK753009.1 MK753010.1 MK753012.1 MK753016.1 MK753033.1 MK753034.1 MK753035.1 MK753036.1 MK754442.1 MK754443.1 MK754445.1 MK754447.1 MK756034.1 MK756035.1 MK729086.1 MG214988.1 MG002632.1 MG002634.1 PQ196508.1 PQ196512.1 PQ196514.1 PQ196516.1 PQ196517.1 PQ196518.1 PQ196520.1 PQ196523.1 PQ196525.1 PQ196526.1 PQ196528.1 PQ196529.1 PQ196530.1 PQ196532.1 PQ196533.1 PQ196534.1 PQ196536.1 PQ196537.1 PQ196538.1 PQ196539.1 PQ196541.1 PQ196543.1 PQ196546.1 PQ196547.1 PQ196549.1 PQ196551.1 PQ196556.1 PQ196557.1 PQ196561.1 PQ196562.1 PQ196564.1 PQ196565.1 PQ196566.1 PQ196568.1 PV297973.1 PV275041.1 PV275048.1 PV275055.1 PV275057.1 PV275059.1 PV275064.1 PV275065.1 PV275066.1 PV275069.1 PV174239.1 PV174243.1 PV174244.1 PV174245.1 OR713748.1 OR700741.1 OR700742.1 OR700746.1 OR685283.1 OR069404.1 OR051787.1 OR051903.1 OR051927.1 OR065073.1 OR065090.1 OR069405.1 OR069406.1 MZ478140.1 OL826940.1 OL826941.1 OL826942.1 OL826943.1 OL721917.1 LC597111.1 LC597112.1 LC597113.1 LC597120.1 LC597121.1 LC597124.1 LC597126.1 LC597127.1 LC597132.1 MT735394.1 MN588299.1 MN588300.1 MN588301.1 MN588302.1 MN588303.1 MN588304.1 MN588305.1 MN588306.1 MN588307.1 MW284776.1 MW284778.1 MW284784.1 MW009068.1 MW009072.1 KY865306.1 KY865307.1 KY947546.1 KY947547.1 KY947548.1 KY947549.1 KY947550.1 PX631122.1 OR793082.1 OR793083.1 OR793084.1 OR793086.1 OR793087.1 OR793088.1 OR793089.1 OR793090.1 OR793091.1 OR793092.1 OR793093.1 OR793094.1 OR793097.1 OR793098.1 OR793099.1 OR793100.1 OR793101.1 PV750886.1 PV750898.1 PV784278.1 PV784280.1 PQ475911.1 PQ482378.1 PQ482379.1 PQ482380.1 PQ273191.1 PQ273192.1 PQ195879.1 PQ195881.1 PQ195882.1 PQ195883.1 PQ195885.1 PQ195886.1 PQ195887.1 PQ195888.1 PQ195889.1 PQ195890.1 PQ195892.1 PQ195894.1 PQ195895.1 PQ195896.1 PQ195897.1 PQ195899.1 PQ195900.1 PQ195901.1 PQ195902.1 PQ195903.1 PQ195906.1 PQ195907.1 PQ195908.1 PQ195909.1 PQ195910.1 PQ195911.1 PQ195912.1 PQ195913.1 PQ195914.1 PQ195915.1 PQ195916.1 PQ195917.1 PQ195919.1 PQ195920.1 PQ195921.1 PQ195922.1 PQ195923.1 PQ195924.1 PQ195925.1 PQ195926.1 PQ195927.1 PQ195928.1 PQ195929.1 PQ195930.1 PQ195931.1 PQ195932.1 PQ195933.1 PQ195934.1 PQ195935.1 PQ195936.1 PQ195937.1 PQ195938.1 PQ195939.1 PQ195940.1 PQ195942.1 PQ195943.1 PQ195944.1 PQ195945.1 PQ195946.1 PQ195947.1 PQ195948.1 PQ195949.1 PQ195950.1 PQ195951.1 PQ195952.1 PQ207921.1 PQ207925.1 PQ207926.1 PQ207927.1 PQ207928.1 PQ207933.1 PQ207934.1 PQ207937.1 PQ207944.1 PQ207945.1 PQ207946.1 PQ207947.1 PQ208315.1 PQ208316.1 PQ208317.1 PQ208319.1 PQ208320.1 PQ208321.1 PQ208322.1 PQ208323.1 PQ208326.1 PQ208327.1 PQ208328.1 PQ208329.1 PQ214832.1 PQ214835.1 PQ214837.1 PQ215524.1 PQ215526.1 PQ219041.1 PQ641315.1 PQ507173.1 PQ507174.1 PQ507178.1 PQ507179.1 PQ442935.1 PQ442936.1 PQ442937.1 PQ373119.1 PQ373125.1 PQ373128.1 PQ373130.1 PQ373134.1 PQ373135.1 PQ373136.1 PQ373137.1 PQ373141.1 PQ373143.1 PQ373144.1 PQ373145.1 PQ373146.1 OP205527.1 OP205541.1 OP205566.1 OP205577.1 OP205578.1 OP205579.1 OP205580.1 OP205582.1 OR084256.1 OR084257.1 OR084258.1 OR084259.1 OR084260.1 OR084261.1 OR084262.1 OR084263.1 OR084264.1 OP805360.1 OP805361.1 OK376252.1 MT362912.1 MT409884.1 MK928496.1 MK928497.1 MK928498.1 MK928499.1 MH260483.1 MH260484.1 MH260485.1 MH260488.1 MH260490.1 MH260492.1 MH260502.1 MH260504.1 KJ710245.2 PV920370.1 PX285873.1 PQ308684.1 PQ308685.1 PQ308686.1 PQ308687.1 PQ308689.1 PQ310124.1 PQ310125.2 PQ310126.1 PQ310127.1 PQ310128.1 PQ310129.1 PQ310130.1 PQ310131.1 PQ310234.1 PQ310236.1 PQ304612.1 PQ304613.1 PQ304632.1 PP658551.1 PP658555.1 PP658557.1 PP658559.1 PP658560.1 PP658561.1 PP645199.1 PP645200.1 PP564826.1 PP564827.1 PP564828.1 PP564829.1 PP564830.1 PP564831.1 PP564832.1 PP564833.1 PP564834.1 MN525275.1 MN493873.1 KC962453.2 KC962462.3
