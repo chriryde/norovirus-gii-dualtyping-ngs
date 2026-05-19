@@ -1,14 +1,21 @@
 paths:
   primer_candidates: data/03_primer_evaluation/novel/fasta/primer_candidates.fna
   primer_converted: data/04_pcr_blast/primer_panels/all_primers.fna
-  fasta_input: data/01_curated/output/final_complete.fna
+  #fasta_input:  data/02_alignments/msa_inputs/final_global_with_added.fasta
+  fasta_input: data/04_pcr_blast/potential_off_targets.fasta
+  # fasta_input: /01_curated/output/final_complete.fna
   blast_output: data/04_pcr_blast/assayblast/blast_results.tsv
   assay_analysis: data/04_pcr_blast/assayblast/assay_analysis.tsv
 
   assay_details: data/04_pcr_blast/assayblast/assay_analysis_details.tsv
 
   amplicon_csv: data/04_pcr_blast/amplicon_predictions/amplicon.csv
-  specification_csv: data/01_curated/output/final_complete_specification.csv
+  # specification_csv: data/01_curated/output/final_complete_specification.csv
+  specification_csv: data/02_alignments/accessions/merged_csv.csv
   amplicon_specification_csv: data/04_pcr_blast/amplicon_predictions/amplicon_specification.csv
+  assayblast_specification_csv: data/04_pcr_blast/amplicon_predictions/assayblast_specification.csv
 
   expand_script: scripts/04_pcr/expand_degenrate_primers.py
+  # global_with_added: data/02_alignments/msa_inputs/final_global_with_added.fasta
+
+  #potential_offtargets_csv: data/04_pcr_blast/potential_off_targets.fasta

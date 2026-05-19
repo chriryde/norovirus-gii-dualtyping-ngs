@@ -25,7 +25,7 @@ AMPLICON_SPECIFICATION_CSV = PROJECT_ROOT / paths_config["amplicon_specification
 genome_dict, primer_interaction_dict = bv.check_amplicons(ASSAY_DETAILS)
 
 # print(genome_dict)
-# print(primer_interaction_dict)
+print(primer_interaction_dict)
 
 bv.passed_amplicons(genome_dict, AMPLICON_CSV)
 

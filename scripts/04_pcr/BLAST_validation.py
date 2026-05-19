@@ -20,14 +20,14 @@ def check_amplicons(input_csv):
         elif row['Genome'] not in genome_dict:
             genome_dict[row['Genome']] = [1, 0]
 
-            if row['Strand check'] == 'pass' and row['Amplification'] == 'exp' and row['Strand direction'] == '+-' and len(row['Distance']) > 1 and int(row['Distance'][1:]) > 600 and int(row['Distance'][1:]) < 900 and int(row['Location'][:4]) > 4550 and int(row['Location'][17:21]) < 5490:
+            if row['Strand check'] == 'pass' and row['Amplification'] == 'exp' and row['Strand direction'] == '+-' and len(row['Distance']) > 1 and int(row['Distance'][1:]) > 600 and int(row['Distance'][1:]) < 900:
                 genome_dict[row['Genome']][1] += 1
 
         else:
             genome_dict[row['Genome']][0] += 1
 
            
-            if row['Strand check'] == 'pass' and row['Amplification'] == 'exp' and row['Strand direction'] == '+-' and len(row['Distance']) > 1 and int(row['Distance'][1:]) > 600 and int(row['Distance'][1:]) < 900 and int(row['Location'][:4]) > 4550 and int(row['Location'][17:21]) < 5490:
+            if row['Strand check'] == 'pass' and row['Amplification'] == 'exp' and row['Strand direction'] == '+-' and len(row['Distance']) > 1 and int(row['Distance'][1:]) > 600 and int(row['Distance'][1:]) < 900: 
                 genome_dict[row['Genome']][1] += 1
 
     return (genome_dict, primer_interaction_dict)
