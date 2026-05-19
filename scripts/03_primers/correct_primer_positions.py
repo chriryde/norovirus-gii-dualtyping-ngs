@@ -6,8 +6,9 @@ import os
 ##change from original script; adding iupac lexion for degenerate bases:
 
 #pick allowed number of mismathces here
-allowed_n_mismathces = 4
-max_l_dist = 4
+allowed_n_mismathces = 2
+max_l_dist = 2
+
 
 IUPAC = {
     "A": {"A"},
@@ -52,6 +53,8 @@ def iupac_mismatches(primer, target):
 def find_iupac_matches(primer, reference, max_mismatch=allowed_n_mismathces):
     matches = []
     primer_len = len(primer)
+    reference = reference.upper()
+    
 
 
     for i in range(0, len(reference) - primer_len + 1):
