@@ -1,8 +1,8 @@
 paths:
   primer_candidates: data/03_primer_evaluation/novel/fasta/primer_candidates.fna
   primer_converted: data/04_pcr_blast/primer_panels/all_primers.fna
-  #fasta_input:  data/02_alignments/msa_inputs/final_global_with_added.fasta
-  fasta_input: data/04_pcr_blast/potential_off_targets.fasta
+  fasta_input:  data/02_alignments/msa_inputs/final_global_with_added.fasta
+  # fasta_input: data/04_pcr_blast/potential_off_targets.fasta
   # fasta_input: /01_curated/output/final_complete.fna
   blast_output: data/04_pcr_blast/assayblast/blast_results.tsv
   assay_analysis: data/04_pcr_blast/assayblast/assay_analysis.tsv
