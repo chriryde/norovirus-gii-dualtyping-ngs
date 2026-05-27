@@ -19,3 +19,6 @@ paths:
   # global_with_added: data/02_alignments/msa_inputs/final_global_with_added.fasta
 
   #potential_offtargets_csv: data/04_pcr_blast/potential_off_targets.fasta
+
+  all_amplicons_detials: data/04_pcr_blast/all_amplicons_detials.csv
+  correct_amplicons: data/04_pcr_blast/correct_amplicons.csv
