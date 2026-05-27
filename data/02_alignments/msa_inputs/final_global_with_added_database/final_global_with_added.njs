@@ -6,7 +6,7 @@
   "description": "/home/ida/projects/norovirus-gii-dualtyping-ngs/data/02_alignments/msa_inputs/final_global_with_added_database/final_global_with_added.combined.fasta",
   "number-of-letters": 12065053,
   "number-of-sequences": 1656,
-  "last-updated": "2026-05-27T12:53:00",
+  "last-updated": "2026-05-27T13:58:00",
   "number-of-volumes": 1,
   "bytes-total": 3450381,
   "bytes-to-cache": 3046451,
