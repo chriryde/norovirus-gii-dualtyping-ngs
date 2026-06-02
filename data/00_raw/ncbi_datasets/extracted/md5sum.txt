@@ -1,3 +1,5 @@
-b965ca822218b906be651f8636028322  ncbi_dataset/data/data_report.jsonl
-27b63e16f64bce29f1d14735dd3c7ac5  ncbi_dataset/data/annotation_report.jsonl
-2c30dbe703219ea96381aeae2d331e73  ncbi_dataset/data/dataset_catalog.json
+b5a52e087ee8cae34ef41feab6573fb0  ncbi_dataset/data/data_report.jsonl
+d6b7e95222e903b2ce5f365ae1229dc4  ncbi_dataset/data/annotation_report.jsonl
+51286d774fdfe23c7787d6e8b78f7aaf  ncbi_dataset/data/cds.fna
+06f82ef2a0c0f403250d3fd14ef4ac8e  ncbi_dataset/data/genomic.fna
+ca3a81f4a722b2f5daae8e867991e6ca  ncbi_dataset/data/dataset_catalog.json

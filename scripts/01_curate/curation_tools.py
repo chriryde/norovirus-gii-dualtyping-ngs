@@ -659,28 +659,44 @@ def get_genomic_info(
     return OUTPUT_CSV
 
 
-def export_excluded_sequences(OUTPUT_CSV: Path, **sets_dict: set[str]) -> None:
-    with open(OUTPUT_CSV, 'w', encoding="utf-8", newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow([
-            "accession",
-            "not_gii",
-            "partial",
-            "under_length_threshold",
-            "duplicated",
-            "not_annotated",
-            "ambiguous"
-        ])  
+# def export_excluded_sequences(OUTPUT_CSV: Path, **sets_dict: set[str]) -> None:
+#     with open(OUTPUT_CSV, 'w', encoding="utf-8", newline='') as csvfile:
+#         writer = csv.writer(csvfile)
+#         writer.writerow([
+#             "accession",
+#             "not_gii",
+#             "partial",
+#             "under_length_threshold",
+#             "duplicated",
+#             "not_annotated",
+#             "ambiguous"
+#         ])  
 
-        for accession in sorted(sets_dict["excluded_accessions"]):
+#         for accession in sorted(sets_dict["excluded_accessions"]):
+#             writer.writerow([
+#                 accession,
+#                 accession not in sets_dict["gii_sequences"],
+#                 accession not in sets_dict["complete_sequences"],
+#                 accession not in sets_dict["length_filtered_sequences"],
+#                 accession not in sets_dict["unique_sequences"],
+#                 accession not in sets_dict["annotated_sequences"],
+#                 accession not in sets_dict["non_ambiguous_sequences"]
+#             ])
+
+def export_excluded_sequences(
+    output_csv: Path,
+    excluded_accessions: set[str],
+    **criteria: set[str]
+) -> None:
+    with open(output_csv, "w", encoding="utf-8", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+
+        writer.writerow(["accession", *criteria.keys()])
+
+        for accession in sorted(excluded_accessions):
             writer.writerow([
                 accession,
-                accession not in sets_dict["gii_sequences"],
-                accession not in sets_dict["complete_sequences"],
-                accession not in sets_dict["length_filtered_sequences"],
-                accession not in sets_dict["unique_sequences"],
-                accession not in sets_dict["annotated_sequences"],
-                accession not in sets_dict["non_ambiguous_sequences"]
+                *[accession not in passed_set for passed_set in criteria.values()]
             ])
 
 

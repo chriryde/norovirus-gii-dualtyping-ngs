@@ -49,7 +49,10 @@ paths:
   final_partial_full_specification: data/01_curated/output/final_partial_specification.csv
 
   # OTHER
-  excluded_csv: data/01_curated/qc_reports/excluded.csv
+  complete_excluded_csv: data/01_curated/qc_reports/complete_excluded.csv
+  partial_excluded_csv: data/01_curated/qc_reports/partial_excluded.csv
+  hucat_complete_excluded_csv: data/01_curated/qc_reports/hucat_complete_excluded.csv
+  hucat_partial_excluded_csv: data/01_curated/qc_reports/hucat_partial_excluded.csv
 
   fasta_dir: data/01_curated/fasta
   qc_dir: data/01_curated/qc_reports

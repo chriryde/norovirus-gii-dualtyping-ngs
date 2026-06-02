@@ -6,12 +6,22 @@
     {
       "filePath": "data_report.jsonl",
       "fileType": "DATA_REPORT",
-      "uncompressedLengthBytes": "3577935"
+      "uncompressedLengthBytes": "126227078"
     },
     {
       "filePath": "annotation_report.jsonl",
       "fileType": "ANNOTATION_REPORT",
-      "uncompressedLengthBytes": "4474913"
+      "uncompressedLengthBytes": "66437010"
+    },
+    {
+      "filePath": "cds.fna",
+      "fileType": "CDS_NUCLEOTIDE_FASTA",
+      "uncompressedLengthBytes": "97493835"
+    },
+    {
+      "filePath": "genomic.fna",
+      "fileType": "GENOMIC_NUCLEOTIDE_FASTA",
+      "uncompressedLengthBytes": "68947769"
     }
   ]
 }]}
