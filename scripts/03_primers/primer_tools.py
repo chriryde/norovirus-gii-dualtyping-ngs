@@ -1,0 +1,327 @@
+import csv
+import pandas as pd
+import datetime
+import math
+import time
+import subprocess
+import sys
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+from collections import defaultdict
+from contextlib import ExitStack
+from pathlib import Path
+from Bio import SeqIO
+
+
+
+def extract_amplicons(
+    LEFT_PRIMER_FILE: Path,
+    left_primer: str,
+    RIGHT_PRIMER_FILE: Path,
+    right_primer: str,
+    INPUT_FASTA: Path,
+    OUTPUT_DIR: Path
+    )-> Path:
+    
+    left_primer = f'LEFT_{left_primer}'
+    right_primer = f'RIGHT_{right_primer}'
+
+    start = 0
+    with open(LEFT_PRIMER_FILE, 'r') as file:
+        tsv_reader = csv.reader(file, delimiter='\t')
+        for row in tsv_reader:
+            print(row[0])
+            if left_primer == row[0]:
+                print(row[4])
+                start = int(row[4])
+                break 
+    
+    stop = 0
+    with open(RIGHT_PRIMER_FILE, 'r') as file:
+        tsv_reader = csv.reader(file, delimiter='\t')
+        for row in tsv_reader:
+            if right_primer == row[0]:
+                print(row[4])
+                stop = int(row[4])
+            
+                break 
+
+    assert(start != 0)
+    assert(stop != 0)
+
+    OUTPUT_FILE = OUTPUT_DIR / f"{left_primer}-{start}-{right_primer}-{stop}.fna"
+
+    print("Extracting seq between:", start, stop)
+
+    with open(OUTPUT_FILE, "w") as out:
+        for record in SeqIO.parse(INPUT_FASTA, "fasta"):
+            extracted_seq = record.seq[start:stop] ####
+
+            assert(extracted_seq)
+            out.write(f">{record.id}_region_{start}_{stop}\n")
+            out.write(str(extracted_seq) + "\n")
+
+    print(f"Amplicons saved in {OUTPUT_FILE}")
+
+    return OUTPUT_FILE
+
+
+def typing_tool_intialise(INPUT_FASTA: Path, name: str, batch_size: int = 500):
+    JOB_DIR: Path = INPUT_FASTA.parent / "web_crawler_data"
+    JOB_DIR.mkdir(parents=True, exist_ok=True)
+
+    JOB_STATE_TSV = JOB_DIR / f"{name}_job_ids.tsv"
+
+    seq_count = sum(1 for _ in SeqIO.parse(str(INPUT_FASTA), "fasta"))
+    n_batches: int = max(1, math.ceil(seq_count / batch_size))
+
+    BATCHES_PATH: list[Path] = [
+        JOB_DIR / f"{name}_batch_{i + 1}.fasta"
+        for i in range(n_batches)
+    ]
+
+    with ExitStack() as stack:
+        BATCH_HANDLES = [
+            stack.enter_context(path.open("w", encoding="utf-8"))
+            for path in BATCHES_PATH
+        ]
+
+        for i, seq_record in enumerate(SeqIO.parse(str(INPUT_FASTA), "fasta")):
+            batch_index = i % n_batches
+            SeqIO.write(seq_record, BATCH_HANDLES[batch_index], "fasta")
+
+    URL = "https://mpf.rivm.nl/mpf/typingtool/norovirus/"
+    job_ids = []
+
+    print(BATCH_HANDLES)
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        context = browser.new_context(accept_downloads=True)
+        page = context.new_page()
+
+        for FASTA in BATCHES_PATH:
+            UPLOAD_FASTA = Path(FASTA).resolve()
+
+            page.goto(URL, wait_until="domcontentloaded")
+
+            file_input_selector = 'input[type="file"][name="data"]'
+            page.set_input_files(file_input_selector, str(UPLOAD_FASTA)) 
+
+            page.wait_for_function(
+                """() => {
+                    const el = document.querySelector('input[type="file"][name="data"]');
+                    return el && el.files && el.files.length > 0;
+                }""",
+                timeout=10000,
+            )
+
+            page.wait_for_function(
+                """() => {
+                    const el = document.querySelector('span.error-text.error');
+                    if (!el) return false;
+                    const style = window.getComputedStyle(el);
+                    return style.display === 'none';
+                }""",
+                timeout=30000,
+            )
+            
+            # page.locator('button[id^="button_run_"]').click()
+            page.get_by_role("button", name="Start!").click()
+
+            page.wait_for_url("**/job/**", timeout=120000)
+
+            job_url = page.url.rstrip("/")
+            job_id = job_url.split("/")[-1]
+            job_ids.append(job_id)
+
+            print(f"Submitted {FASTA.name}: job {job_id}")
+
+            time.sleep(2)
+
+        browser.close()
+
+    with open(JOB_STATE_TSV, 'w', newline='') as tsvfile:
+        writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
+        for job_id in job_ids:
+            writer.writerow([job_id, "in_progress"])
+
+
+def typing_tool_get_results(JOB_DIR: Path, name: str) -> Path | None:
+    JOB_STATE_TSV = JOB_DIR / f"{name}_job_ids.tsv"
+
+    job_ids_status = defaultdict()
+
+    with open(JOB_STATE_TSV, newline='') as tsvfile:
+        reader = csv.reader(tsvfile, delimiter='\t')
+        for row in reader:
+            job_id, status = row[0], row[1]
+            job_ids_status[job_id] = status
+
+    URL = "https://mpf.rivm.nl/mpf/typingtool/norovirus/"
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        context = browser.new_context(accept_downloads=True)
+        page = context.new_page()
+
+        page.goto(URL, wait_until="domcontentloaded")
+
+        for job_id, status in job_ids_status.items():
+            if status == "completed":
+                print(f"Job {job_id} has already been downloaded.")
+                continue
+
+            try:
+                page.locator('input[type="text"][size="10"]').fill(str(job_id))
+                page.get_by_role("button", name="Go!").click()
+
+                csv_link = page.get_by_role("link", name="Table (CSV format)")
+                csv_link.wait_for(timeout=3000)
+
+                with page.expect_download(timeout=1200) as download_info:
+                    csv_link.click()
+
+                download = download_info.value
+                output_path = JOB_DIR / f"{name}_job_{job_id}_table.csv"
+                download.save_as(str(output_path))
+
+                job_ids_status[job_id] = "completed"
+                print(f"Job {job_id} sucessfully downloaded.")
+
+                page.goto(URL, wait_until="domcontentloaded")
+
+            except PlaywrightTimeoutError: 
+                print(f"Job {job_id} not ready yet. Keeping as in_progress.")
+                job_ids_status[job_id] = "in_progress"
+
+                page.goto(URL, wait_until="domcontentloaded")
+                continue
+
+            time.sleep(2)
+
+        browser.close()
+
+    with open(JOB_STATE_TSV, 'w', newline='') as tsvfile:
+        writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
+        for job_id, status in job_ids_status.items():
+            writer.writerow([job_id, status])
+
+    download_complete = all(status == "completed" for status in job_ids_status.values())
+
+    if download_complete == True:
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        COMBINED_CSV = JOB_DIR / f"{name}_typing_results_{timestamp}.csv"
+
+        dfs = []
+
+        for file in JOB_DIR.glob(f"*{name}_job_*_table.csv"):
+            df = pd.read_csv(file)
+            dfs.append(df)
+    
+        combinded = pd.concat(dfs, ignore_index=True)
+        combinded.to_csv(COMBINED_CSV, index=False)
+
+        return COMBINED_CSV
+    
+    return None
+
+def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY, ambiguous_bases,
+             INPUT_FASTA, OUTPUT_DIR, name):
+    print('startar primerdesign')
+    VARVAMP_OUTPUT_DIR = OUTPUT_DIR / f"{name}_varvamp_output"
+    VARVAMP_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    try:
+        cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
+                '-db', str(REFERENCE_LIBRARY), '-a', str(ambiguous_bases),
+                 str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
+        deduplicated_filtered = subprocess.run(
+            cmd,
+            check=True
+        )
+    except subprocess.CalledProcessError as err:
+        print("Command failed:")
+        print("cmd", err.cmd)
+        print("returncode", err.returncode)
+        print("stdout", err.stdout)
+        print("stderr", err.stderr)
+        raise
+    print('avslutar primerdesign')
+
+    return VARVAMP_OUTPUT_DIR
+
+def varvamp_fast(scheme, opt_length, max_length,
+             INPUT_FASTA, OUTPUT_DIR, name):
+    print('startar primerdesign')
+    VARVAMP_OUTPUT_DIR = OUTPUT_DIR / f"{name}_varvamp_output"
+    VARVAMP_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    try:
+        cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
+                str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
+        deduplicated_filtered = subprocess.run(
+            cmd,
+            check=True
+        )
+    except subprocess.CalledProcessError as err:
+        print("Command failed:")
+        print("cmd", err.cmd)
+        print("returncode", err.returncode)
+        print("stdout", err.stdout)
+        print("stderr", err.stderr)
+        raise
+    print('avslutar primerdesign')
+
+    return VARVAMP_OUTPUT_DIR
+
+def correct_primer_position(REFERENCE, PRIMER_TSV, PRIMER_BED):
+    print('correcting primer choordinates')
+
+    try:
+        cmd = [sys.executable, 'correct_primer_positions.py', str(REFERENCE), str(PRIMER_TSV), str(PRIMER_BED)]
+        deduplicated_filtered = subprocess.run(
+            cmd,
+            check=True
+        )
+    except subprocess.CalledProcessError as err:
+        print("Command failed:")
+        print("cmd", err.cmd)
+        print("returncode", err.returncode)
+        print("stdout", err.stdout)
+        print("stderr", err.stderr)
+        raise
+    print('done correcting primer choordinates')
+    
+
+def filter(TSV_PRIMERS, OUTPUT_DIR):
+    print('removing primers outside bp 4000-6500')
+
+    all_primers = set()
+    excluded_dict = set()
+    counter = 0
+
+    #open and filter the output file from varVamp
+    with open(TSV_PRIMERS, 'r') as file:
+        tsv_reader = csv.reader(file, delimiter='\t')
+        for row in tsv_reader:
+            if counter != 0:
+                all_primers.add(tuple(row))
+                start = int(row[5])
+                if type(start) is int:
+                    if start < 4500 or start > 6000:
+                        excluded_dict.add(tuple(row))
+            counter += 1
+    
+        curated_primers = all_primers - excluded_dict
+
+    #create new tsc file with filtered primers   
+    header = ('amplicon_name', 'amplicon_length', 'primer_name', 'primer_name_all_primers', 
+                'pool', 'start', 'stop', 'seq', 'size', 'gc_best', 'temp_best', 'mean_gc', 
+                 'mean_temp', 'penalty', 'off_target_amplicons')
+    
+    TSV_FILTERED_PRIMERS = OUTPUT_DIR / 'primers_filtered.tsv'
+    with open(TSV_FILTERED_PRIMERS, 'w', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter='\t')
+        writer.writerow(header)
+        writer.writerows(sorted(curated_primers))
+    print(f'Total amount of potential primers after filtration: {len(curated_primers)}') 
