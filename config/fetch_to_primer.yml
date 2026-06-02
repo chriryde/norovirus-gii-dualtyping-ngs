@@ -3,23 +3,36 @@
 #döp om dessa till vilken path man har, kanske även vill göra flera olika fetch, till olika aligments beroende på vilken sekvens som den har
 
 paths:
-  input_fasta: data/02_alignments/msa_trimmed/trimmed_msa_test.fasta
-  vp1_aln: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
-  rdrp_aln: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
+  input_fasta: data/02_alignments/msa_trimmed/global_msa_trimmed.fasta
+  vp1_aln: data/02_alignments/msa_trimmed/vp1_msa_trimmed_without_gi.fasta
+  rdrp_aln: data/02_alignments/msa_trimmed/rdrp_msa_trimmed.fasta
   output_dir: data/03_primer_evaluation/novel/varvamp_outputs
   reference_library: data/03_primer_evaluation/novel/reference_library
-  web_crawler_data : data/03_primer_evaluation/novel/temporary_web_crawler_data
-  metadata_dir: data/01_curated/metadata/final_complete_full_specification.csv
-
+  web_crawler_data : data/03_primer_evaluation/novel/fasta/web_crawler_data
+  web_crawler_data_short : data/03_primer_evaluation/novel/fasta/web_crawler_data/short_vp1_primer_pair_3_typing_results_20260513_165141.csv
+  complete_specification : data/02_alignments/accessions/merged_csv.csv
+  final_complete_fna: data/01_curated/output/final_complete.fna
+  complete_consenus: data/03_primer_evaluation/novel/varvamp_outputs/complete_varvamp_output/ambiguous_consensus.fasta
+  merged_reference: data/02_alignments/accessions/merged_csv.csv
 
 varvamp:
   scheme: single
   opt_length_complete: 700
   max_length_complete: 800
+
+
   opt_length_rdrp: 400
-  max_length_rdrp: 800
-  threshold: 0.9
-  #n_ambig: 4
+  max_length_rdrp: 700
+
+  opt_length_vp1: 350
+  max_length_vp1: 600
+
+  threshold_rdrp: 0.85
+  threshold_vp1: 0.85
+
+  n_ambig_rdrp: 4
+  n_ambig_vp1: 5
+
   #database: #location of the BLAST db
 
 # optional arguments to varvamp:

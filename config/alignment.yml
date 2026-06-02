@@ -142,3 +142,18 @@ paths:
   polymerase: data/02_alignments/msa_inputs/polymerase.fasta
   vp1: data/02_alignments/msa_inputs/capsid.fasta
   polymerase_correct: data/02_alignments/msa_inputs/polymerase_correct.fasta
+
+
+
+
+##### extra för addera till globala från partial
+  ### all genomes from partial fasta that are longer than 3500 
+  added_full_fasta: data/02_alignments/inputs/added_sequences.fasta
+ 
+  ### final file with final_global sequences + added_full_fasta (only if they are not already in final_global - minimum 15 sequences)
+  final_global_with_added: data/02_alignments/msa_inputs/final_global_with_added.fasta
+ 
+  ###accesions
+  full_genomes_from_partial_tsv: data/02_alignments/msa_inputs/full_genomes_from_partial_tsv.csv
+
+  output_global_with_added: data/02_alignments/msa_raw/msa_raw_with_added.fasta

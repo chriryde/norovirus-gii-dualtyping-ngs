@@ -3,6 +3,7 @@ import subprocess
 import csv
 import primer_tools as pt
 
+
 from collections import defaultdict
 from pathlib import Path
 
@@ -38,40 +39,77 @@ TSV_FILTERED_PRIMERS_VP1 = PROJECT_ROOT / paths_config["output_dir"] / "test_out
 
 REFERENCE_LIBRARY = PROJECT_ROOT / paths_config["reference_library"] / "off_targets"
 
+REFERENCE_FASTA = PROJECT_ROOT / paths_config["complete_consenus"]
+REFERENCE_FASTA_RDRP = PROJECT_ROOT / paths_config["final_complete_fna"]
+REFERENCE_FASTA_VP1 = PROJECT_ROOT / paths_config["final_complete_fna"]
+
 #fetching parameters for varVamp from config
 config_varvamp = config["varvamp"]
 scheme = config_varvamp["scheme"]
 opt_length = config_varvamp["opt_length_complete"]
 max_length = config_varvamp["max_length_complete"]
+
 opt_length_rdrp = config_varvamp["opt_length_rdrp"]
 max_length_rdrp = config_varvamp["max_length_rdrp"]
-#n_ambig = config_varvamp["n_ambig"]
+
+opt_length_vp1 = config_varvamp["opt_length_vp1"]
+max_length_vp1 = config_varvamp["max_length_vp1"]
+
+threshold_rdrp = config_varvamp["threshold_rdrp"]
+threshold_vp1 = config_varvamp["threshold_vp1"]
+
+n_ambig_rdrp = config_varvamp["n_ambig_rdrp"]
+n_ambig_vp1 = config_varvamp["n_ambig_vp1"]
+
+output_folder_name_rdrp = 'rdrp_3'
+output_folder_name_vp1 = 'vp1_5'
 
 #Run varVamp through linux with reference library
 
-OUTPUT_COMPLETE_DIR = pt.varvamp(scheme, opt_length, max_length,
-            REFERENCE_LIBRARY, INPUT_FASTA, OUTPUT_DIR, 'complete')
+# OUTPUT_COMPLETE_DIR = pt.varvamp_fast(scheme, opt_length, max_length,
+#                             INPUT_FASTA, OUTPUT_DIR, 'complete')
 
-TSV_PRIMERS_COMPLETE = OUTPUT_COMPLETE_DIR / "primers.tsv"
-pt.filter(TSV_PRIMERS_COMPLETE, OUTPUT_COMPLETE_DIR)
+# # OUTPUT_COMPLETE_DIR = pt.varvamp_fast(scheme, opt_length, max_length,
+# #                         INPUT_FASTA, OUTPUT_DIR, 'complete')
+
+# PATH_TO_PRIMER_TSV = OUTPUT_COMPLETE_DIR / 'primers.tsv'
+# PATH_TO_PRIMER_BED = OUTPUT_COMPLETE_DIR / 'primers.bed'
+# pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
+
+# TSV_PRIMERS_COMPLETE = OUTPUT_COMPLETE_DIR / "primers.tsv"
+# pt.filter(TSV_PRIMERS_COMPLETE, OUTPUT_COMPLETE_DIR)
 
 
 #varVamp for RDRP
 
+# OUTPUT_RDRP_DIR = pt.varvamp_fast(scheme, opt_length_rdrp, max_length_rdrp,
+#                         INPUT_FASTA_RDRP, OUTPUT_DIR, 'rdrp_test_tiled')
 
-OUTPUT_RDRP_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp, REFERENCE_LIBRARY,
-            INPUT_FASTA_RDRP, OUTPUT_DIR, 'rdrp')
+# OUTPUT_RDRP_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp, REFERENCE_LIBRARY,
+#                                 n_ambig_rdrp, INPUT_FASTA_RDRP, OUTPUT_DIR, output_folder_name_rdrp)
 
-TSV_PRIMERS_RDRP = OUTPUT_RDRP_DIR / "primers.tsv"
-pt.filter(TSV_PRIMERS_RDRP, OUTPUT_RDRP_DIR)
+# PATH_TO_PRIMER_TSV = OUTPUT_RDRP_DIR / 'primers.tsv'
+# PATH_TO_PRIMER_BED = OUTPUT_RDRP_DIR / 'primers.bed'
+# pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
 
+# TSV_PRIMERS_RDRP = OUTPUT_RDRP_DIR / "primers.tsv" 
+# pt.filter(TSV_PRIMERS_RDRP, OUTPUT_RDRP_DIR)
 
 #varVamp for VP1
 
 #Run varVamp through linux with reference library
-OUTPUT_VP1_DIR = pt.varvamp(scheme, opt_length_rdrp, max_length_rdrp,
-            REFERENCE_LIBRARY, INPUT_FASTA_VP1, OUTPUT_DIR, 'vp1')
+# OUTPUT_VP1_DIR = pt.varvamp_fast(scheme, opt_length_rdrp, max_length_rdrp,
+#                                 INPUT_FASTA_VP1, OUTPUT_DIR, 'vp1_test')
 
-TSV_PRIMERS_VP1 = OUTPUT_VP1_DIR / "primers.tsv"
-pt.filter(TSV_PRIMERS_VP1, OUTPUT_VP1_DIR)
+OUTPUT_VP1_DIR = pt.varvamp(scheme, opt_length_vp1, max_length_vp1,
+                            REFERENCE_LIBRARY, n_ambig_vp1, INPUT_FASTA_VP1, OUTPUT_DIR,
+                             output_folder_name_vp1)
+
+
+PATH_TO_PRIMER_TSV = OUTPUT_VP1_DIR / 'primers.tsv'
+PATH_TO_PRIMER_BED = OUTPUT_VP1_DIR / 'primers.bed'
+pt.correct_primer_position(REFERENCE_FASTA, PATH_TO_PRIMER_TSV, PATH_TO_PRIMER_BED)
+
+# TSV_PRIMERS_VP1 = OUTPUT_VP1_DIR / "primers.tsv"
+# pt.filter(TSV_PRIMERS_VP1, OUTPUT_VP1_DIR)
 

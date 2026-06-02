@@ -6,7 +6,7 @@ import yaml
 PRIMER_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = PRIMER_DIR.parent.parent
 
-CONFIG_PATH = PROJECT_ROOT / "config" / "amplicon_typing.yml"
+CONFIG_PATH = PROJECT_ROOT / "config" / "typing.yml"
 
 with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
@@ -15,33 +15,35 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as f:
 # COORD_VP1_PATH = PROJECT_ROOT / "data" / "03_primer_evaluation" /"novel" / "varvamp_outputs"/"test_output"/"filtered_primers.tvs"
 # COORD_RDRP_PATH = PROJECT_ROOT / "data" / "03_primer_evaluation" /"novel" / "varvamp_outputs"/"test_output"/"filtered_primers.tvs"
 
-TEST_PRIMERS = PROJECT_ROOT / Path(config["paths"]["input_dir"]) / "test_output" / "filtered_primers.tsv"
+SELECTED_PRIMERS = PROJECT_ROOT / Path(config["paths"]["input_dir"]) 
 
 INPUT_FASTA = PROJECT_ROOT / Path(config["paths"]["input_fasta"])
+INPUT_SHORT_FASTA = PROJECT_ROOT / Path(config["paths"]["small_input_fasta"])
 EXTRACTED_FASTA = PROJECT_ROOT / Path(config["paths"]["extracted_fasta"])
 OUTPUT_FASTA_DIR = PROJECT_ROOT / Path(config["paths"]["output_fasta_dir"])
 
-TEMP_TYPING_DIR = PROJECT_ROOT / Path(config["paths"]["temporary_web_crawler_dir"])
+TYPING_DIR = PROJECT_ROOT / Path(config["paths"]["web_crawler_dir"])
 
-COMBINED_PRIMERS: Path = PROJECT_ROOT / Path(
-    pt.extract_amplicons(
-        TEST_PRIMERS,
-        6,
-        TEST_PRIMERS,
-        6,
-        INPUT_FASTA,
-        OUTPUT_FASTA_DIR
-    )
-)
+# COMBINED_PRIMERS: Path = PROJECT_ROOT / Path(
+#     pt.extract_amplicons(
+#         SELECTED_PRIMERS,
+#         '3',
+#         SELECTED_PRIMERS,
+#         '3',
+#         INPUT_FASTA,
+#         OUTPUT_FASTA_DIR
+#     )
+# )
 
+#kommentera in detta när vi ska köra ett nytt jobb
 # pt.typing_tool_intialise(
 #     COMBINED_PRIMERS,
-#     "test"
+#     "primer_pair_3_full_length_run"
 # )
 
 COMBINED_TYPING_CSV: Path | None = pt.typing_tool_get_results(
-    TEMP_TYPING_DIR,
-    "test"
+    TYPING_DIR,
+    "primer_pair_3_full_length_run"
 )
 if COMBINED_TYPING_CSV is None:
     print(f"Typing tool results are not finished yet. Halting pipeline.")

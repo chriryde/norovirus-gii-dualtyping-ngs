@@ -6,7 +6,7 @@ import yaml
 PRIMER_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = PRIMER_DIR.parent.parent
 
-CONFIG_PATH = PROJECT_ROOT / "config" / "amplicon_typing.yml"
+CONFIG_PATH = PROJECT_ROOT / "config" / "typing.yml"
 
 with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
@@ -15,7 +15,7 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as f:
 # COORD_VP1_PATH = PROJECT_ROOT / "data" / "03_primer_evaluation" /"novel" / "varvamp_outputs"/"test_output"/"filtered_primers.tvs"
 # COORD_RDRP_PATH = PROJECT_ROOT / "data" / "03_primer_evaluation" /"novel" / "varvamp_outputs"/"test_output"/"filtered_primers.tvs"
 
-TEST_PRIMERS = PROJECT_ROOT / Path(config["paths"]["input_dir"]) / "test_output" / "filtered_primers.tsv"
+TEST_PRIMERS = PROJECT_ROOT / Path(config["paths"]["input_dir"]) / "selected_primers.tsv"
 
 INPUT_FASTA = PROJECT_ROOT / Path(config["paths"]["input_fasta"])
 EXTRACTED_FASTA = PROJECT_ROOT / Path(config["paths"]["extracted_fasta"])
@@ -24,13 +24,14 @@ OUTPUT_FASTA_DIR = PROJECT_ROOT / Path(config["paths"]["output_fasta_dir"])
 COMBINED_PRIMERS: Path = PROJECT_ROOT / Path(
     pt.extract_amplicons(
         TEST_PRIMERS,
-        6,
+        1,
         TEST_PRIMERS,
-        6,
+        1,
         INPUT_FASTA,
         OUTPUT_FASTA_DIR
     )
 )
+
 
 
 

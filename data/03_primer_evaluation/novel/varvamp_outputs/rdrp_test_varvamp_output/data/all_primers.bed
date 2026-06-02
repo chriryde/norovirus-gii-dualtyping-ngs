@@ -1,0 +1,14 @@
+varVAMP_ambiguous_consensus	649	673	LEFT_0	13.18	+
+varVAMP_ambiguous_consensus	905	925	LEFT_1	9.11	+
+varVAMP_ambiguous_consensus	1433	1456	LEFT_2	9.26	+
+varVAMP_ambiguous_consensus	1462	1480	LEFT_3	10.96	+
+varVAMP_ambiguous_consensus	1507	1528	LEFT_4	0.81	+
+varVAMP_ambiguous_consensus	655	677	RIGHT_0	3.34	-
+varVAMP_ambiguous_consensus	669	688	RIGHT_1	16.96	-
+varVAMP_ambiguous_consensus	713	733	RIGHT_2	11.28	-
+varVAMP_ambiguous_consensus	908	928	RIGHT_3	8.74	-
+varVAMP_ambiguous_consensus	1025	1048	RIGHT_4	10.2	-
+varVAMP_ambiguous_consensus	1416	1436	RIGHT_5	9.75	-
+varVAMP_ambiguous_consensus	1440	1464	RIGHT_6	11.2	-
+varVAMP_ambiguous_consensus	1484	1503	RIGHT_7	3.43	-
+varVAMP_ambiguous_consensus	1507	1528	RIGHT_8	0.81	-

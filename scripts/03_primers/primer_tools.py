@@ -1,15 +1,16 @@
-
 import csv
 import pandas as pd
 import datetime
 import math
 import time
 import subprocess
+import sys
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from collections import defaultdict
 from contextlib import ExitStack
 from pathlib import Path
 from Bio import SeqIO
+
 
 
 def extract_amplicons(
@@ -19,25 +20,29 @@ def extract_amplicons(
     right_primer: str,
     INPUT_FASTA: Path,
     OUTPUT_DIR: Path
-) -> Path:
+    )-> Path:
     
-    left_primer = f"varVAMP_{left_primer}_LEFT"
-    right_primer = f"varVAMP_{right_primer}_RIGHT"
+    left_primer = f'LEFT_{left_primer}'
+    right_primer = f'RIGHT_{right_primer}'
 
     start = 0
     with open(LEFT_PRIMER_FILE, 'r') as file:
         tsv_reader = csv.reader(file, delimiter='\t')
         for row in tsv_reader:
-            if left_primer == row[2]:
-                start = int(row[5])
+            print(row[0])
+            if left_primer == row[0]:
+                print(row[4])
+                start = int(row[4])
                 break 
     
     stop = 0
     with open(RIGHT_PRIMER_FILE, 'r') as file:
         tsv_reader = csv.reader(file, delimiter='\t')
         for row in tsv_reader:
-            if right_primer == row[2]:
-                stop = int(row[6])
+            if right_primer == row[0]:
+                print(row[4])
+                stop = int(row[4])
+            
                 break 
 
     assert(start != 0)
@@ -61,7 +66,7 @@ def extract_amplicons(
 
 
 def typing_tool_intialise(INPUT_FASTA: Path, name: str, batch_size: int = 500):
-    JOB_DIR: Path = INPUT_FASTA.parent / "temporary_web_crawler_data"
+    JOB_DIR: Path = INPUT_FASTA.parent / "web_crawler_data"
     JOB_DIR.mkdir(parents=True, exist_ok=True)
 
     JOB_STATE_TSV = JOB_DIR / f"{name}_job_ids.tsv"
@@ -220,7 +225,7 @@ def typing_tool_get_results(JOB_DIR: Path, name: str) -> Path | None:
     
     return None
 
-def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY,
+def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY, ambiguous_bases,
              INPUT_FASTA, OUTPUT_DIR, name):
     print('startar primerdesign')
     VARVAMP_OUTPUT_DIR = OUTPUT_DIR / f"{name}_varvamp_output"
@@ -228,7 +233,8 @@ def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY,
 
     try:
         cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
-                '-db', str(REFERENCE_LIBRARY), str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
+                '-db', str(REFERENCE_LIBRARY), '-a', str(ambiguous_bases),
+                 str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
         deduplicated_filtered = subprocess.run(
             cmd,
             check=True
@@ -243,6 +249,49 @@ def varvamp(scheme, opt_length, max_length, REFERENCE_LIBRARY,
     print('avslutar primerdesign')
 
     return VARVAMP_OUTPUT_DIR
+
+def varvamp_fast(scheme, opt_length, max_length,
+             INPUT_FASTA, OUTPUT_DIR, name):
+    print('startar primerdesign')
+    VARVAMP_OUTPUT_DIR = OUTPUT_DIR / f"{name}_varvamp_output"
+    VARVAMP_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    try:
+        cmd = ['varvamp', str(scheme), '-ol', str(opt_length), '-ml', str(max_length),
+                str(INPUT_FASTA), str(VARVAMP_OUTPUT_DIR)]
+        deduplicated_filtered = subprocess.run(
+            cmd,
+            check=True
+        )
+    except subprocess.CalledProcessError as err:
+        print("Command failed:")
+        print("cmd", err.cmd)
+        print("returncode", err.returncode)
+        print("stdout", err.stdout)
+        print("stderr", err.stderr)
+        raise
+    print('avslutar primerdesign')
+
+    return VARVAMP_OUTPUT_DIR
+
+def correct_primer_position(REFERENCE, PRIMER_TSV, PRIMER_BED):
+    print('correcting primer choordinates')
+
+    try:
+        cmd = [sys.executable, 'correct_primer_positions.py', str(REFERENCE), str(PRIMER_TSV), str(PRIMER_BED)]
+        deduplicated_filtered = subprocess.run(
+            cmd,
+            check=True
+        )
+    except subprocess.CalledProcessError as err:
+        print("Command failed:")
+        print("cmd", err.cmd)
+        print("returncode", err.returncode)
+        print("stdout", err.stdout)
+        print("stderr", err.stderr)
+        raise
+    print('done correcting primer choordinates')
+    
 
 def filter(TSV_PRIMERS, OUTPUT_DIR):
     print('removing primers outside bp 4000-6500')
