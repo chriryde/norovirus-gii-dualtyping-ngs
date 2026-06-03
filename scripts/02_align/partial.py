@@ -5,12 +5,17 @@ from Bio import SeqIO
 import math
 
 
-def partial_accessions(complete_metadata_csv, partial_metadata_csv):
-    """Tar in metadat_csv för complete och för partial. Beräknar sedan hur många av varje genotyp/p-typ som förekommer i commplete metadata-setet.
-       Itererar sedan över partial metadata. Returnerar set för rdrp och vp1 som innheåller accessions för de skvenser som uppfyller krav."""
-    
-    df_full = pd.read_csv(complete_metadata_csv)
+def partial_accessions(complete_metadata_csv, partial_metadata_csv):    
+    """
+    Takes in metadata_csv for complete and for partial. Then calculates how many of each genotype/p-type that occur in the complete metadata-set.
+    Then iterates over the partial metadata. Returns set for rdrp and vp1 that contains accessions for the sequences that meet requirements.
 
+    complete_metadata_csv: Path to the CSV file containing metadata for complete genomes.
+    partial_metadata_csv: Path to the CSV file containing metadata for partial genomes.
+    Returns a set of accessions for sequences that meet the specified requirements based on genotype/p-type"""
+    
+
+    df_full = pd.read_csv(complete_metadata_csv)
 
     genotype_dict = {}
     p_type_dict = {}
@@ -35,17 +40,11 @@ def partial_accessions(complete_metadata_csv, partial_metadata_csv):
             genotype_dict[row["genotype"]] = 1
 
 
-
-    print(f'alla förekommande genotyper i full: {genotype_dict}')
-    print(f'alla förekommande p-typer i full: {p_type_dict}')
     
     df_partial = pd.read_csv(partial_metadata_csv)
-    print(df_full["p_type"].unique())
-    print(df_full["genotype"].unique())
 
     rdrp_partial = set()
     vp1_partial = set()
-
     common_dict = {}
 
    
@@ -85,18 +84,19 @@ def partial_accessions(complete_metadata_csv, partial_metadata_csv):
                 common_dict[row["genotype"]] = 1
 
             
-    print(f'common_dict:\n{common_dict}\n---------------\n')
-
-    print(f'antal accessions i båda seten = {len(rdrp_partial | vp1_partial)}')
-    print(f'antal p-typer som borde läggas till = {len(rdrp_partial)}')
-    print(f'antal genotyper som borde läggas till = {len(vp1_partial)}')
-    print(f'antal sekvenser som borde tas med = {sum(common_dict.values())}')
     print('------------------------------------\n')
     return (rdrp_partial, vp1_partial)
 
 
-def merge_partial_regions(partial_fasta, full_fasta, partial_output):
+#####################################
 
+def merge_partial_regions(partial_fasta, full_fasta, partial_output):
+    """Merges two FASTA files containing partial and full sequences, respectively, into a single FASTA file.
+    partial_fasta: Path to the input FASTA file containing partial sequences.
+    full_fasta: Path to the input FASTA file containing full sequences.
+    partial_output: Path to the output FASTA file where merged sequences will be saved.
+    Returns the path to the output file containing the merged sequences."""
+    
     with open(partial_output, "w") as out_handle:
         records = list(SeqIO.parse(str(partial_fasta), "fasta")) + list(SeqIO.parse(str(full_fasta), "fasta"))
     

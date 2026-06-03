@@ -16,13 +16,11 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as file:
 paths_config = config["paths"]
 
 
-
+### load metadata for complete and partial sequences
 df_complete = pd.read_csv(str(PROJECT_ROOT / paths_config["input_metadata"]))
 df_partial = pd.read_csv(str(PROJECT_ROOT / paths_config["partial_metadata"]))
 
 MERGED_CSV = PROJECT_ROOT / paths_config["merged_csv"]
-
-
 
 
 

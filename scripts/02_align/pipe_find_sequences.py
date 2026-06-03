@@ -15,7 +15,7 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as file:
 paths_config = config["paths"]
 
 
-# ## get rdrp region
+## Get RdRp region
 RDRP_COMPLETE_FASTA = at.get_region(
     PROJECT_ROOT / paths_config["input_metadata"],
     PROJECT_ROOT /paths_config["input_fasta"],
@@ -25,7 +25,7 @@ RDRP_COMPLETE_FASTA = at.get_region(
     "p_type"
 )
 
- ## get vp1 region
+ ## Get VP1 region
 VP1_COMPLETE_FASTA = at.get_region(
     PROJECT_ROOT / paths_config["input_metadata"],
     PROJECT_ROOT / paths_config["input_fasta"],
@@ -35,14 +35,7 @@ VP1_COMPLETE_FASTA = at.get_region(
     "genotype"
 )
 
-# ## get rdrp+vp1 region
-# RDRP_VP1_FASTA = at.get_region(
-#     PROJECT_ROOT /paths_config["input_metadata"],
-#     PROJECT_ROOT /paths_config["input_fasta"],
-#     PROJECT_ROOT /paths_config["rdrp_vp1_fasta"],
-#     "rdrp_start",
-#     "vp1_end"
-# )
+
 
 #### 
 partial_rdrp, partial_vp1 = pa.partial_accessions(
@@ -73,7 +66,7 @@ with open(PARTIAL_VP1_TSV, 'w', newline='') as tsvfile:
 #     partial_rdrp | partial_vp1
 # )
 
-## rdrp sekvenser från utvalda partial
+## RdRp sequences from selected partials
 PARTIAL_RDRP_FASTA = cd.get_sequences(
     PROJECT_ROOT / paths_config["input_partial"],
     PROJECT_ROOT / paths_config["partial_rdrp_fasta"],
@@ -82,7 +75,7 @@ PARTIAL_RDRP_FASTA = cd.get_sequences(
 
 
 
-## vp1 regioner från utvalda partials
+## VP1 regions from selected partials
 PARTIAL_VP1_FASTA = cd.get_sequences(
     PROJECT_ROOT / paths_config["input_partial"],
     PROJECT_ROOT / paths_config["partial_vp1_fasta"],
@@ -91,14 +84,15 @@ PARTIAL_VP1_FASTA = cd.get_sequences(
 
 ###################################
 
-## plockar ut alla complete sekvenser inom de mest förekommande genotyperna
-# ## runs get genotype
-GII_4 = at.get_genotype_or_ptype(
+## Picks out all complete sequences from the most common genotypes and p-types, to be used in the global MSA. 
+# Stores fasta files for each genotype/p-type. Also stores tsv files with accessions for each genotype/p-type. 
+# These files are used in the next step to cluster sequences with cd hit.
+GII_2 = at.get_genotype_or_ptype(
     PROJECT_ROOT / paths_config["vp1_complete_fasta"],
     PROJECT_ROOT / paths_config["input_metadata"],
-    PROJECT_ROOT / paths_config["gii_4"],
+    PROJECT_ROOT / paths_config["gii_2"],
     "genotype",
-    "GII.4"
+    "GII.2"
 )
 
 GII_3 = at.get_genotype_or_ptype(
@@ -109,12 +103,12 @@ GII_3 = at.get_genotype_or_ptype(
     "GII.3"
 )
 
-GII_2 = at.get_genotype_or_ptype(
+GII_4 = at.get_genotype_or_ptype(
     PROJECT_ROOT / paths_config["vp1_complete_fasta"],
     PROJECT_ROOT / paths_config["input_metadata"],
-    PROJECT_ROOT / paths_config["gii_2"],
+    PROJECT_ROOT / paths_config["gii_4"],
     "genotype",
-    "GII.2"
+    "GII.4"
 )
 
 GII_17 = at.get_genotype_or_ptype(
@@ -125,8 +119,7 @@ GII_17 = at.get_genotype_or_ptype(
     "GII.17"
 )
 
-# # ## runs get p_type
-## plockar ut alla complete sekvenser från de mest förekommande p-typerna
+## Picks out all complete sequences from the most common p-types, to be used in the global MSA.
 GII_P4 = at.get_genotype_or_ptype(
     PROJECT_ROOT / paths_config["rdrp_complete_fasta"],
     PROJECT_ROOT / paths_config["input_metadata"],
@@ -178,7 +171,7 @@ GII_P31 = at.get_genotype_or_ptype(
 
 ######################
 
-## runs cd hit on common genotypes/p-types to cluster
+## Runs CD-hit on common genotypes/p-types to cluster
 CLUSTERED_GII_2 = cd.cluster_sequences(
     PROJECT_ROOT / paths_config["gii_2"],
     PROJECT_ROOT / paths_config["clustered_gii_2"]
@@ -290,8 +283,6 @@ clustered_accessions = cd.get_accesions(
 
 ## set for accesions that are used in the final global alignment
 final_accesions = rare_types_accessions | clustered_accessions
-print('------------------------')
-print(f'antal sekvenser från complete (som använts i global msa) = {len(final_accesions)}')
 
 ACCESSION_TSV = PROJECT_ROOT / paths_config["accession_tsv"]
 
@@ -301,11 +292,6 @@ with open(ACCESSION_TSV, 'w', newline='') as tsvfile:
         for accession in final_accesions:
             writer.writerow([accession])
 
-# print(f'raw = {len(raw_set)}')
-# print(f'common = {len(common_types_accessions)}')
-# print(f'rare = {len(rare_types_accessions)}')
-# print(f'clustered = {len(clustered_accessions)}')
-# print(f'final = {len(final_accesions)}')
 
 
 ## create new fasta file with all rare types + clustered sequences
@@ -316,32 +302,19 @@ FINAL_GLOBAL = cd.get_sequences(
     final_accesions
 )
 
-# FINAL_FINAL_GLOBAL, final_final_global_accessions = cd.remove_unsure_seq(
-#       FINAL_GLOBAL,
-#       PROJECT_ROOT / paths_config["final_final_global"],
-#       PROJECT_ROOT / paths_config["input_metadata"],
-#       final_accesions
-# )
 
-# FINAL_FINAL_GLOBAL_ACCESSION_TSV = PROJECT_ROOT / paths_config["final_final_global_accession_tsv"]
+## vi tog bort FINAL_FINAL_GLOBAL
+## det kan ha varit den vi behövde...
+## den använde dessutom cd.remove_unsure_seq (som vi oxå tagit bort)
 
-# with open(FINAL_FINAL_GLOBAL_ACCESSION_TSV, 'w', newline='') as tsvfile:
-#         writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
-#         writer.writerow(['accession'])
-#         for accession in final_final_global_accessions:
-#             writer.writerow([accession])
-
-
-#### clustered rdrp and vp1
-
-## rdrp regionr från sekvenser i global msa
+## rdrp regions from sequences in global msa
 FILTERED_RDRP = cd.get_sequences(
     PROJECT_ROOT / paths_config["rdrp_complete_fasta"], 
     PROJECT_ROOT / paths_config["filtered_rdrp"],
     final_accesions
 )
 
-## vp1 regioner från sekvenser i global msa
+## vp1 regions from sequences in global msa
 FILTERED_VP1 = cd.get_sequences(
     PROJECT_ROOT / paths_config["vp1_complete_fasta"], 
     PROJECT_ROOT / paths_config["filtered_vp1"],
@@ -349,14 +322,11 @@ FILTERED_VP1 = cd.get_sequences(
 )
 
 
-# FINAL_RDRP_VP1 = cd.get_sequences(
-#     PROJECT_ROOT / paths_config["rdrp_vp1_fasta"], 
-#     PROJECT_ROOT / paths_config["final_rdrp_vp1"],
-#     final_accesions
-# )
 
-############ hämtar rätt regioner från partial
-### rdrp regioner från partial sekvenser
+
+## gets the right regions from the partial sequences, to be used in the global msa.
+
+### rdrp regions from partial sequences
 RDRP_PARTIAL = at.get_region(
     PROJECT_ROOT / paths_config["partial_metadata"],
     PROJECT_ROOT /paths_config["partial_rdrp_fasta"],
@@ -367,36 +337,7 @@ RDRP_PARTIAL = at.get_region(
 )
 
 
-# PARTIAL_GII_P16 = at.get_genotype_or_ptype(
-#     PROJECT_ROOT / paths_config["rdrp_partial"],
-#     PROJECT_ROOT / paths_config["input_metadata"],
-#     PROJECT_ROOT / paths_config["partial_gii_p16"],
-#     "p_type",
-#     "GII.P16"
-# )
-
-# CLUSTERED_PARTIAL_GII_P16 = cd.cluster_sequences(
-#     PROJECT_ROOT / paths_config["partial_gii_p16"],
-#     PROJECT_ROOT / paths_config["clustered_partial_gii_p16"],
-#     "0.7",
-#     "4"
-# )
-
-# partial_gii_p16_accessions = cd.get_accesions(
-#       PROJECT_ROOT / paths_config["partial_gii_p16"]
-# )
-
-# clustered_partial_gii_p16_accessions = cd.get_accesions(
-#       PROJECT_ROOT / paths_config["clustered_partial_gii_p16"]
-# )
-
-# discarded_partial_gii_p16 = partial_gii_p16_accessions.difference(clustered_partial_gii_p16_accessions)
-
-
-
-
-
-### vp1 regioner från partial sekvenser
+### vp1 regions from partial sequences
 VP1_PARTIAL = at.get_region(
     PROJECT_ROOT / paths_config["partial_metadata"],
     PROJECT_ROOT /paths_config["partial_vp1_fasta"],
@@ -405,28 +346,6 @@ VP1_PARTIAL = at.get_region(
     "vp1_end",
     "genotype"
 )
-
-
-# ## merge rdrp regioner från complete & partial sekvenser
-# ## fil som ska användas i msa
-# FINAL_RDRP = pa.merge_partial_regions(
-#     RDRP_PARTIAL,
-#     FILTERED_RDRP,
-#     PROJECT_ROOT / paths_config["final_rdrp"]
-# )
-
-# ## merge vp1 regioner från complete & partial sekvenser
-# ## fil som ska användas i msa
-# FINAL_VP1 = pa.merge_partial_regions(
-#     PARTIAL_FASTA,
-#     FILTERED_VP1,
-#     PROJECT_ROOT / paths_config["final_vp1"]
-# )
-
-## merge rdrp regioner från complete & partial sekvenser
-## fil som ska användas i msa
-
-# p_types = partial_rdrp.difference(discarded_partial_gii_p16)
 
 
 FINAL_RDRP = pa.merge_partial_regions(

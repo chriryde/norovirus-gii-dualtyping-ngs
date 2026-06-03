@@ -5,16 +5,20 @@ import pandas as pd
 import subprocess
 import math
 
-from Bio import SeqIO
-from Bio.Seq import Seq
-from Bio.SeqRecord import SeqRecord
 
 import cd_hit as cd
 import alignment_tools as at
 
 def global_accessions(complete_metadata_csv, partial_metadata_csv):
-    """Tar in metadat_csv för complete och för partial. Beräknar sedan hur många av varje genotyp/p-typ som förekommer i commplete metadata-setet.
-       Itererar sedan över partial metadata."""
+
+    """
+    Takes in metadata_csv for complete and for partial. Then calculates how many of each genotype/p-type that occur in the complete metadata-set.
+    Then iterates over the partial metadata. Returns set for rdrp and vp1 that contains accessions for the sequences that meet requirements.
+
+    complete_metadata_csv: Path to the CSV file containing metadata for complete genomes.
+    partial_metadata_csv: Path to the CSV file containing metadata for partial genomes.
+    Returns a set of accessions for sequences that meet the specified requirements based on genotype/p-type
+    """
     
     df_full = pd.read_csv(complete_metadata_csv)
 
@@ -41,22 +45,14 @@ def global_accessions(complete_metadata_csv, partial_metadata_csv):
             genotype_dict[row["genotype"]] = 1
 
 
-
-    print(f'alla förekommande genotyper i full: {genotype_dict}')
-    print(f'alla förekommande p-typer i full: {p_type_dict}')
-    
     df_partial = pd.read_csv(partial_metadata_csv)
-    print(df_full["p_type"].unique())
-    print(df_full["genotype"].unique())
-
     full_genomes_from_partial = set()
-
     common_dict = {}
 
    
+
     for index, row in df_partial.iterrows():
-        #if row['p_type'] in p_type_dict.keys() and p_type_dict[row['p_type']] <= 15 and row['length'] > 3500:
-        if row['p_type'] in p_type_dict.keys() and row['length'] > 3500:
+        if row['p_type'] in p_type_dict.keys() and p_type_dict[row['p_type']] <= 15 and row['length'] > 3500:
                 
             full_genomes_from_partial.add(row['accession'])
 
@@ -82,8 +78,7 @@ def global_accessions(complete_metadata_csv, partial_metadata_csv):
                 common_dict[row["p_type"]] = 1
 
        
-        #if row['genotype'] in genotype_dict.keys() and genotype_dict[row['genotype']] <= 15 and row['length'] > 3500:
-        if row['genotype'] in genotype_dict.keys() and row['length'] > 3500:               
+        if row['genotype'] in genotype_dict.keys() and genotype_dict[row['genotype']] <= 15 and row['length'] > 3500:              
             full_genomes_from_partial.add(row['accession'])
 
 

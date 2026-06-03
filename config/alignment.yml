@@ -1,6 +1,6 @@
 
 paths: 
-  #extracted_dir: data/01_curated/fasta
+
   ## input files from curation:
   input_fasta: data/01_curated/output/final_complete.fna
   input_partial: data/01_curated/output/final_partial.fna
@@ -8,25 +8,23 @@ paths:
   partial_metadata: data/01_curated/output/final_partial_specification.csv
 
 
+
   ## files containg rdrp or vp1 regions from complete sequences 
   rdrp_complete_fasta: data/02_alignments/rdrp/rdrp_sequences.fasta
   vp1_complete_fasta: data/02_alignments/vp1/vp1_sequences.fasta
-  # rdrp_vp1_fasta: data/02_alignments/inputs/rdrp_vp1.fasta
-  # partial_fasta: data/02_alignments/inputs/partial.fasta
+  ## files containg rdrp or vp1 regions from partial sequences 
   partial_rdrp_fasta: data/02_alignments/rdrp/partial_rdrp.fasta
   partial_vp1_fasta: data/02_alignments/vp1/partial_vp1.fasta
 
 
-  ## filtered rdrp and vp1 files
+  ## filtered rdrp and vp1 files, using cd-hit
   filtered_rdrp: data/02_alignments/rdrp/filtered_rdrp.fasta
   filtered_vp1: data/02_alignments/vp1/filtered_vp1.fasta
-  # final_rdrp_vp1: data/02_alignments/inputs/filtered_rdrp_vp1.fasta
 
 
-  ## output files, genotype/p-type:
-  # genotypes: data/02_alignments/sequences_types/genotypes.fasta
-  # p_types: data/02_alignments/sequences_types/p_types.fasta
-
+  ## 
+  final_rdrp: data/02_alignments/inputs/final_rdrp.fasta
+  final_vp1: data/02_alignments/inputs/final_vp1.fasta
 
   # files containing common genotypes/p-types (not clustered)
   gii_2: data/02_alignments/sequences_types/gii_2.fasta
@@ -43,7 +41,6 @@ paths:
   
 
 ## output files after cd-hit
-  #clustered_genotypes: data/02_alignments/sequences_types/clustered_genotypes.fasta
   clustered_gii_2: data/02_alignments/sequences_types/clustered_gii_2.fasta
   clustered_gii_3: data/02_alignments/sequences_types/clustered_gii_3.fasta
   clustered_gii_4: data/02_alignments/sequences_types/clustered_gii_4.fasta
@@ -63,41 +60,9 @@ paths:
   rdrp_partial: data/02_alignments/rdrp/rdrp_partial.fasta
   vp1_partial: data/02_alignments/vp1/vp1_partial.fasta
 
-  # partial_gii_p16: data/02_alignments/rdrp/partial_gii_p16.fasta
-  # clustered_partial_gii_p16: data/02_alignments/rdrp/clustered_partial_gii_p16.fasta
 
 
 
-
-#### MSA-files
-
-  ## not correct input files for the alignments
-  ## ändrat mapp:
-  final_global: data/02_alignments/msa_inputs/final_global.fasta
-  final_rdrp: data/02_alignments/msa_inputs/final_rdrp.fasta
-  final_vp1: data/02_alignments/msa_inputs/final_vp1.fasta
-  final_rdrp_vp1: data/02_alignments/msa_inputs/final_rdrp_vp1.fasta
-  ###
-
-  ## output files from msa:
-  output_global: data/02_alignments/msa_raw/msa_raw.fasta
-  output_msa_rdrp: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
-  output_msa_vp1: data/02_alignments/msa_raw/vp1_msa_raw.fasta
-  output_rdrp_vp1: data/02_alignments/msa_raw/rdrp_vp1_raw.fasta
-
-  ## log files form msa:
-  global_log: data/02_alignments/msa_log/global_log.txt
-  rdrp_log: data/02_alignments/msa_log/rdrp_log.txt
-  vp1_log: data/02_alignments/msa_log/vp1_log.txt
-  rdrp_vp1_log:  data/02_alignments/msa_log/rdrp_vp1_log.txt
-
-
-  ## accession not for final
-  accession_tsv: data/02_alignments/accessions/accession_tsv.csv
-  partial_rdrp_tsv: data/02_alignments/accessions/partial_rdrp_tsv.csv
-  partial_vp1_tsv: data/02_alignments/accessions/partial_vp1_tsv.csv
-
-  # clustered_rdrp: data/02_alignments/rdrp/clustered_rdrp.fasta
 
 ##################################3for prdrp and vp1
   rdrp_gii_p7: data/02_alignments/rdrp/rdrp_gii_p7.fasta
@@ -123,37 +88,72 @@ paths:
   vp1_clustered_gii_6: data/02_alignments/vp1/vp1_clustered_gii_6.fasta
 
 
-  merged_csv: data/02_alignments/accessions/merged_csv.csv
 
 
-  polymerase_before_cdhit_tsv: data/02_alignments/inputs/polymerase_before_cdhit_tsv.csv
-  vp1_before_cdhit_tsv: data/02_alignments/inputs/vp1_before_cdhit_tsv.csv
+  ## csv and tsv files
+  merged_csv: data/02_alignments/accessions/merged.csv
+  polymerase_before_cdhit_tsv: data/02_alignments/inputs/polymerase_before_cdhit.csv
+  vp1_before_cdhit_tsv: data/02_alignments/inputs/vp1_before_cdhit.csv
 
 ## final accessions for the alignments
-  final_rdrp_accession_tsv: data/02_alignments/inputs/final_rdrp_accession_tsv.csv
-  final_vp1_accession_tsv: data/02_alignments/inputs/final_vp1_accession_tsv.csv
-  final_final_global_accession_tsv: data/02_alignments/inputs/final_final_global_accession_tsv.csv
-  final_final_rdrp_accession_tsv: data/02_alignments/inputs/final_final_rdrp_accession_tsv.csv
+  final_vp1_accession_tsv: data/02_alignments/accessions/vp1_msa_accession.csv
+  final_final_rdrp_accession_tsv: data/02_alignments/accessions/rdrp_msa_accession.csv
+  accession_tsv: data/02_alignments/accessions/complete_msa_accession.csv
+
+
+## accession not for final
+  final_rdrp_accession_tsv: data/02_alignments/inputs/final_rdrp_accession.csv
+  partial_rdrp_tsv: data/02_alignments/accessions/partial_rdrp.csv
+  partial_vp1_tsv: data/02_alignments/accessions/partial_vp1.csv
+
+  polymerase: data/02_alignments/inputs/polymerase.fasta
 
 
 
-  ## Real final files for alignment:
-  # final_final_global: data/02_alignments/msa_inputs/final_final_global.fasta
-  polymerase: data/02_alignments/msa_inputs/polymerase.fasta
-  vp1: data/02_alignments/msa_inputs/capsid.fasta
-  polymerase_correct: data/02_alignments/msa_inputs/polymerase_correct.fasta
+
+
+#### MSA-files
+
+  ## input files for the alignments
+  final_global: data/02_alignments/msa_inputs/complete_input.fasta
+  vp1: data/02_alignments/msa_inputs/capsid_input.fasta
+  polymerase_correct: data/02_alignments/msa_inputs/polymerase_input.fasta
+  ###
+
+  ## output files from msa:
+  output_global: data/02_alignments/msa_raw/msa_raw.fasta
+  output_msa_rdrp: data/02_alignments/msa_raw/rdrp_msa_raw.fasta
+  output_msa_vp1: data/02_alignments/msa_raw/vp1_msa_raw.fasta
+
+  ## log files form msa:
+  global_log: data/02_alignments/msa_log/complete_log.txt
+  rdrp_log: data/02_alignments/msa_log/rdrp_log.txt
+  vp1_log: data/02_alignments/msa_log/vp1_log.txt
+
+
+  
+
+  # clustered_rdrp: data/02_alignments/rdrp/clustered_rdrp.fasta
 
 
 
 
-##### extra för addera till globala från partial
-  ### all genomes from partial fasta that are longer than 3500 
+
+## extra files for adding sequences from partial fasta to global fasta, if they are not already in the global fasta (minimum 15 sequences)
+  ### all genomes from partial fasta that meet the criterias (minimum 15 sequences and length over 3000 bp)
   added_full_fasta: data/02_alignments/inputs/added_sequences.fasta
  
   ### final file with final_global sequences + added_full_fasta (only if they are not already in final_global - minimum 15 sequences)
-  final_global_with_added: data/02_alignments/msa_inputs/final_global_with_added.fasta
+  final_global_with_added: data/02_alignments/inputs/final_global_with_added.fasta
  
   ###accesions
-  full_genomes_from_partial_tsv: data/02_alignments/msa_inputs/full_genomes_from_partial_tsv.csv
+  full_genomes_from_partial_tsv: data/02_alignments/inputs/full_genomes_from_partial.csv
 
   output_global_with_added: data/02_alignments/msa_raw/msa_raw_with_added.fasta
+
+
+
+
+
+
+

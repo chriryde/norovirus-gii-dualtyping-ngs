@@ -10,8 +10,14 @@ from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
 
-## function for alignment
 def alignment(input_file, output_file, log_file):
+    """
+    Function for running an MSA for a FASTA file using MAFFT.
+
+    input_file: FASTA file containing sequences to be aligned
+    output_file: aligned sequences in FASTA format
+    log_file: file storing the log output from MAFFT
+    """
     
     try:
         print("Start running mafft \n")
@@ -49,20 +55,28 @@ def alignment(input_file, output_file, log_file):
     return (output_file, log_file)
 
 
+########################################################
 
-
-
-## function to get specific regions 
 def get_region(input_metadata_csv, input_file, output_file, start, end, type):
+    """"
+    The function picks out a specific region from each sequence in a FASTA file, 
+    using stored metadata. 
+
+    input_metadata_csv: file containing metadata for each sequence
+    input_file: FASTA file containing genomes
+    output_file: new FASTA file containing only the desired region from each genome
+    start: the starting position for the desired region
+    end: the ending position for the desired region
+    type: specifies if the regions is for the p_type or genotype
+    """
+
+
     df = pd.read_csv(input_metadata_csv)
 
 
     seq_dict = {}
 
-    # check that all names match the csv file
     for index, row in df.iterrows():
-        ## update to the exact names in input_metadata_csv:
-        ## update in pipe_align as well
 
         if not math.isnan(row[start]) and not math.isnan(row[end]) and not row[type] == "Could" and not pd.isna(row[type]) and not row[type] == "Could not assign":
             seq_dict[row['accession']] = (int(row[start]), int(row[end]))
@@ -89,29 +103,26 @@ def get_region(input_metadata_csv, input_file, output_file, start, end, type):
     print(df[type].unique())
     return output_file
 
+#########################################################
 
-
-
-## function for getting specific genotypes or p-types 
 
 def get_genotype_or_ptype(input_file, input_metadata_csv, output_file, column, type):
-    
-    ## input_fasta = filtered.fasta/ fil med alla 700 sekvenser
-    ## input_metadata_csv = tabell med info
-    ## output_file = fasta-fil med alla sekvenser från vald genotype/p-typ
-    ## column = genotyp eller p-type
-    ## type = namn på genotyp eller p-typ
+    """
+    Function for filtering sequences in a FASTA file based on their genotype or p-type, using stored metadata.
+
+    input_file: FASTA file containing sequences to be filtered
+    input_metadata_csv: file containing metadata for each sequence
+    output_file: new FASTA file containing only the sequences of the desired genotype or p-type
+    column: specifies if the filtering is for the p_type or genotype
+    type: specifies the desired genotype or p-type
+    """
     
     df = pd.read_csv(input_metadata_csv)
 
-    
-
     seq_set = set()
 
-        # check that all names match the csv file
     for index, row in df.iterrows():
-        ## update to the exact names in input_metadata_csv:
-        ## update in pipe_align as well
+       
         if row[column] == type:
                 seq_set.add(row['accession'])
             
@@ -124,5 +135,4 @@ def get_genotype_or_ptype(input_file, input_metadata_csv, output_file, column, t
         SeqIO.write(new_record, out_handle, "fasta")
 
     return output_file
-
 

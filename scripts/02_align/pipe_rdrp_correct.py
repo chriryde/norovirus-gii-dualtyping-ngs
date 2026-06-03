@@ -192,6 +192,5 @@ POLYMERASE_CORRECT = cd.get_sequences(
 )
 
 
-print(f'antal sekvenser från complete (som använts i global msa) = {len(final_final_rdrp_accessions)}')
 
 

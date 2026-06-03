@@ -38,7 +38,6 @@ with open(FULL_GENOMES_FROM_PARTIAL_TSV, 'w', newline='') as tsvfile:
             writer.writerow([accession])
 
 
-
 # Merge fasta files
 pa.merge_partial_regions(
     PROJECT_ROOT / paths_config["final_global"],

@@ -2,7 +2,7 @@
 paths: 
   ## input files:
   input_fasta: data/01_curated/output/final_complete.fna
-  small_input_fasta: data/02_alignments/msa_inputs/final_global.fasta
+  small_input_fasta: data/02_alignments/msa_inputs/complete_input.fasta
   input_dir: data/03_primer_evaluation/novel/varvamp_outputs/select_primers.tsv
   
   ## output files:
@@ -16,9 +16,9 @@ paths:
   ## partials
   #web_crawler_dir_partials: data/03_primer_evaluation/novel/fasta/web_crawler_data/partials
 
-  vp1_partial: data/02_alignments/msa_inputs/capsid.fasta
+  vp1_partial: data/02_alignments/msa_inputs/capsid_input.fasta
   output_fasta_vp1_amplicon: data/03_primer_evaluation/novel/fasta/vp1_partial_amplicon_for_typing.fasta
   output_fasta_vp1_amplicon_ny_kort : data/03_primer_evaluation/novel/fasta/short_vp1_partial_amplicon_for_typing.fasta
 
-  rdrp_partial: data/02_alignments/msa_inputs/polymerase_correct_1.fasta
+  rdrp_partial: data/02_alignments/msa_inputs/polymerase_input.fasta
   output_fasta_rdrp: data/03_primer_evaluation/novel/fasta/rdrp_partial_amplicon_for_typing.fasta
